@@ -1,0 +1,2 @@
+module CalIngestionsHelper
+end

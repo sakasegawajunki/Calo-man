@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cal_consumtion: 1
+  sex: 1
+  age: 1
+  action_pattern: 1
+
+two:
+  cal_consumtion: 1
+  sex: 1
+  age: 1
+  action_pattern: 1

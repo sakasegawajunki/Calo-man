@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  breakfast_cal: 1
+  lunch_cal: 1
+  dinner_cal: 1
+  snack_cal: 1
+
+two:
+  breakfast_cal: 1
+  lunch_cal: 1
+  dinner_cal: 1
+  snack_cal: 1
