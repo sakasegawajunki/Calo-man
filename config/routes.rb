@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   
-  root to : "homes#top"
+  root to: "homes#top"
   get "users/mydata" => "users#data"
   get "chat/:id" => "chats#show", as: "chat"
+  # get "cal_balances/:id" => "searches#search"
   resources :chats, only: [:create]
   resources :users, except:[:destroy] do
     resource :relationships, only:[:create, :destroy]
@@ -21,7 +22,7 @@ Rails.application.routes.draw do
   end
   
 
-  devise_for :users
+  devise_for :users,
   path:"",
   path_names: {sign_up:"", sign_in:"login", sign_out:"logout", registration:"sign_up"},
   controllers: {
