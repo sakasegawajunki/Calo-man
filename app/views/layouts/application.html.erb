@@ -10,19 +10,21 @@
   </head>
 
   <body>
-    <% if user_signed_in? %>
-      <li>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      </li>
-    <% else %>
-      <li>
-        <%= link_to "新規登録", new_user_registration_path %>
-      </li>
-      <li>
-        <%= link_to "ログイン", new_user_session_path %>
-      </li>
+    <% if flash[:notice] %>
+      <div class="flash-message">
+        <p id ="notice"><%= flash[:notice] %></p>
+      </div>
+    <% elsif flash[:alert]%>
+      <div class="flash-message">
+        <p id="alert"><%= flash[:alert] %></p>
+      </div>
     <% end %>
+      
+    <%= render "layouts/header" %>
+    <main>
+      <%= yield %>
+    </main>
+  <%= render "layouts/footer" %>
     
-    <%= yield %>
   </body>
 </html>
