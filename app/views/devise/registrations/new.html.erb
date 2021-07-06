@@ -7,7 +7,7 @@
     <div class="row mb-3 mt-5">
       <label class="col-lg-3">名前</label>
       <div class="col-lg-3">
-        <%= f.text_field :last_name, autocomplete: 'name', placeholder:"ユーザー名", class:"mb-2",size: "30x1" %>
+        <%= f.text_field :name, autocomplete: 'name', placeholder:"ユーザー名", class:"mb-2",size: "30x1" %>
       </div>
     </div>
 
@@ -71,7 +71,7 @@
     <div class="row mb-3">
       <label class="col-lg-3">メールアドレス</label>
       <div class="col-lg-3">
-        <%= f.text_field :email, autocomplete: 'email', :placeholder => "sample@exanple.com", class:"mb-2",size: "30x1" %>
+        <%= f.email_field :email, autocomplete: 'email', :placeholder => "sample@exanple.com", class:"mb-2",size: "30x1" %>
       </div>
     </div>
 

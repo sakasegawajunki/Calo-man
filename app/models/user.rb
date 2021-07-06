@@ -17,7 +17,7 @@ class User < ApplicationRecord
   # 会員登録時のバリデーション
   with_options presence: true do
     validates :name
-    validates :nama_kana
+    validates :name_kana
     validates :password
     validates :email
     validates :height

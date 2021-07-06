@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   }
   
   devise_scope :user do
-    get 'cal_balance' => 'users/registrations#ca'
+    get 'cal_balance' => 'users/registrations#cal_balance'
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
