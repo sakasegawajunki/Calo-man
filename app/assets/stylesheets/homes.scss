@@ -1,3 +1,39 @@
-// Place all the styles related to the homes controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@charset "utf-8"
+
+html {
+  font-size: 100%;
+}
+
+#mainvisual {
+  height: 95vh;
+  background-image: image-url("boxed.jpg");
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.img-wrapper{
+animation-name:fadeInAnime;
+animation-duration:3s;
+animation-fill-mode:forwards;
+opacity:0;
+}
+
+@keyframes fadeInAnime{
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.img-wrapper p {
+  position: absolute;/*絶対配置*/
+  color: white;/*文字は白に*/
+  top: 200px;
+  left: 35px;
+  font-size: 25px;
+  }
