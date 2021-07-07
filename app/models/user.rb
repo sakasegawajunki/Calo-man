@@ -27,4 +27,10 @@ class User < ApplicationRecord
     validates :bmi
   end
   enum sex: { "男性": 0, "女性": 1 }
+
+  # インスタンスメソッド
+  #BMIの計算を定義する
+  def bmi
+    (weight*10_000/(height**2).to_f).round(1)
+  end
 end
