@@ -74,9 +74,9 @@ ActiveRecord::Schema.define(version: 2021_07_05_035512) do
     t.string "password"
     t.string "profile_image_id"
     t.string "introduction"
-    t.integer "height"
-    t.integer "weight"
-    t.integer "bmi"
+    t.float "height"
+    t.float "weight"
+    t.float "bmi"
     t.integer "sex"
     t.integer "age"
     t.boolean "is_valid", default: true, null: false

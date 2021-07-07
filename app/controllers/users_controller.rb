@@ -1,12 +1,15 @@
 class UsersController < ApplicationController
   def show
-    @user = current_user
+    @user = User.find(params[:id])
+  
+    
   end
 
   def data
-    unless @user != current_user
-     redirect_to user_path(user.id)
-    end
+    @user = current_user
+    # unless @user != current_user
+    # redirect_to user_path(@user.id)
+    # end
       
   end
 
@@ -28,6 +31,7 @@ class UsersController < ApplicationController
 
   def index
     #per()で1ページに入れたい数を変更する
+    @user = current_user
     @users = User.page(params[:page]).per(5)
   end
 
