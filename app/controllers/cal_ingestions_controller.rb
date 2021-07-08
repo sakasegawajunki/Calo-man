@@ -2,18 +2,25 @@ class CalIngestionsController < ApplicationController
   def new
     @cal_ingestion = CalIngestion.new
   end
-  
+
   def create
-    @cal_ingestion = CalIngestion.new(cal_ingestion_params)
+    @cal_ingestion = current_user.cal_ingestions.new(cal_ingestion_params)
     @cal_ingestion.save
-    redirect_back(fallback_location: root_path)
+    redirect_to edit_cal_ingestion_path(@cal_ingestion.id)
   end
 
   def edit
+    @cal_ingestion = CalIngestion.find(params[:id])
   end
-  
+
+  def update
+    @cal_ingestion = CalIngestion.find(params[:id])
+    @cal_ingestion.update(cal_ingestion_params)
+    redirect_to cal_balance_path
+  end
+
   private
-  
+
   def cal_ingestion_params
     params.require(:cal_ingestion).permit(:breakfast_cal, :lunch_cal, :dinner_cal, :snack_cal)
   end

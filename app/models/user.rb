@@ -15,18 +15,18 @@ class User < ApplicationRecord
   # 画像表示
   attachment :profile_image
   # 会員登録時のバリデーション
-  # with_options presence: true do
-  #   validates :name
-  #   validates :name_kana
-  #   validates :password
-  #   validates :email
-  #   validates :height
-  #   validates :weight
-  #   validates :sex
-  #   validates :age
-  #   validates :bmi
-  #   validates :profile_image
-  # end
+  with_options presence: true do
+    validates :name
+    validates :name_kana
+    validates :encrypted_password
+    validates :email
+    validates :height
+    validates :weight
+    validates :sex
+    validates :age
+    validates :bmi
+    validates :profile_image
+  end
   enum sex: { "男性": 0, "女性": 1 }
 
   #カスタマーが退会していなければtrue

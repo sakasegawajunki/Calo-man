@@ -1,2 +1,27 @@
 <h1>CalConsumptions#new</h1>
 <p>Find me in app/views/cal_consumptions/new.html.erb</p>
+
+<%=form_with url: cal_ingestions_path, local: true do |f| %>
+    <div class="row mb-3 mt-5">
+      <label class="col-lg-1">朝食</label>
+      <div class="col-lg-5">
+        <%= f.select :sex, BaseCalConsumption.options_select_sex(current_user.sex), class:"mb-2",size: "30x1" %><span> Kcal</span>
+      </div>
+    </div>
+     <div class="row mb-3 mt-5">
+      <label class="col-lg-1">朝食</label>
+      <div class="col-lg-5">
+        <%= f.select :sex, BaseCalConsumption.sexes.to_a, class:"mb-2",size: "30x1" %><span> Kcal</span>
+      </div>
+    </div>
+    <div class="row mb-3 mt-5">
+      <label class="col-lg-1">朝食</label>
+      <div class="col-lg-5">
+        <%= f.select :sex, BaseCalConsumption.options_select_action_pattern(current_user.sex), class:"mb-2",size: "30x1" %><span> Kcal</span>
+      </div>
+    </div>
+
+    <%=f.submit '保存する', class:'btn btn-primary mb-2 btn-sm px-5'%>
+      </din>
+    </div>
+ <% end %>

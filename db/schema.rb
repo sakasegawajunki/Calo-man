@@ -23,11 +23,13 @@ ActiveRecord::Schema.define(version: 2021_07_05_035512) do
 
   create_table "cal_consumtions", force: :cascade do |t|
     t.integer "cal_consumtion"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "cal_ingestions", force: :cascade do |t|
+    t.integer "user_id"
     t.integer "breakfast_cal"
     t.integer "lunch_cal"
     t.integer "dinner_cal"

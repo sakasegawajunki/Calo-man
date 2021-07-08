@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  
   def show
     @user = User.find(params[:id])
   
@@ -19,7 +20,8 @@ class UsersController < ApplicationController
   
   def update
     user = User.find(params[:id])
-    if user.update(user_params)
+    user.assign_attributes(user_params)
+    if user.save(validate: false)
       flash[:notice] = '会員情報の変更を保存しました。'
       redirect_to user_path(user.id)
     else
@@ -32,7 +34,7 @@ class UsersController < ApplicationController
   def index
     #per()で1ページに入れたい数を変更する
     @user = current_user
-    @users = User.page(params[:page]).per(2)
+    @users = User.where(is_valid: true).page(params[:page]).per(2)
   end
 
   def unsubcribe

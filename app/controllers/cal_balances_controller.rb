@@ -1,6 +1,5 @@
 class CalBalancesController < ApplicationController
-  def show
-  @user = current_user
+  def index
     
   end
 end

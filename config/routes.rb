@@ -14,7 +14,7 @@ Rails.application.routes.draw do
       patch 'withdraw' #is_validを更新する
     end
   end  
-  resources :cal_balances, only:[:show]
+  resources :cal_balances, only:[:index]
   resources :cal_ingestions, except:[:destroy, :index, :show]
   resources :cal_consumptions, except:[:destroy, :index, :show] do
     resources :base_cal_consumptions, only: [:create, :update]
