@@ -32,7 +32,7 @@ class UsersController < ApplicationController
   def index
     #per()で1ページに入れたい数を変更する
     @user = current_user
-    @users = User.page(params[:page]).per(5)
+    @users = User.page(params[:page]).per(2)
   end
 
   def unsubcribe
@@ -53,7 +53,7 @@ class UsersController < ApplicationController
         :name,
         :name_kana,
         :password,
-        :profile_image_id,
+        :profile_image,
         :introduction,
         :height,
         :weight,
