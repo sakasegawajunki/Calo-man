@@ -1,34 +1,36 @@
 <div class="containser pt-5">
-  <h4 class="ml-4"><%= @user.name %>さんのページ</h4>
+  <h4 class="ml-4 mb-5"><%= @user.name %>さんのページ</h4>
     <div class="row">
-      <div class="col-4 text-center">
+      <div class="col-3 text-center">
         <%= attachment_image_tag @user, :profile_image, size: "300x300", format: "jpeg", fallback: "no_image.jpg" %>
       </div>
-      <div class="col-8 d-flex align-items-center justify-content-center">
-        <table>
+      <div class="col-8 mx-auto">
+        <table class="table table-bordered">
           <tr>
-            <th class="font-large">名前</th>
+            <th class="table-active font-large">名前</th>
             <td class="font-large text-left"><%= @user.name %></td>
           </tr>
           <tr>
-            <th class="font-large">性別</th>
+            <th class="table-active font-large">性別</th>
             <td class="font-large text-left"><%= @user.sex %></td>
           </tr>
           <tr>
-            <th class="font-large">年齢</th>
+            <th class="table-active font-large">年齢</th>
             <td class="font-large text-left"><%= @user.age %>歳</td>
           </tr>
           <tr>
-            <th class="font-large">ひと言</th>
+            <th class="table-active font-large">ひと言</th>
             <td class="font-large text-left"><%= @user.introduction %></td>
           </tr>
-          <%if @user == current_user %>
-          <tr>
-            <td><%= link_to"詳細データ", user_users_mydata_path(@user) %></td>
-          </tr>
-          <% end %>
       </table>
     </div>
+  </div>
+  <div class="row my-3">
+    <div class="col text-center">
+      <%if @user == current_user %>
+        <%= link_to"詳細データ", user_users_mydata_path(@user) %>
+      <% end %>
+      </div>
   </div>
   <div class="row my-3">
     <div class="col-4 text-center my-1">

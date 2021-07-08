@@ -39,8 +39,8 @@ class UsersController < ApplicationController
   end
   
   def withdraw
-    user = current_user
-    user.update(is_valid: false)
+    @user = current_user
+    @user.update(is_valid: false)
     reset_session
     flash[:notice] = 'ありがとうございます。またのご利用をお待ちしております。'
     redirect_to root_path

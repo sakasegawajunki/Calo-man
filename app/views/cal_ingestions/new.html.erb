@@ -1,2 +1,40 @@
-<h1>CalIngestions#new</h1>
-<p>Find me in app/views/cal_ingestions/new.html.erb</p>
+<div class="container my-5">
+  <h4>カロリー摂取量</h4>
+   <div class="row text-center d-flex align-items-cente">
+     <div class="col">
+       <span>+  </span><%=@cal_ingestion.breakfast_cal %><span> Kcal</span>
+     </div>
+   </div>
+
+ <%=form_with model: @cal_ingestion, url: cal_ingestions_path, local: true do |f| %>
+    <div class="row mb-3 mt-5">
+      <label class="col-lg-1">朝食</label>
+      <div class="col-lg-5">
+        <%= f.text_field :breakfast_cal, class:"mb-2",size: "30x1" %><span> Kcal</span>
+      </div>
+    </div>
+    <div class="row mb-3 mt-5">
+      <label class="col-lg-1">昼食</label>
+      <div class="col-lg-5">
+        <%= f.text_field :lunch_cal, class:"mb-2",size: "30x1" %><span> Kcal</span>
+      </div>
+    </div>
+    <div class="row mb-3 mt-5">
+      <label class="col-lg-1">夕食</label>
+      <div class="col-lg-5">
+        <%= f.text_field :dinner_cal, class:"mb-2",size: "30x1" %><span> Kcal</span>
+      </div>
+    </div>
+    <div class="row mb-3 mt-5">
+      <label class="col-lg-1">間食</label>
+      <div class="col-lg-5">
+        <%= f.text_field :snack_cal, class:"mb-2",size: "30x1" %><span> Kcal</span>
+      </div>
+    </div>
+    <div class="row my-5">
+      <din class="col-lg-7 text-center">
+
+    <%=f.submit '保存する', class:'btn btn-primary mb-2 btn-sm px-5'%>
+      </din>
+    </div>
+ <% end %>

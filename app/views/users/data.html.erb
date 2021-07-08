@@ -1,26 +1,26 @@
 <div class="containser pt-5">
   <h4 class="ml-4 mb-5"><%= @user.name %>さんの詳細データ</h4>
   <div class="row">
-    <div class="col d-flex align-items-center justify-content-center">
-      <table>
+    <div class="col-6 mx-auto">
+      <table class="table table-bordered">
         <tr>
-          <th class="font-large">身長</th>
+          <th class="table-active font-large">身長</th>
           <td class="font-large"><%= @user.height %><span>cm</span></td>
         </tr>
         <tr>
-          <th class="font-large">体重</th>
+          <th class="table-active font-large">体重</th>
           <td class="font-large"><%= @user.weight %><span>kg</span></td>
         </tr>
         <tr>
-          <th class="font-large">BMI</th>
+          <th class="table-active font-large">BMI</th>
           <td class="font-large"><%= @user.bmi %></td>
         </tr>
         <tr>
-          <th class="font-large">週間カロリーバランス</th>
+          <th class="table-active font-large">週間カロリーバランス</th>
           <td class="font-large"><%= 123 %><span>Kcal</span></td>
         </tr>
         <tr>
-          <th class="font-large">月間カロリーバランス</th>
+          <th class="table-active font-large">月間カロリーバランス</th>
           <td class="font-large"><%= 123 %><span>Kcal</span></td>
       </table>
     </div>

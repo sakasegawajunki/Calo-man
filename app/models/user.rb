@@ -29,6 +29,11 @@ class User < ApplicationRecord
   # end
   enum sex: { "男性": 0, "女性": 1 }
 
+  #カスタマーが退会していなければtrue
+  def active_for_authentication?
+    super && (self.is_valid == true)
+  end
+
   # インスタンスメソッド
   #BMIの計算を定義する
   def bmi
