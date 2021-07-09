@@ -16,7 +16,7 @@ class CalIngestionsController < ApplicationController
   def update
     @cal_ingestion = CalIngestion.find(params[:id])
     @cal_ingestion.update(cal_ingestion_params)
-    redirect_to cal_balance_path
+    redirect_to cal_balances_path
   end
 
   private

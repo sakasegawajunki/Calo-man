@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   def after_sign_in_path_for(resource)
-    cal_balance_path(resource)
+    cal_balances_path
   end
   protected
 

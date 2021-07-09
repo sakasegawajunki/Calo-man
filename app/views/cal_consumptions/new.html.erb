@@ -1,7 +1,12 @@
-<h1>CalConsumptions#new</h1>
-<p>Find me in app/views/cal_consumptions/new.html.erb</p>
+<div class="container my-5">
+  <h4>カロリー消費量</h4>
+   <div class="row text-center d-flex align-items-center my-5">
+     <div class="col font-large">
+       <span>+  </span><%="カロリ-消費トータル" %><span> Kcal</span>
+     </div>
+   </div>
 
-<%=form_with url: cal_ingestions_path, local: true do |f| %>
+<%=form_with url: cal_consumptions_path, local: true do |f| %>
     <div class="row mb-3 mt-5">
       <label class="col-lg-1">朝食</label>
       <div class="col-lg-5">
