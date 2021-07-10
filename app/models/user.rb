@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_many :cal_consumptions, dependent: :destroy
   has_many :cal_ingestions, dependent: :destroy
+  has_many :base_cal_consumptions, dependent: :destroy
   has_many :user_rooms
   has_many :chats
   # フォロー・フォロワーのアソシエーション
