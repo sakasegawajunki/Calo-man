@@ -6,7 +6,7 @@
       <% if user_signed_in? %>
         <li class="nav-item"><%= link_to current_user.name + "さん", user_path(current_user.id),class:'nav-link' %></li>
         <li class="nav-item"><%= link_to 'カロリーバランス', cal_balances_path,  class:'nav-link' %></li>
-        <li class="nav-item"><%= link_to 'データ', '/', class:'nav-link' %></li>
+        <li class="nav-item"><%= link_to 'データ', data_path, class:'nav-link' %></li>
         <li class="nav-item"><%= link_to 'フォロー','/', class:'nav-link' %></li>
         <li class="nav-item"><%= link_to '会員一覧', users_path, class:'nav-link' %></li>
         <li class="nav-item"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:'nav-link' %></li>

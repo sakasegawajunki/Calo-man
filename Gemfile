@@ -75,6 +75,7 @@ gem 'font-awesome-sass', '~> 5.13'
 gem 'kaminari', '~> 0.17.0'
 gem 'enum_select_rails'
 gem 'enum_help'
+gem "i18n_generators"
 
 gem 'dotenv-rails'
 group :production do
