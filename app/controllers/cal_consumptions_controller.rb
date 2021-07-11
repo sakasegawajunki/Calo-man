@@ -10,7 +10,7 @@ class CalConsumptionsController < ApplicationController
     @cal_consumption.action_pattern =params[:cal_consumption][:action_pattern].to_i
     @cal_consumption.user = current_user
     @cal_consumption.save
-    redirect_to  edit_cal_consumption_path(@cal_consumption.id)
+    redirect_to cal_balances_path
   end
 
   def edit

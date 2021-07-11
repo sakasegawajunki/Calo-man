@@ -6,7 +6,7 @@ class CalIngestionsController < ApplicationController
   def create
     @cal_ingestion = current_user.cal_ingestions.new(cal_ingestion_params)
     @cal_ingestion.save
-    redirect_to edit_cal_ingestion_path(@cal_ingestion.id)
+    redirect_to cal_balances_path
   end
 
   def edit

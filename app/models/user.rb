@@ -3,7 +3,6 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_many :cal_consumptions, dependent: :destroy
   has_many :cal_ingestions, dependent: :destroy
-  has_many :base_cal_consumptions, dependent: :destroy
   has_many :user_rooms
   has_many :chats
   # フォロー・フォロワーのアソシエーション
@@ -25,7 +24,6 @@ class User < ApplicationRecord
     validates :weight
     validates :sex
     validates :age
-    validates :bmi
     validates :profile_image
   end
   enum sex: { "男性": 0, "女性": 1 }

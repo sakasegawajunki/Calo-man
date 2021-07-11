@@ -4,7 +4,8 @@
 
     <div class="row text-center d-flex align-items-center my-5">
       <label class="col-lg-4">行動パターン</label>
-      <label class="col-lg-8">消費カロリー</label>
+      <label class="col-lg-1">+</label>      
+      <label class="col-lg-7">消費カロリー</label>
     </div>
 
       <%=form_with model:[CalConsumption.new], url: cal_consumptions_path, local: true do |f| %>
@@ -12,8 +13,8 @@
       <div class="col-lg-4">
         <%= f.select :action_pattern, CalConsumption.action_patterns.to_a %>
       </div>
-      <div class="col-lg-8">
-
+      <div class="col-lg-1">+</div>  
+      <div class="col-lg-7">
         <%= f.text_field :cal_consumption, class:"mb-2",size: "30x1" %><span> Kcal</span>
         <%=f.submit '保存する', class:'btn btn-primary mb-2 btn-sm px-5'%>
       </div>

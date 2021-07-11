@@ -1,9 +1,8 @@
 <div class="container my-5">
   <h4>カロリーバランス</h4>
-<!--@cal_ingestion.total_cal_ingestions-->
    <div class="row text-center d-flex align-items-cente my-5">
      <div class="col">
-       <span>+  </span>カロリー摂取量-カロリー消費量<span> Kcal</span>
+    <span><%= @cal_ingestion&.total_cal_ingestions.to_i - @cal_consumption&.total_cal_consumptions.to_i %> Kcal</span>
      </div>
    </div>
     <div class="row text-center d-flex align-items-cente my-5">
@@ -15,22 +14,28 @@
       </div>
     </div>
     <div class="row text-center d-flex align-items-cente my-5">
+       <div class="col-6">
+         <!--カロリ-摂取量-->
+      <span>+  </span><%= @cal_ingestion&.total_cal_ingestions.to_i %><span>Kcal</span>
+      </div>
       <div class="col-6">
-      <% if @cal_ingestions.present? == false %>
+        <!--カロリ-消費量-->
+        <span>-  </span><%= @cal_consumption&.total_cal_consumptions.to_i %><span> Kcal</span>
+      </div>
+    </div>
+    <div class="row text-center d-flex align-items-cente my-5">
+      <div class="col-6">
+      <% if @cal_ingestion.present? == false %>
         <%=link_to "カロリー摂取量入力",new_cal_ingestion_path %>
       <% else %>
-        <%=link_to "カロリー摂取量入力",new_cal_ingestion_path %>  
+        <%=link_to "カロリー摂取量入力",edit_cal_ingestion_path(@cal_ingestion.id) %>
       <% end %>
       </div>
       <div class="col-6">
-      <% if @cal_ingestions.present? == false %>
+      <% if @cal_consumption.present? == false %>
         <%=link_to "カロリー消費量入力",new_cal_consumption_path %>
       <% else %>
-        <%=link_to "カロリー消費量入力",new_cal_consumption_path %>
+        <%=link_to "カロリー消費量入力",edit_cal_consumption_path(@cal_consumption.id) %>
       <% end %>
       </div>
     </div>
-    
-    
-<!--</div>edit_cal_ingestion_path(@cal_ingestion.id)-->
-<!--#,edit_cal_consumption_path(@cal_consumption.id) -->
