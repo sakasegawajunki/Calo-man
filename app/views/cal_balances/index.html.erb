@@ -1,6 +1,15 @@
+
 <div class="container my-5">
   <h4>カロリーバランス</h4>
-    <h6><%= l @cal_ingestion.created_at %></h6>
+   <div class="row text-center d-flex align-items-center my-5">
+     <div class="col">
+        <% if @cal_ingestion.present? == true || @cal_consumption.present? == true %>
+        <%= l @cal_ingestion.created_at %>
+      <% else %>
+        <%= Date.current.strftime("%m月%d日(%a)") %>
+      <% end %>
+    </div>
+  </div>
    <div class="row text-center d-flex align-items-center my-5">
      <div class="col">
     <span><%= @cal_ingestion&.total_cal_ingestions.to_i - @cal_consumption&.total_cal_consumptions.to_i %> Kcal</span>
@@ -8,10 +17,10 @@
    </div>
     <div class="row text-center d-flex align-items-center my-5">
       <div class="col-6">
-        <span>+  </span>カロリー摂取量<span> Kcal</span>
+        カロリー摂取量
       </div>
        <div class="col-6">
-        <span>-  </span>カロリー消費量<span> Kcal</span>
+        カロリー消費量
       </div>
     </div>
     <div class="row text-center d-flex align-items-center my-5">

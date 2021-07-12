@@ -23,22 +23,28 @@
             <td class="font-large text-left"><%= @user.introduction %></td>
           </tr>
       </table>
+      <table>
+        <tr>
+          <th>フォロー数: <%= @user.followings.count %></th>
+          <th>フォロワー数: <%= @user.followers.count %></th>
+        </tr>
+        <tr>
+          <td><%= link_to"フォロー一覧", user_followings_path(@user) %></td>
+          <td><%= link_to"フォロワー一覧", user_followers_path(@user) %></td>
+        </tr>
+      </table>
     </div>
   </div>
   <div class="row my-3">
-    <div class="col text-center">
+    <div class="col-8 offset-1">
       <%if @user == current_user %>
         <%= link_to"詳細データ", user_users_mydata_path(@user) %>
       <% end %>
       </div>
   </div>
   <div class="row my-3">
-    <div class="col-4 text-center my-1">
-      <span class="mr-5"><%= link_to"フォロー一覧", user_followings_path(@user) %></span>
-      <span><%= link_to"フォロワー一覧", user_followers_path(@user) %></span>
-    </div>
     <%if @user == current_user %>
-    <div class="col-8 text-center">
+    <div class="col-8 offset-4 ">
       <%= link_to"編集する", edit_user_path(@user), class: "btn btn-success btn-sm px-4 mr-4" %>
       <%= link_to"退会する", unsubcribe_users_path, class: "btn btn-danger btn-sm px-4" %>
     </div>

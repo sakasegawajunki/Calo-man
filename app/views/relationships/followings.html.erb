@@ -1,2 +1,32 @@
-<h1>Relationships#followings</h1>
-<p>Find me in app/views/relationships/followings.html.erb</p>
+  <div class="container pt-5">
+    <div class="row">
+      <div class="col-lg-10 offset-1">
+      <h2>フォロー会員</h2>
+      <% if @users.exists? %>
+      <table class="table table-hover table-inverse">
+        <tr>
+          <th class= "text-center">プロフィール画像</th>
+          <th class= "text-center">名前</th>
+          <th class= "text-center">性別</th>
+          <th class= "text-center">年齢</th>
+        </tr>
+      
+          <% @users.each do |user| %>
+          <tr>
+            <td class= "text-center">
+              <%= attachment_image_tag user, :profile_image, size: "60x60", format: "jpeg",fallback: "no_image.jpg" %>
+            </td>
+            <td class= "text-center">
+              <%= link_to user.name, user_path(user.id),class:'nav-link' %>
+            </td>
+            <td class= "text-center"><%=user.sex %></td>
+            <td class= "text-center"><%=user.age %></td>
+          </tr>
+          <% end %>
+      </table>
+      <% else %>
+        <p>ユーザーはいません</p>
+      <% end %>
+    </div>
+  </div>
+</div>

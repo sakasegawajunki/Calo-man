@@ -1,30 +1,37 @@
 <div class="container my-5">
   <h4>カロリーデータ</h4>
    <div class="row text-center d-flex align-items-center my-5">
-    <div class="col-8">
-      <h5>週間データ</h5>
+    <div class="col-12">
       <table class="able table-bordered">
+      <h5>週間データ</h5>
         <tr>
-          <th>6日前</th>
-          <th>5日前</th>
-          <th>4日前</th>
-          <th>3日前</th>
-          <th>2日前</th>
-          <th>1日前</th>
-          <th>今日</th>
-          <th>合計</th>
+          <th>月曜日</th>
+          <th>火曜日</th>
+          <th>水曜日</th>
+          <th>木曜日</th>
+          <th>金曜日</th>
+          <th>土曜日</th>
+          <th>日曜日</th>
+          <th>今週の合計</th>
+          <th>今月の合計</th>
         </tr>
         <tr>
-          <td><%=@cal_ingestion.find_by(created_at: 6.day.ago.all_day)&.total_cal_ingestions.to_i - @cal_consumption.find_by(created_at: 6.day.ago.all_day)&.total_cal_consumptions.to_i %></td>
-          <td><%=@cal_ingestion.find_by(created_at: 5.day.ago.all_day)&.total_cal_ingestions.to_i - @cal_consumption.find_by(created_at: 5.day.ago.all_day)&.total_cal_consumptions.to_i %></td>
-          <td><%=@cal_ingestion.find_by(created_at: 4.day.ago.all_day)&.total_cal_ingestions.to_i - @cal_consumption.find_by(created_at: 4.day.ago.all_day)&.total_cal_consumptions.to_i %></td>
-          <td><%=@cal_ingestion.find_by(created_at: 3.day.ago.all_day)&.total_cal_ingestions.to_i - @cal_consumption.find_by(created_at: 3.day.ago.all_day)&.total_cal_consumptions.to_i %></td>
-          <td><%=@cal_ingestion.find_by(created_at: 2.day.ago.all_day)&.total_cal_ingestions.to_i - @cal_consumption.find_by(created_at: 2.day.ago.all_day)&.total_cal_consumptions.to_i %></td>
-          <td><%=@cal_ingestion.find_by(created_at: 1.day.ago.all_day)&.total_cal_ingestions.to_i - @cal_consumption.find_by(created_at: 1.day.ago.all_day)&.total_cal_consumptions.to_i %></td>
-          <td><%=@cal_ingestion.find_by("created_at >= ?", Time.zone.now.beginning_of_day)&.total_cal_ingestions.to_i - @cal_consumption.find_by("created_at >= ?", Time.zone.now.beginning_of_day)&.total_cal_consumptions.to_i %></td>
+          <td><%=@cal_ingestion.find_by(created_at: this_day - (this_day.wday - 1))&.total_cal_ingestions.to_i - @cal_consumption.find_by(created_at: this_day - (this_day.wday - 1))&.total_cal_consumptions.to_i %></td>
+          <td><%=@cal_ingestion.find_by(created_at: this_day - (this_day.wday - 2))&.total_cal_ingestions.to_i - @cal_consumption.find_by(created_at: this_day - (this_day.wday - 2))&.total_cal_consumptions.to_i %></td>
+          <td><%=@cal_ingestion.find_by(created_at: this_day - (this_day.wday - 3))&.total_cal_ingestions.to_i - @cal_consumption.find_by(created_at: this_day - (this_day.wday - 3))&.total_cal_consumptions.to_i %></td>
+          <td><%=@cal_ingestion.find_by(created_at: this_day - (this_day.wday - 4))&.total_cal_ingestions.to_i - @cal_consumption.find_by(created_at: this_day - (this_day.wday - 4))&.total_cal_consumptions.to_i %></td>
+          <td><%=@cal_ingestion.find_by(created_at: this_day - (this_day.wday - 5))&.total_cal_ingestions.to_i - @cal_consumption.find_by(created_at: this_day - (this_day.wday - 5))&.total_cal_consumptions.to_i %></td>
+          <td><%=@cal_ingestion.find_by(created_at: this_day - (this_day.wday - 6))&.total_cal_ingestions.to_i - @cal_consumption.find_by(created_at: this_day - (this_day.wday - 6))&.total_cal_consumptions.to_i %></td>
+          <td><%=@cal_ingestion.find_by(created_at: this_day - (this_day.wday))&.total_cal_ingestions.to_i - @cal_consumption.find_by(created_at: this_day - (this_day.wday))&.total_cal_consumptions.to_i %></td>
           <td><%= week_total_cal_balances %></td>
+          <td><%= month_total_cal_balances %></td>
         </tr>
       </table>
      </div>
    </div>
+  <div class="row text-center d-flex align-items-center my-5">
+    <div class="col-12">
+      <%= render "data/chart", cal_consumption: @cal_consumption, cal_ingestion: @cal_ingestion %>
+    </div>
+  </div>
 </div>

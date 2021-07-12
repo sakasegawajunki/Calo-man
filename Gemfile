@@ -76,6 +76,7 @@ gem 'kaminari', '~> 0.17.0'
 gem 'enum_select_rails'
 gem 'enum_help'
 gem "i18n_generators"
+gem 'ransack'
 
 gem 'dotenv-rails'
 group :production do

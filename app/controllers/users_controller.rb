@@ -1,23 +1,26 @@
 class UsersController < ApplicationController
-  
+
   def show
     @user = User.find(params[:id])
-  
-    
+
+
   end
 
   def data
     @user = current_user
+    @cal_consumption = current_user.cal_consumptions
+    @cal_ingestion = current_user.cal_ingestions
+
     # unless @user != current_user
     # redirect_to user_path(@user.id)
     # end
-      
+
   end
 
   def edit
     @user = current_user
   end
-  
+
   def update
     user = User.find(params[:id])
     user.assign_attributes(user_params)
@@ -39,7 +42,7 @@ class UsersController < ApplicationController
 
   def unsubcribe
   end
-  
+
   def withdraw
     @user = current_user
     @user.update(is_valid: false)
@@ -47,9 +50,9 @@ class UsersController < ApplicationController
     flash[:notice] = 'ありがとうございます。またのご利用をお待ちしております。'
     redirect_to root_path
   end
-  
+
     private
-    
+
     def user_params
       params.require(:user).permit(
         :name,

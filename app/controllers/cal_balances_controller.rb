@@ -2,6 +2,8 @@ class CalBalancesController < ApplicationController
   def index
     @cal_consumption = current_user.cal_consumptions.created_today.first
     @cal_ingestion = current_user.cal_ingestions.created_today.first
+    # @q = CalBalance.search(params[:q])
+    # @cal_balance = @search.result
   end
   
   # def search
