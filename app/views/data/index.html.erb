@@ -3,28 +3,37 @@
    <div class="row text-center d-flex align-items-center my-5">
     <div class="col-12">
       <table class="able table-bordered">
-      <h5>週間データ</h5>
+      <h5>カロリーバランス</h5>
         <tr>
+          <th>日曜日</th>
           <th>月曜日</th>
           <th>火曜日</th>
           <th>水曜日</th>
           <th>木曜日</th>
           <th>金曜日</th>
           <th>土曜日</th>
-          <th>日曜日</th>
           <th>今週の合計</th>
           <th>今月の合計</th>
         </tr>
         <tr>
-          <td><%=@cal_ingestion.find_by(created_at: this_day - (this_day.wday - 1))&.total_cal_ingestions.to_i - @cal_consumption.find_by(created_at: this_day - (this_day.wday - 1))&.total_cal_consumptions.to_i %></td>
-          <td><%=@cal_ingestion.find_by(created_at: this_day - (this_day.wday - 2))&.total_cal_ingestions.to_i - @cal_consumption.find_by(created_at: this_day - (this_day.wday - 2))&.total_cal_consumptions.to_i %></td>
-          <td><%=@cal_ingestion.find_by(created_at: this_day - (this_day.wday - 3))&.total_cal_ingestions.to_i - @cal_consumption.find_by(created_at: this_day - (this_day.wday - 3))&.total_cal_consumptions.to_i %></td>
-          <td><%=@cal_ingestion.find_by(created_at: this_day - (this_day.wday - 4))&.total_cal_ingestions.to_i - @cal_consumption.find_by(created_at: this_day - (this_day.wday - 4))&.total_cal_consumptions.to_i %></td>
-          <td><%=@cal_ingestion.find_by(created_at: this_day - (this_day.wday - 5))&.total_cal_ingestions.to_i - @cal_consumption.find_by(created_at: this_day - (this_day.wday - 5))&.total_cal_consumptions.to_i %></td>
-          <td><%=@cal_ingestion.find_by(created_at: this_day - (this_day.wday - 6))&.total_cal_ingestions.to_i - @cal_consumption.find_by(created_at: this_day - (this_day.wday - 6))&.total_cal_consumptions.to_i %></td>
-          <td><%=@cal_ingestion.find_by(created_at: this_day - (this_day.wday))&.total_cal_ingestions.to_i - @cal_consumption.find_by(created_at: this_day - (this_day.wday))&.total_cal_consumptions.to_i %></td>
-          <td><%= week_total_cal_balances %></td>
-          <td><%= month_total_cal_balances %></td>
+        <% sum = 0 %>
+         <% @cal_ingestions.each do |cal_ingestions|%>
+           <td><%=cal_ingestions.total_cal_ingestions.to_i - CalConsumption.find_by(created_at: cal_ingestions.created_at..cal_ingestions.created_at.end_of_day ).total_cal_consumptions.to_i %></td>
+           <% sum += cal_ingestions.total_cal_ingestions.to_i - CalConsumption.find_by(created_at: cal_ingestions.created_at..cal_ingestions.created_at.end_of_day ).total_cal_consumptions.to_i %>
+         <% end %>
+         <% (7-@cal_ingestions.length).times do %>
+         <td></td>
+         <% end %>
+
+        <% month_sum = 0 %>
+         <% @cal_ingestions_month.each do |cal_ingestions|%>
+           <% month_sum += cal_ingestions.total_cal_ingestions.to_i - CalConsumption.find_by(created_at: cal_ingestions.created_at..cal_ingestions.created_at.end_of_day ).total_cal_consumptions.to_i %>
+         <% end %>
+        
+          <td><%= month_sum %></td>
+          <td><%= month_sum %></td>
+          
+
         </tr>
       </table>
      </div>

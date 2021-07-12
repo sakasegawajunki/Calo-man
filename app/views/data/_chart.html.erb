@@ -12,13 +12,9 @@
         {
           label: 'カロリーバランス',
           data: [
-            600,
-            -500,
-            600,
-            -400,
-            200,
-            100,
-            100
+         <% @cal_ingestions.each do |cal_ingestions|%>
+           <%=cal_ingestions.total_cal_ingestions.to_i - CalConsumption.find_by(created_at: cal_ingestions.created_at..cal_ingestions.created_at.end_of_day ).total_cal_consumptions.to_i %>,
+          <% end %>
             ],
           borderColor: "rgba(255,0,0,1)",
           backgroundColor: "rgba(0,0,0,0)"
@@ -26,13 +22,9 @@
         {
           label: 'カロリ-消費量',
           data: [
-            -2500,
-            -1500,
-            -2500,
-            -1300,
-            -2450,
-            -2000,
-            -500
+         <% @cal_consumptions.each do |cal_consumptions|%>
+           -<%=cal_consumptions.total_cal_consumptions.to_i %>,
+          <% end %>
             ],
           borderColor: "rgba(0,0,255,1)",
           backgroundColor: "rgba(0,0,0,0)"
@@ -40,13 +32,9 @@
         {
           label: 'カロリー摂取量',
           data: [
-            2000,
-            1500,
-            1200,
-            1300,
-            1000,
-            400,
-            920
+         <% @cal_ingestions.each do |cal_ingestions|%>
+           <%=cal_ingestions.total_cal_ingestions.to_i %>,
+          <% end %>
             ],
           borderColor: "rgba(0,255,0,1)",
           backgroundColor: "rgba(0,0,0,0)"
