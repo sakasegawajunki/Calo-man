@@ -6,7 +6,7 @@
         <% if @cal_ingestion.present? == true || @cal_consumption.present? == true %>
         <%= l @cal_ingestion.created_at %>
       <% else %>
-        <%= Date.current.strftime("%m月%d日(%a)") %>
+        <%= Date.current.strftime("%m月%d日(%a) %H:%M") %>
       <% end %>
     </div>
   </div>

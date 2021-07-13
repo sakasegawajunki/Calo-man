@@ -38,6 +38,7 @@ class UsersController < ApplicationController
     #per()で1ページに入れたい数を変更する
     @user = current_user
     @users = User.where(is_valid: true).page(params[:page]).per(3)
+    @user_count = User.all
   end
 
   def unsubcribe

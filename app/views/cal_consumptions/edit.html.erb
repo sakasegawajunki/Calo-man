@@ -1,7 +1,7 @@
 <div class="container my-5">
   <h4>カロリー消費量</h4>
    <div class="row text-center d-flex align-items-center my-5">
-     <div class="col">
+     <div class="col-lg-12">
        <span>+  </span><%=@cal_consumption.total_cal_consumptions %><span> Kcal</span>
      </div>
    </div>
@@ -11,7 +11,7 @@
       <label class="col-lg-7">消費カロリー</label>
     </div>
 
-      <%=form_with model:@cal_consumption , url: cal_consumption_path, local: true do |f| %>
+    <%=form_with model:@cal_consumption , url: cal_consumption_path, local: true do |f| %>
     <div class="row text-center d-flex align-items-center my-5">
       <div class="col-lg-4">
         <%= f.select :action_pattern, CalConsumption.action_patterns.to_a %>
@@ -19,8 +19,12 @@
       <div class="col-lg-1">+</div>
       <div class="col-lg-7">
         <%= f.text_field :cal_consumption, class:"mb-2",size: "30x1" %><span> Kcal</span>
+      </div>
+    </div>
+    <div class="row text-center d-flex align-items-center my-5">
+      <div class="col-lg-12">
         <%=f.submit '更新する', class:'btn btn-success mb-2 btn-sm px-5'%>
       </div>
     </div>
-      <% end %>
+    <% end %>
   </din>

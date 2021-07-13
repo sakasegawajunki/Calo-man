@@ -3,7 +3,7 @@
    <div class="row text-center d-flex align-items-center my-5">
     <div class="col-12">
       <table class="able table-bordered">
-      <h5>カロリーバランス</h5>
+      <h5>今週のカロリーバランス</h5>
         <tr>
           <th>日曜日</th>
           <th>月曜日</th>
@@ -12,32 +12,32 @@
           <th>木曜日</th>
           <th>金曜日</th>
           <th>土曜日</th>
-          <th>今週の合計</th>
-          <th>今月の合計</th>
+          <th width="150">今週の合計</th>
+          <th width="150">今月の合計</th>
         </tr>
         <tr>
+          <!--=====週間のカロリーバランスを計算する=====-->
         <% sum = 0 %>
-         <% @cal_ingestions.each do |cal_ingestions|%>
-           <td><%=cal_ingestions.total_cal_ingestions.to_i - CalConsumption.find_by(created_at: cal_ingestions.created_at..cal_ingestions.created_at.end_of_day ).total_cal_consumptions.to_i %></td>
-           <% sum += cal_ingestions.total_cal_ingestions.to_i - CalConsumption.find_by(created_at: cal_ingestions.created_at..cal_ingestions.created_at.end_of_day ).total_cal_consumptions.to_i %>
-         <% end %>
-         <% (7-@cal_ingestions.length).times do %>
-         <td></td>
-         <% end %>
-
+        <% @cal_ingestions.each do |cal_ingestions|%>
+          <td><%=cal_ingestions.total_cal_ingestions.to_i - CalConsumption.find_by(created_at: cal_ingestions.created_at..cal_ingestions.created_at.end_of_day ).total_cal_consumptions.to_i %></td>
+              <% sum += cal_ingestions.total_cal_ingestions.to_i - CalConsumption.find_by(created_at: cal_ingestions.created_at..cal_ingestions.created_at.end_of_day ).total_cal_consumptions.to_i %>
+        <% end %>
+          <!--=====月間のカロリーバランスを計算する=====-->
         <% month_sum = 0 %>
-         <% @cal_ingestions_month.each do |cal_ingestions|%>
-           <% month_sum += cal_ingestions.total_cal_ingestions.to_i - CalConsumption.find_by(created_at: cal_ingestions.created_at..cal_ingestions.created_at.end_of_day ).total_cal_consumptions.to_i %>
-         <% end %>
-        
+        <% @cal_ingestions_month.each do |cal_ingestions|%>
+          <% month_sum += cal_ingestions.total_cal_ingestions.to_i - CalConsumption.find_by(created_at: cal_ingestions.created_at..cal_ingestions.created_at.end_of_day ).total_cal_consumptions.to_i %>
+          <% end %>
+         <!--=====表を7マス埋める======-->
+        <% (7-@cal_ingestions.length).times do %>
+          <td></td>
+        <% end %>
+          <td><%= sum %></td>
           <td><%= month_sum %></td>
-          <td><%= month_sum %></td>
-          
-
         </tr>
       </table>
      </div>
    </div>
+   <!--=====グラフの部分テンプレート=====-->
   <div class="row text-center d-flex align-items-center my-5">
     <div class="col-12">
       <%= render "data/chart", cal_consumption: @cal_consumption, cal_ingestion: @cal_ingestion %>

@@ -1,17 +1,17 @@
 class ChatsController < ApplicationController
   def show
-    @user = User.find(params[:id])
-    rooms = current_user.user_rooms.pluck(:room_id)
-    user_rooms = UserRoom.find_by(user_id: @user.id, room_id: rooms)
+    @chatuser = User.find(params[:id]) #チャットするユーザーを取得
+    rooms = current_user.user_rooms.pluck(:room_id)   # カレントユーザーのuser_roomにあるroom_idの値の配列をroomsに代入
+    user_rooms = UserRoom.find_by(user_id: @chatuser.id, room_id: rooms)
     unless user_rooms.nil?
       @room = user_rooms.room
     else
       @room = Room.new
       @room.save
-      UserRoom.create(user_id: current_user.id, room_id: @room.id)
-      UserRoom.create(user_id: @user.id, room_id: @room.id)
+      UserRoom.create(user_id: current_user.id, room_id: @room.id) #カレントユーザーのuser_room
+      UserRoom.create(user_id: @chatuser.id, room_id: @room.id) #相手のuser_room
     end
-    @chats = @room.chats
+    @chats = @room.chats.page(params[:page]).per(4).order(message: :desc) #descでレコードの順序を逆に並べ替え
     @chat = Chat.new(room_id: @room.id)
   end
   

@@ -1,26 +1,34 @@
 <div class="container pt-5">
   <div class="row">
-    <div class="col-lg-10 offset-1">
-      <h2><%=@user.name %>さんとのチャット</h2>
+    <div class="col-lg-12">
+      <h4 class="mb-5"><%=@chatuser.name %>さんとのチャット</h4>
      <table class="table table-hover table-inverse">
       <%= form_with model:@chat,local:true do|f| %>
         <%= f.text_field :message %>
         <%= f.hidden_field :room_id %>
-        <%= f.submit %>
+        <span class="ml-4"><%= f.submit "送信", class:'btn btn-primary mb-2 btn-sm px-5' %></span>
       <% end %>
-    <table width="400px",height="100px">
-    <thead>
+    <table>
+      <thead>
+        <tr>
+          <td style="width: 10%">投稿者</td>
+          <td style="width: 70%">投稿内容</td>
+          <td style="width: 20%"></td>
+        </tr>
+      </thead>
+      <tbody>
+      <% @chats.each do |chat| %>
       <tr>
-        <td>投稿者</td>
-        <td>投稿内容</td>
+        <td> <%= chat.user.name %></td>
+        <td> <%= chat.message %></td>
+        <td> <%= chat.created_at.strftime("%m月%d日(%a)  %H:%M") %></td>
       </tr>
-    </thead>
-    <tbody>
-    <% @chats.each do |chat| %>
-    <tr>
-      <td> <%= chat.user.name %></td>
-      <td> <%= chat.message %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+      <% end %>
+      </tbody>
+    </table>
+    </div>
+  </div>
+  <div class="paginate">
+    <%= paginate @chats %>
+  </div>
+</div>
