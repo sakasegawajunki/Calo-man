@@ -12,7 +12,7 @@
               <th colspan "3"></th>
             </tr>
             <% @users.each do |user| %>
-            <tr>
+            <tr style="height: 20px">
               <td class= "text-center">
                 <%= attachment_image_tag user, :profile_image, size: "60x60", format: "jpeg",fallback: "no_image.jpg" %>
               </td>

@@ -10,6 +10,10 @@
   </head>
 
   <body>
+
+
+    <%= render "layouts/header" %>
+    <main>
     <% if flash[:notice] %>
       <div class="flash-message">
         <p id ="notice"><%= flash[:notice] %></p>
@@ -19,9 +23,6 @@
         <p id="alert"><%= flash[:alert] %></p>
       </div>
     <% end %>
-
-    <%= render "layouts/header" %>
-    <main>
       <%= yield %>
     </main>
   <%= render "layouts/footer" %>

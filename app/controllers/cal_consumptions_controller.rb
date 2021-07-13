@@ -9,8 +9,13 @@ class CalConsumptionsController < ApplicationController
     # @cal_consumption.base_cal_consumption = @cal_consumption.calcurate_base_cal_consumption(current_user, cal_consumption_params[:action_pattern])
     @cal_consumption.action_pattern =params[:cal_consumption][:action_pattern].to_i
     @cal_consumption.user = current_user
-    @cal_consumption.save
-    redirect_to cal_balances_path
+    if @cal_consumption.save
+      flash[:notice] = "カロリー消費量を保存しました。"
+      redirect_to cal_balances_path
+    else
+      flash[:alert] = "正しく入力してください。"
+      redirect_back(fallback_location: root_path)
+    end
   end
 
   def edit
@@ -23,8 +28,13 @@ class CalConsumptionsController < ApplicationController
     @cal_consumption.base_cal_consumption = @cal_consumption.calcurate_base_cal_consumption(current_user, params[:cal_consumption][:action_pattern].to_i)
     @cal_consumption.action_pattern =params[:cal_consumption][:action_pattern].to_i
     @cal_consumption.cal_consumption = params[:cal_consumption][:cal_consumption].to_i
-    @cal_consumption.save
-    redirect_to cal_balances_path
+    if @cal_consumption.save
+      flash[:notice] = "カロリー消費量を更新しました。"
+      redirect_to cal_balances_path
+    else
+      flash[:alert] = "正しく入力してください。"
+      redirect_back(fallback_location: root_path)
+    end
   end
 
   private

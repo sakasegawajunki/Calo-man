@@ -1,44 +1,34 @@
 <div class="container my-5">
-  <h4>カロリー摂取量</h4>
+  <h4>摂取カロリー</h4>
    <div class="row text-center d-flex align-items-center my-5">
      <div class="col">
        <span class="font-large">+  </span><%=@cal_ingestion.total_cal_ingestions %><span class="font-large"></span> Kcal</span>
      </div>
    </div>
-   
  <%=form_with model: @cal_ingestion, url: cal_ingestion_path(@cal_ingestion.id), local: true do |f| %>
-  
-      
     <div class="row mb-3 mt-5">
-      <label class="col-lg-1">朝食</label>
-      <div class="col-lg-5">
-        <%= f.text_field :breakfast_cal, class:"mb-2",size: "30x1" %><span> Kcal</span>
-      </div>
+      <div class ="col-lg-4">
+        <p class="mr-3 mb-4">朝食 :
+          <span class="ml-3"><%= f.text_field :breakfast_cal, class:"mb-2",size: "20x1" %></span>
+          <span class="ml-3">Kcal</span>
+        </p>
+        <p class="mr-3 mb-4">昼食 :
+         <span class="ml-3"><%= f.text_field :lunch_cal, class:"mb-2",size: "20x1" %></span>
+         <span class="ml-3">Kcal</span></p>
+        <p class="mr-3 mb-4">夕食 :
+          <span class="ml-3"><%= f.text_field :dinner_cal, class:"mb-2",size: "20x1" %></span>
+          <span class="ml-3">Kcal</span></p>
+        <p class="mr-3 mb-4">間食 :
+         <span class="ml-3"> <%= f.text_field :snack_cal, class:"mb-2",size: "20x1" %></span>
+         <span class="ml-3">Kcal</span></p>
+        <p class="ml-5 mt-5">
+          <%=f.submit '更新する', class:'btn btn-success mb-2 btn-sm px-5'%>
+        </p>
     </div>
-    <div class="row mb-3 mt-5">
-      <label class="col-lg-1">昼食</label>
-      <div class="col-lg-5">
-        <%= f.text_field :lunch_cal, class:"mb-2",size: "30x1" %><span> Kcal</span>
-      </div>
+    <!--=====メニュー一覧=====-->
+    <div class ="col-lg-8">
+      <%= render "cal_ingestions/menu" %>
     </div>
-    <div class="row mb-3 mt-5">
-      <label class="col-lg-1">夕食</label>
-      <div class="col-lg-5">
-        <%= f.text_field :dinner_cal, class:"mb-2",size: "30x1" %><span> Kcal</span>
-      </div>
-    </div>
-    <div class="row mb-3 mt-5">
-      <label class="col-lg-1">間食</label>
-      <div class="col-lg-5">
-        <%= f.text_field :snack_cal, class:"mb-2",size: "30x1" %><span> Kcal</span>
-      </div>
-    </div>
-    <div class="row my-5">
-      <din class="col-lg-7 text-center">
-
-    <%=f.submit '更新する', class:'btn btn-success mb-2 btn-sm px-5'%>
-      </din>
-    </div>
- <% end %>
-       
    </div>
+ <% end %>
+</div>

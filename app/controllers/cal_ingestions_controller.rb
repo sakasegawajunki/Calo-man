@@ -5,8 +5,13 @@ class CalIngestionsController < ApplicationController
 
   def create
     @cal_ingestion = current_user.cal_ingestions.new(cal_ingestion_params)
-    @cal_ingestion.save
-    redirect_to cal_balances_path
+    if @cal_ingestion.save
+      flash[:notice] = "カロリー摂取量を保存しました。"
+      redirect_to cal_balances_path
+    else
+      flash[:alert] = "正しく入力してください。"
+      redirect_back(fallback_location: root_path)
+    end
   end
 
   def edit
@@ -15,8 +20,13 @@ class CalIngestionsController < ApplicationController
 
   def update
     @cal_ingestion = CalIngestion.find(params[:id])
-    @cal_ingestion.update(cal_ingestion_params)
-    redirect_to cal_balances_path
+    if @cal_ingestion.update(cal_ingestion_params)
+        redirect_to cal_balances_path
+      flash[:notice] = "カロリー摂取量を更新しました。"
+    else
+      flash[:alert] = "正しく入力してください。"
+      redirect_back(fallback_location: root_path)
+    end
   end
 
   private
