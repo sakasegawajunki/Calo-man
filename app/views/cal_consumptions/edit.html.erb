@@ -1,6 +1,11 @@
 <div class="container my-5">
   <h4>消費カロリー</h4>
    <div class="row text-center d-flex align-items-center my-5">
+     <div class="col-12 datetime">
+        <%= @cal_ingestion.nil? ? Date.current.strftime("%m月%d日(%a)") : @cal_ingestion.created_at.strftime("%m月%d日(%a)") %>
+    </div>
+  </div>
+   <div class="row text-center d-flex align-items-center my-5">
      <div class="col-lg-12">
        <span>+  </span><%=@cal_consumption.total_cal_consumptions %><span> Kcal</span>
      </div>

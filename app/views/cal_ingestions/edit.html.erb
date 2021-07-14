@@ -1,24 +1,29 @@
 <div class="container my-5">
   <h4>摂取カロリー</h4>
    <div class="row text-center d-flex align-items-center my-5">
+     <div class="col-12 datetime">
+        <%= @cal_ingestion.nil? ? Date.current.strftime("%m月%d日(%a)") : @cal_ingestion.created_at.strftime("%m月%d日(%a)") %>
+    </div>
+  </div>
+   <div class="row text-center d-flex align-items-center my-5">
      <div class="col">
        <span class="font-large">+  </span><%=@cal_ingestion.total_cal_ingestions %><span class="font-large"></span> Kcal</span>
      </div>
    </div>
- <%=form_with model: @cal_ingestion, url: cal_ingestion_path(@cal_ingestion.id), local: true do |f| %>
+    <%=form_with model: @cal_ingestion, url: cal_ingestion_path(@cal_ingestion.id), local: true do |f| %>
     <div class="row mb-3 mt-5">
-      <div class ="col-lg-4">
-        <p class="mr-3 mb-4">朝食 :
+      <div class ="col-lg-4 mt-4">
+        <p class="mr-3 mb-5">朝食 :
           <span class="ml-3"><%= f.text_field :breakfast_cal, class:"mb-2",size: "20x1" %></span>
           <span class="ml-3">Kcal</span>
         </p>
-        <p class="mr-3 mb-4">昼食 :
+        <p class="mr-3 mb-5">昼食 :
          <span class="ml-3"><%= f.text_field :lunch_cal, class:"mb-2",size: "20x1" %></span>
          <span class="ml-3">Kcal</span></p>
-        <p class="mr-3 mb-4">夕食 :
+        <p class="mr-3 mb-5">夕食 :
           <span class="ml-3"><%= f.text_field :dinner_cal, class:"mb-2",size: "20x1" %></span>
           <span class="ml-3">Kcal</span></p>
-        <p class="mr-3 mb-4">間食 :
+        <p class="mr-3 mb-5">間食 :
          <span class="ml-3"> <%= f.text_field :snack_cal, class:"mb-2",size: "20x1" %></span>
          <span class="ml-3">Kcal</span></p>
         <p class="ml-5 mt-5">

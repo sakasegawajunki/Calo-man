@@ -46,10 +46,9 @@ class CalConsumption < ApplicationRecord
   #保存した日
   scope :created_today, -> { where("created_at >= ?", Time.zone.now.beginning_of_day) }
 
- #バリデーション（数字のみ）
-   with_options numericality: { only_integer: true } do
+ #バリデーション（数字のみ + 空の場合を許可する）
+   with_options numericality: { only_integer: true }, allow_blank: true do
      validates :cal_consumption
-     validates :base_cal_consumption
    end
 
 end

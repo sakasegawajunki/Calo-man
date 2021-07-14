@@ -2,42 +2,42 @@
 <div class="container my-5">
   <h4>カロリーバランス</h4>
    <div class="row text-center d-flex align-items-center my-5">
-     <div class="col">
-        <%= @cal_ingestion.nil? ? Date.current.strftime("%m月%d日(%a) %H:%M") : @cal_ingestion.created_at.strftime("%m月%d日(%a) %H:%M") %>
+     <div class="col-lg-12 datetime">
+        <%= @cal_ingestion.nil? ? Date.current.strftime("%m月%d日(%a)") : @cal_ingestion.created_at.strftime("%m月%d日(%a)") %>
     </div>
   </div>
    <div class="row text-center d-flex align-items-center my-5">
-     <div class="col">
+     <div class="col-lg-12 cal_balance-num">
     <span><%= @cal_ingestion&.total_cal_ingestions.to_i - @cal_consumption&.total_cal_consumptions.to_i %> Kcal</span>
      </div>
    </div>
-    <div class="row text-center d-flex align-items-center my-5">
-      <div class="col-6">
-        カロリー摂取量
+    <div class="row text-center d-flex align-items-center my-2">
+      <div class="col-lg-6 cal_ingestion">
+        摂取カロリー
       </div>
-       <div class="col-6">
-        カロリー消費量
+       <div class="col-lg-6 cal_consumption">
+        消費カロリー
       </div>
     </div>
-    <div class="row text-center d-flex align-items-center my-5">
-       <div class="col-6">
+    <div class="row text-center d-flex align-items-center my-2">
+       <div class="col-lg-6 cal_ingestion-num">
          <!--カロリ-摂取量-->
       <span>+  </span><%= @cal_ingestion&.total_cal_ingestions.to_i %><span>Kcal</span>
       </div>
-      <div class="col-6">
+      <div class="col-lg-6  cal_consumption-num">
         <!--カロリ-消費量-->
         <span>-  </span><%= @cal_consumption&.total_cal_consumptions.to_i %><span> Kcal</span>
       </div>
     </div>
     <div class="row text-center d-flex align-items-center my-5">
-      <div class="col-6">
+      <div class="col-lg-6 cal_ingestion-num-p">
       <% if @cal_ingestion.present? == false %>
         <%=link_to "カロリー摂取量入力",new_cal_ingestion_path %>
       <% else %>
         <%=link_to "カロリー摂取量入力",edit_cal_ingestion_path(@cal_ingestion.id) %>
       <% end %>
       </div>
-      <div class="col-6">
+      <div class="col-lg-6 cal_consumption-num-p">
       <% if @cal_consumption.present? == false %>
         <%=link_to "カロリー消費量入力",new_cal_consumption_path %>
       <% else %>
