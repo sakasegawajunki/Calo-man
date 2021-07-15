@@ -16,7 +16,6 @@
  @import "bootstrap";
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
- @import url('https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@300&display=swap');
 
 
 .font-title{
@@ -36,7 +35,9 @@
 }
 
 .datetime {
-  font-size: 35px;
+  font-family: “irohamaru-Medium”;
+  font-size: 40px;
+  font-weight: bold;
 }
 
 .datetime-p {

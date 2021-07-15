@@ -1,4 +1,5 @@
 class ChatsController < ApplicationController
+  before_action :authenticate_user! #ログイン済ユーザーのみにアクセスを許可する
   def show
     @chatuser = User.find(params[:id]) #チャットするユーザーを取得
     rooms = current_user.user_rooms.pluck(:room_id)   # カレントユーザーのuser_roomにあるroom_idの値の配列をroomsに代入

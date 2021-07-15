@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+    before_action :authenticate_user! #ログイン済ユーザーのみにアクセスを許可する
   def show
     @user = User.find(params[:id])
 

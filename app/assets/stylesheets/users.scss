@@ -35,3 +35,23 @@ table {
 font-size: 20px;
 margin-left: 30px;
 }
+
+.following,.follower,.back{
+  font-size: 25px;
+}
+
+.following-count,.follower-count {
+  font-family: “irohamaru-Medium”;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.mydata,.user-data {
+  font-family: “irohamaru-Medium”;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.mydata {
+  color: red;
+}

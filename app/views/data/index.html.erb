@@ -1,6 +1,6 @@
 <div class="container my-5">
-  <h4>カロリーデータ</h4>
-   <div class="row text-center d-flex align-items-center my-5">
+  <h4 class="my-5">カロリーデータ</h4>
+   <div class="row text-center d-flex align-items-center my-1">
     <div class="col-12 ml-5">
       <table class="able table-bordered">
       <h5 class ="mb-3 text-left">今週のカロリーバランス(Kcal)</h5>
@@ -12,8 +12,9 @@
           <th>木曜日</th>
           <th>金曜日</th>
           <th>土曜日</th>
-          <th width="150">今週の合計</th>
-          <th width="150">今月の合計</th>
+          <th width="120">今週の合計</th>
+          <th width="120">今月の合計</th>
+          <th width="120">今月の体重増減<br>(理論値)</th>
         </tr>
         <tr>
           <!--=====週間のカロリーバランスを計算する=====-->
@@ -21,21 +22,23 @@
         <% 7.times do |i| %>
          <td><%= @cal_balances_week[i] %></td>
          <% sum += @cal_balances_week[i].eql?("") ? 0 : @cal_balances_week[i].to_i %>
-
         <% end %>
-
-          <!--=====月間のカロリーバランスを計算する=====-->
-        <% month_sum = 0 %>
-        <% @cal_ingestions_month.each do |cal_ingestions|%>
-          <% month_sum += cal_ingestions.total_cal_ingestions.to_i - CalConsumption.find_by(created_at: cal_ingestions.created_at..cal_ingestions.created_at.end_of_day ).total_cal_consumptions.to_i %>
-          <% end %>
-
+        
           <td><%= sum %></td>
-          <td><%= month_sum %></td>
+          <td><%= @month_sum %></td>
+          <td><%= @month_sum_weight %> kg</td>
         </tr>
       </table>
-     </div>
-   </div>
+    </div>
+  </div>
+  <div class="row my-2">
+    <div class="cal-lg-5">
+      <div class="cal-text ml-5 cal">※1㎏の脂肪 = 約7,000 Kcal分</div>
+    </div>
+      <div class="cal-lg-5">
+      <div class="cal-text ml-4"> ⇨ <span class="weight">　体重1㎏ </span>減らすには、カロリーバランス<span class="cal"> -7,000 kcal </span>が目安になります。</div>
+    </div>
+  </div>
    <!--=====グラフの部分テンプレート=====-->
   <div class="row text-center d-flex align-items-center my-5">
     <div class="col-12 ml-5">
