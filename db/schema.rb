@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_05_035512) do
+ActiveRecord::Schema.define(version: 2021_07_15_110423) do
 
   create_table "cal_consumptions", force: :cascade do |t|
     t.integer "cal_consumption"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2021_07_05_035512) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "date"
   end
 
   create_table "cal_ingestions", force: :cascade do |t|
@@ -29,6 +30,7 @@ ActiveRecord::Schema.define(version: 2021_07_05_035512) do
     t.integer "snack_cal"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "date"
   end
 
   create_table "chats", force: :cascade do |t|

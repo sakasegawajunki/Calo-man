@@ -51,4 +51,6 @@ class User < ApplicationRecord
   def bmi
     (weight*10_000/(height**2).to_f).round(1)
   end
+  
+  
 end

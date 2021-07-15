@@ -1,29 +1,28 @@
 <div class="container my-5">
   <h4>消費カロリー</h4>
+<%=form_with model:@cal_consumption , url: cal_consumption_path, local: true do |f| %>
    <div class="row text-center d-flex align-items-center my-5">
-     <div class="col-12 datetime">
-        <%= @cal_ingestion.nil? ? Date.current.strftime("%m月%d日(%a)") : @cal_ingestion.created_at.strftime("%m月%d日(%a)") %>
+    <div class="col-12 datetime">
+      登録日：  <%= f.date_field :date %>
     </div>
   </div>
    <div class="row text-center d-flex align-items-center my-5">
-     <div class="col-lg-12">
+     <div class="col-lg-12 cal_consumption-num">
        <span>+  </span><%=@cal_consumption.total_cal_consumptions %><span> Kcal</span>
      </div>
    </div>
-    <div class="row text-center d-flex align-items-center my-5">
-      <label class="col-lg-4">行動パターン</label>
+    <div class="row cal_consumption-label text-center d-flex align-items-center my-5">
+      <label class="col-lg-4">行動パターンによる基礎代謝量</label>
       <label class="col-lg-1">+</label>
       <label class="col-lg-7">消費カロリー</label>
     </div>
 
-    <%=form_with model:@cal_consumption , url: cal_consumption_path, local: true do |f| %>
     <div class="row text-center d-flex align-items-center my-5">
-      <div class="col-lg-4">
+      <div class="col-lg-4 offset-1">
         <%= f.select :action_pattern, CalConsumption.action_patterns.to_a %>
     </div>
-      <div class="col-lg-1">+</div>
       <div class="col-lg-7">
-        <%= f.text_field :cal_consumption, class:"mb-2",size: "30x1" %><span> Kcal</span>
+        <%= f.text_field :cal_consumption, class:"mb-2",size: "30x2" %><span> Kcal</span>
       </div>
     </div>
     <div class="row text-center d-flex align-items-center my-5">

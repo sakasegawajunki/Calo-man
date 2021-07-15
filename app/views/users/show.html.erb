@@ -25,20 +25,20 @@
       </table>
       <table>
         <tr>
-          <th>フォロー数: <%= @user.followings.count %></th>
-          <th>フォロワー数: <%= @user.followers.count %></th>
+          <th class="following">フォロー数:<span class="following-count"> <%= @user.followings.count %></span> 人</th>
+          <th class="follower">フォロー数:<span class="follower-count"> <%= @user.followers.count %></span> 人</th> 
         </tr>
         <tr>
-          <td><%= link_to"フォロー一覧", user_followings_path(@user) %></td>
-          <td><%= link_to"フォロワー一覧", user_followers_path(@user) %></td>
+          <td class="following"><%= link_to"フォロー一覧", user_followings_path(@user) %></td>
+          <td class="follower"><%= link_to"フォロワー一覧", user_followers_path(@user) %></td>
         </tr>
       </table>
     </div>
   </div>
   <div class="row my-3">
-    <div class="col-8 offset-1">
+    <div class="col-8 ml-4">
       <%if @user == current_user %>
-        <%= link_to"詳細データ", user_users_mydata_path(@user) %>
+        <%= link_to"詳細データ画面へ", user_users_mydata_path(@user),class: "mydata" %>
       <% end %>
       </div>
   </div>

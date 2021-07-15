@@ -31,24 +31,20 @@ class CalConsumption < ApplicationRecord
     end
   end
 
+#カロリー消費量の合計（行動パターンによる基礎代謝 + カロリー消費量）
   def total_cal_consumptions
     cal_consumption.to_i + base_cal_consumption.to_i
   end
 
-  #1日に保存できるレコードを制限するバリデーション
-  validate :cal_consumption_pcount_limit_created_today, if: :new_record?
-  MAX_CALCONSUMPTIONS_COUNT =1
-  def cal_consumption_pcount_limit_created_today
-    return unless CalConsumption.where(user_id: user.id).where(created_at: Time.current.beginning_of_day..Time.current.end_of_day).exists?
-    errors.add(:base, "cal_consumptions count limit: #{MAX_CALCONSUMPTIONS_COUNT}")
-  end
 
   #保存した日
-  scope :created_today, -> { where("created_at >= ?", Time.zone.now.beginning_of_day) }
+  scope :created_today, -> { where("date >= ?", Time.zone.now.beginning_of_day) }
 
  #バリデーション（数字のみ + 空の場合を許可する）
    with_options numericality: { only_integer: true }, allow_blank: true do
      validates :cal_consumption
    end
+  #バリデーション　（空でないことを確認する） 
+   validates :date, presence: true
 
 end
