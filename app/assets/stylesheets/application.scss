@@ -18,6 +18,15 @@
  @import 'font-awesome';
 
 
+#mainvisual {
+  height: 95vh;
+  background-image: image-url("clyde-rs-4XbZCfU2Uoo-unsplash.jpg");
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
 .font-title{
   font-size: 38px;
   font-weight: 1000;
@@ -44,3 +53,15 @@
   font-size: 10px;
 }
 
+.navbar-dark .navbar-nav .nav-link {
+    color: #f8f9fa;
+}
+
+.title {
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.table-color,.table-bordered,{
+  background-color: #fff;
+}

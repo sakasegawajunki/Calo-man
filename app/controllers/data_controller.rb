@@ -5,8 +5,8 @@ class DataController < ApplicationController
     @cal_ingestion = current_user.cal_ingestions
     @cal_ingestions = current_user.cal_ingestions.where(date: 1.week.ago.beginning_of_day..Time.zone.now.end_of_day) #1週間のカロリー摂取量を定義
     @cal_consumptions = current_user.cal_consumptions.where(date: 1.week.ago.beginning_of_day..Time.zone.now.end_of_day) #1週間のカロリー消費量を定義
-    date = Date.today #今日の日付を取得
-    @cal_ingestions_month = current_user.cal_ingestions.where(date: date.beginning_of_month..date.end_of_month)#今月のカロリー摂取量を定義
+    @date = Date.today #今日の日付を取得
+    @cal_ingestions_month = current_user.cal_ingestions.where(date: @date.beginning_of_month..@date.end_of_month)#今月のカロリー摂取量を定義
 
     #今週の摂取カロリー
     @cal_ingestions_week = ["","","","","","",""] 
@@ -28,10 +28,10 @@ class DataController < ApplicationController
         @cal_balances_week[i] = balance
       end
     end
-    # <!--=====月間のカロリーバランスを計算する=====-->
+    # <!--=====今月のトータルカロリーバランスを計算する=====-->
     @month_sum = 0
     @cal_ingestions_month.each do |cal_ingestions|
-      @month_sum += cal_ingestions&.total_cal_ingestions.to_i - CalConsumption.find_by(date: cal_ingestions.date..cal_ingestions.date.end_of_day )&.total_cal_consumptions.to_i
+      @month_sum += cal_ingestions&.total_cal_ingestions.to_i - CalConsumption.find_by(date: cal_ingestions.date..cal_ingestions.date.end_of_day)&.total_cal_consumptions.to_i
     end
     #今月の体重増減(理論値)
     @month_sum_weight = (@month_sum/7000.to_f).round(2)

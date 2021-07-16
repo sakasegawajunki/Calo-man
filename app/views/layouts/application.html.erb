@@ -14,13 +14,7 @@
    <!--======ヘッダーの部分テンプレート======-->
     <%= render "layouts/header" %>
     
-    <!--=====日付検索=====-->
-    <div class="search mt-3 mr-4 text-right">
-      <%=form_with url: cal_balances_path, method: :get, local: true do |f| %>
-        <%= f.date_field :created_date,include_blank: true, selected: Date.today %>
-        <%= f.submit '検索',class:'btn btn-info mb-2 btn-sm px-5 ml-3' %>
-      <% end %>
-    </div> 
+
     
     <main>
    <!--======フラッシュメッセージ======-->

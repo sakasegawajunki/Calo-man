@@ -1,6 +1,23 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#main-b-visual {
+  height: 100vh;
+  background-image: image-url("arusfly-ll_fMb-A0TM-unsplash.jpg");
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+#main-c-visual {
+  height: 100vh;
+  background-image: image-url("landscape-78058_1920.jpg");
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
 
 tr {
     height: 50px;
@@ -36,7 +53,7 @@ font-size: 20px;
 margin-left: 30px;
 }
 
-.following,.follower,.back{
+.following,.follower,.back {
   font-size: 25px;
 }
 
@@ -52,6 +69,18 @@ margin-left: 30px;
   font-weight: bold;
 }
 
-.mydata {
-  color: red;
+.mydata,.link,.link-follow {
+  color: 	#333333;
+  font-weight: bold;
+}
+
+.link-name,.back-link,.paginate {
+  color: 	#333333;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.row-p {
+  font-size: 15px;
+  font-weight: bold;
 }

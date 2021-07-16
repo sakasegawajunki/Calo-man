@@ -1,9 +1,9 @@
+<div id="main-b-visual">
   <div class="container pt-5">
     <div class="row">
       <div class="col-lg-10 offset-1">
-        <h3 class="my-2">会員一覧<span class ="count">(全<%= @user_count.count %>名)</span></h3>
-       <table class="table table-hover table-inverse">
-
+        <h4 class="title my-2">会員一覧<span class ="count">(全<%= @user_count.count %>名)</span></h4>
+         <table class="table table-hover table-inverse">
             <tr>
               <th class= "text-center">プロフィール画像</th>
               <th class= "text-center">名前</th>
@@ -17,17 +17,18 @@
                 <%= attachment_image_tag user, :profile_image, size: "60x60", format: "jpeg",fallback: "no_image.jpg" %>
               </td>
               <td class= "text-center">
-                <%= link_to user.name, user_path(user.id),class:'nav-link' %>
+                <%= link_to user.name, user_path(user.id),class:'link-name' %>
               </td>
               <td class= "text-center"><%=user.sex %></td>
               <td class= "text-center"><%=user.age %></td>
               <td class= "text-center"><%= render "relationships/info", user: user %></td>
             </tr>
             <% end %>
-        </table>
+          </table>
+        </div>
       </div>
-    </div>
-    <div class="paginate">
-      <%= paginate @users %>
+      <div class="paginate">
+        <%= paginate @users %>
+      </div>
     </div>
   </div>

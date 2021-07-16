@@ -1,51 +1,53 @@
-<div class="containser pt-5 ml-4">
-  <h4 class="ml-4 mb-5"> 編集画面</h4>
-  <%= form_with model: @user, url: user_path(@user),local: true do |f| %>
-
-    <div class="row mb-3">
-      <label class="col-lg-3">画像</label>
+<div id="main-b-visual">
+  <div class="containser pt-5 ml-4">
+    <h4 class="title ml-4 mb-5"> 編集画面</h4>
+    <%= form_with model: @user, url: user_path(@user),local: true do |f| %>
+  
+      <div class="row mb-3 ml-3">
+        <label class="col-lg-3">画像</label>
+          <div class="col-lg-3">
+            <%= f.attachment_field :profile_image, :placeholder => "選択してください" %>
+          </div>
+      </div>
+  
+      <div class="row mb-3 ml-3">
+        <label class="col-lg-3">年齢</label>
         <div class="col-lg-3">
-          <%= f.attachment_field :profile_image, :placeholder => "選択してください" %>
+          <%= f.text_field :age, autocomplete: 'age', class:"mb-2" %><span>　歳</span>
         </div>
-    </div>
-
-    <div class="row mb-3">
-      <label class="col-lg-3">年齢</label>
-      <div class="col-lg-3">
-        <%= f.text_field :age, autocomplete: 'age', class:"mb-2" %><span>　歳</span>
       </div>
-    </div>
-
-    <div class="row mb-3">
-      <label class="col-lg-3">身長</label>
-      <div class="col-lg-3">
-        <%= f.text_field :height, autocomplete: 'height', class:"mb-2" %><span>　cm</span>
+  
+      <div class="row mb-3 ml-3">
+        <label class="col-lg-3">身長</label>
+        <div class="col-lg-3">
+          <%= f.text_field :height, autocomplete: 'height', class:"mb-2" %><span>　cm</span>
+        </div>
       </div>
-    </div>
-
-    <div class="row mb-3">
-      <label class="col-lg-3">体重</label>
-      <div class="col-lg-3">
-        <%= f.text_field :weight, autocomplete: 'weight', class:"mb-2" %><span>　kg</span>
+  
+      <div class="row mb-3 ml-3">
+        <label class="col-lg-3">体重</label>
+        <div class="col-lg-3">
+          <%= f.text_field :weight, autocomplete: 'weight', class:"mb-2" %><span>　kg</span>
+        </div>
       </div>
-    </div>
-
-    <div class="row mb-3">
-      <label class="col-lg-3">ひと言</label>
-      <div class="col-lg-3">
-        <%= f.text_area :introduction, :placeholder => "ここにひと言お願いします",size: "50x5"%>
+  
+      <div class="row mb-3 ml-3">
+        <label class="col-lg-3">ひと言</label>
+        <div class="col-lg-3">
+          <%= f.text_area :introduction, :placeholder => "ここにひと言お願いします",size: "50x5"%>
+        </div>
       </div>
-    </div>
-
-    <div class="row">
-      <lavel class="col-lg-3"></lavel>
-      <div class="col-lg-3">
-        <%= f.submit "   更新する   " , class:'btn btn-success mb-2 btn-sm px-5' %>
+  
+      <div class="row">
+        <lavel class="col-lg-3"></lavel>
+        <div class="col-lg-3">
+          <%= f.submit "   更新する   " , class:'btn btn-success mb-2 btn-sm px-5' %>
+        </div>
+        <div class="col-lg-3">
+          <%= link_to "戻る", user_path(@user),class:"back-link"%>
+        </div>
       </div>
-      <div class="col-lg-3">
-        <%= link_to "戻る", user_path(@user) %>
-      </div>
-    </div>
- 
-  <% end %>
+   
+    <% end %>
+  </div>
 </div>

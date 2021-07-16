@@ -1,53 +1,55 @@
-<div class="containser pt-5">
-  <h4 class="ml-4 mb-5"><%= @user.name %>さんのページ</h4>
-    <div class="row">
-      <div class="col-3 text-center">
-        <%= attachment_image_tag @user, :profile_image, size: "300x300", format: "jpeg", fallback: "no_image.jpg" %>
+<div id="main-b-visual">
+  <div class="containser pt-5">
+    <h4 class="title ml-4 mb-5"><%= @user.name %>さんのページ</h4>
+      <div class="row">
+        <div class="col-3 text-center">
+          <%= attachment_image_tag @user, :profile_image, size: "250x300", format: "jpeg", fallback: "no_image.jpg" %>
+        </div>
+        <div class="col-8 mx-auto">
+          <table class="table table-bordered table-color">
+            <tr>
+              <th class="table-active font-large">名前</th>
+              <td class="font-large text-left"><%= @user.name %></td>
+            </tr>
+            <tr>
+              <th class="table-active font-large">性別</th>
+              <td class="font-large text-left"><%= @user.sex %></td>
+            </tr>
+            <tr>
+              <th class="table-active font-large">年齢</th>
+              <td class="font-large text-left"><%= @user.age %>歳</td>
+            </tr>
+            <tr>
+              <th class="table-active font-large">ひと言</th>
+              <td class="font-large text-left"><%= @user.introduction %></td>
+            </tr>
+        </table>
+        <table>
+          <tr>
+            <th class="following">フォロー数:<span class="following-count"> <%= @user.followings.count %></span> 人</th>
+            <th class="follower">フォロー数:<span class="follower-count"> <%= @user.followers.count %></span> 人</th> 
+          </tr>
+          <tr>
+            <td class="following"><%= link_to"フォロー一覧", user_followings_path(@user),class: "link" %></td>
+            <td class="follower"><%= link_to"フォロワー一覧", user_followers_path(@user),class: "link" %></td>
+          </tr>
+        </table>
       </div>
-      <div class="col-8 mx-auto">
-        <table class="table table-bordered">
-          <tr>
-            <th class="table-active font-large">名前</th>
-            <td class="font-large text-left"><%= @user.name %></td>
-          </tr>
-          <tr>
-            <th class="table-active font-large">性別</th>
-            <td class="font-large text-left"><%= @user.sex %></td>
-          </tr>
-          <tr>
-            <th class="table-active font-large">年齢</th>
-            <td class="font-large text-left"><%= @user.age %>歳</td>
-          </tr>
-          <tr>
-            <th class="table-active font-large">ひと言</th>
-            <td class="font-large text-left"><%= @user.introduction %></td>
-          </tr>
-      </table>
-      <table>
-        <tr>
-          <th class="following">フォロー数:<span class="following-count"> <%= @user.followings.count %></span> 人</th>
-          <th class="follower">フォロー数:<span class="follower-count"> <%= @user.followers.count %></span> 人</th> 
-        </tr>
-        <tr>
-          <td class="following"><%= link_to"フォロー一覧", user_followings_path(@user) %></td>
-          <td class="follower"><%= link_to"フォロワー一覧", user_followers_path(@user) %></td>
-        </tr>
-      </table>
     </div>
-  </div>
-  <div class="row my-3">
-    <div class="col-8 ml-4">
+    <div class="row my-3">
+      <div class="col-8 ml-4">
+        <%if @user == current_user %>
+          <%= link_to"詳細データ画面へ", user_users_mydata_path(@user),class: "mydata" %>
+        <% end %>
+        </div>
+    </div>
+    <div class="row my-3">
       <%if @user == current_user %>
-        <%= link_to"詳細データ画面へ", user_users_mydata_path(@user),class: "mydata" %>
-      <% end %>
+      <div class="col-8 offset-4 ">
+        <%= link_to"編集する", edit_user_path(@user), class: "btn btn-success btn-sm px-4 mr-4" %>
+        <%= link_to"退会する", unsubcribe_users_path, class: "btn btn-danger btn-sm px-4" %>
       </div>
-  </div>
-  <div class="row my-3">
-    <%if @user == current_user %>
-    <div class="col-8 offset-4 ">
-      <%= link_to"編集する", edit_user_path(@user), class: "btn btn-success btn-sm px-4 mr-4" %>
-      <%= link_to"退会する", unsubcribe_users_path, class: "btn btn-danger btn-sm px-4" %>
+      <% end %>
     </div>
-    <% end %>
   </div>
 </div>

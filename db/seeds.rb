@@ -82,3 +82,16 @@ User.create(
   password: "rrrrrr",
   profile_image: File.open("./app/assets/images/young-woman-1149643_640.jpg"),
   )
+  
+  User.create(
+  name: '阿部隆司',
+  name_kana: 'アベタカシ',
+  sex: "0".to_i,
+  age: '48',
+  height: "182",
+  weight: "75",
+  introduction: "趣味は釣りと読書です。",
+  email: "abe@gmail.com",
+  password: "aaaaaa",
+  profile_image: File.open("./app/assets/images/mustafa-chahwala-jvSTl5SCPUs-unsplash.jpg"),
+  )

@@ -4,7 +4,7 @@ html {
   font-size: 100%;
 }
 
-#mainvisual {
+#main-top-visual {
   height: 95vh;
   background-image: image-url("boxed.jpg");
   background-size: cover;
@@ -15,7 +15,7 @@ html {
 
 .img-wrapper{
 animation-name:fadeInAnime;
-animation-duration:3s;
+animation-duration:1s;
 animation-fill-mode:forwards;
 opacity:0;
 }
@@ -31,9 +31,11 @@ opacity:0;
 }
 
 .img-wrapper p {
-  position: absolute;/*絶対配置*/
-  color: white;/*文字は白に*/
+  position: absolute;
+  color: #DDDDDD;
   top: 200px;
-  left: 35px;
-  font-size: 25px;
+  left: 25px;
+  font-family: “irohamaru-Medium”;
+  font-size: 35px;
+  font-weight: bold;
   }
