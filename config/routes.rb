@@ -2,7 +2,6 @@ Rails.application.routes.draw do
 
   root to: "homes#top"
   get "chat/:id" => "chats#show", as: "chat"
-  # get "cal_balances/:id" => "searches#search"
   resources :chats, only: [:create]
   resources :users, except:[:destroy] do
     get "users/mydata" => "users#data"

@@ -19,7 +19,7 @@
 
 
 #mainvisual {
-  height: 95vh;
+  height: 100vh;
   background-image: image-url("clyde-rs-4XbZCfU2Uoo-unsplash.jpg");
   background-size: cover;
   background-position: center top;
@@ -27,22 +27,39 @@
   background-attachment: fixed;
 }
 
+.flex {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.flex > :first-child {
+  margin-right: auto;
+}
+
+.nav-link {
+  color: #fff;
+}
+
 .font-title{
   font-size: 38px;
   font-weight: 1000;
 }
 
-#notice {
-  font-size: 15px;
-  color: rgb(0, 128, 0) ;
-}
+.notification {
+  color: white;
+  font-size: 20px;
+  text-align: center;  
 
-#alert {
-  font-size: 15px;
-  color: rgb(255, 0, 0)
- ;
-}
+  .notice {
+    background-color: #00008B;
+    margin: 0;
+  }
 
+  .alert {
+    background-color: #FF9900;
+    margin: 0;
+  }
+}
 .datetime {
   font-family: “irohamaru-Medium”;
   font-size: 40px;

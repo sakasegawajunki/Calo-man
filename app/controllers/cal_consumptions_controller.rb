@@ -27,6 +27,7 @@ class CalConsumptionsController < ApplicationController
     @cal_consumption.base_cal_consumption = @cal_consumption.calcurate_base_cal_consumption(current_user, params[:cal_consumption][:action_pattern].to_i)
     @cal_consumption.action_pattern =params[:cal_consumption][:action_pattern].to_i
     @cal_consumption.cal_consumption = params[:cal_consumption][:cal_consumption].to_i
+    @cal_consumption.date = params[:cal_consumption][:date]
     if @cal_consumption.save
       flash[:notice] = "カロリー消費量を更新しました。"
       redirect_to cal_balances_path(created_date: @cal_consumption.date)
