@@ -29,12 +29,8 @@ class DataController < ApplicationController
       end
     end
     # # <!--=====今月のトータルカロリーバランスを計算する=====-->
-    # @month_sum = 0
-    # @cal_ingestions_month.each do |cal_ingestions|
-    #   @month_sum += cal_ingestions&.total_cal_ingestions.to_i - CalConsumption.find_by(date: cal_ingestions.date..cal_ingestions.date.end_of_day)&.total_cal_consumptions.to_i
-    # end
-    @month_sum = current_user.cal_ingestions.where(date: Time.now.all_month).sum(breakfast_cal+ lunch_cal + dinner_cal + snack_cal) -
-      CalConsumption.where(user_id: user).where(date: Time.now.all_month).sum(cal_consumption + base_cal_consumption,0)
+    @month_sum = @cal_ingestion.where(date: Time.now.all_month).sum("breakfast_cal+ lunch_cal + dinner_cal + snack_cal") -
+    CalConsumption.where(user_id: current_user).where(date: Time.now.all_month).sum("cal_consumption + base_cal_consumption")
     #今月の体重増減(理論値)
     @month_sum_weight = (@month_sum/7000.to_f).round(2)
   end

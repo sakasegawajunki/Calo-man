@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_15_110423) do
+ActiveRecord::Schema.define(version: 2021_07_17_070622) do
 
   create_table "cal_consumptions", force: :cascade do |t|
-    t.integer "cal_consumption"
-    t.integer "base_cal_consumption"
+    t.integer "cal_consumption", default: 0, null: false
+    t.integer "base_cal_consumption", default: 0, null: false
     t.integer "action_pattern"
     t.integer "user_id"
     t.datetime "created_at", null: false
@@ -24,10 +24,10 @@ ActiveRecord::Schema.define(version: 2021_07_15_110423) do
 
   create_table "cal_ingestions", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "breakfast_cal"
-    t.integer "lunch_cal"
-    t.integer "dinner_cal"
-    t.integer "snack_cal"
+    t.integer "breakfast_cal", default: 0, null: false
+    t.integer "lunch_cal", default: 0, null: false
+    t.integer "dinner_cal", default: 0, null: false
+    t.integer "snack_cal", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.date "date"
