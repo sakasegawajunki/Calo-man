@@ -3,9 +3,12 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .weight,.cal {
-  font-family: “irohamaru-Medium”;
   font-size: 25px;
+}
+.cal-text {
+  font-family: “irohamaru-Medium”;
   font-weight: bold;
+  color: #333333;
 }
 
 .table-bordered {

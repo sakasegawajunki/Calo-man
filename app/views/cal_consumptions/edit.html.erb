@@ -12,18 +12,20 @@
          <span>+  </span><%=@cal_consumption.total_cal_consumptions %><span> Kcal</span>
        </div>
      </div>
-      <div class="row cal_consumption-label text-center d-flex align-items-center my-5">
-        <label class="col-lg-4">行動パターンによる基礎代謝量</label>
-        <label class="col-lg-1">+</label>
-        <label class="col-lg-7">消費カロリー</label>
+      <div class="row cal_consumption-label text-center d-flex align-items-center my-2">
+        <label class="col-lg-4 offset-1 mt-3 mb-5">行動パターンによる基礎代謝量</label>
+        <label class="plus col-lg-1">+</label>
+        <label class="col-lg-6">消費カロリー</label>
       </div>
 
-      <div class="row text-center d-flex align-items-center my-5">
-        <div class="col-lg-4 offset-1">
-          <%= f.select :action_pattern, CalConsumption.action_patterns.to_a %>
+      <div class="row text-center d-flex align-items-center my-3">
+        <div class="col-lg-6 ">
+          <%= f.select :action_pattern, CalConsumption.action_patterns.to_a %></br>
+          <P class="cal_consumption-text mt-4">※行動パターンを選択するとユーザーの性別、年齢、体重、身長から自動で基礎代謝量が計算されます。</P>
       </div>
-        <div class="col-lg-7">
-          <%= f.text_field :cal_consumption, class:"mb-2",size: "30x2" %><span> Kcal</span>
+        <div class="col-lg-6">
+          <%= f.text_field :cal_consumption,size: "50x5", class:"mb-2" %><span> Kcal</span>
+           <P class="cal_consumption-text mt-4">※特別に運動した場合は入力して下さい。</P>
         </div>
       </div>
       <div class="row text-center d-flex align-items-center my-5">
