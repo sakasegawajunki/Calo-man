@@ -15,12 +15,12 @@ class ChatsController < ApplicationController
     @chats = @room.chats.page(params[:page]).per(4).order(message: :desc) #descでレコードの順序を逆にする
     @chat = Chat.new(room_id: @room.id)
   end
-  
+
   def create
     @chat = current_user.chats.new(chat_params)
-    # @chats = @room.chats
+    @room = Room.find_by(id: params[:chat][:room_id].to_i)
+    @chats = @room.chats.page(params[:page]).per(4).order(message: :desc)
     @chat.save
-    # redirect_to request.referer 
   end
 
   private

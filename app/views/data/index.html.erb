@@ -4,7 +4,7 @@
      <div class="row text-center d-flex align-items-center my-1">
       <div class="col-lg-12 col-md-12 col-xs-12 ml-5">
         <table class="table table-bordered mb-2">
-        <h5 class ="mb-3 text-left">今週のカロリーバランス(Kcal)</h5>
+        <h5 class ="mb-3 text-left">今週のカロリーバランス(kcal)</h5>
           <tr height="100">
             <th>日曜日</th>
             <th>月曜日</th>
@@ -38,7 +38,7 @@
     </div>
     <div class="row mb-3">
       <div class="cal-lg-5">
-        <div class="cal-text ml-5 cal">※1㎏の脂肪 = 約7,000 Kcal分</div>
+        <div class="cal-text ml-5 cal">※1㎏の脂肪 = 約7,000 kcal分</div>
       </div>
         <div class="cal-lg-5">
         <div class="cal-text ml-4"> ⇨ <span class="weight">　体重1㎏ </span>減らすには、カロリーバランス<span class="cal"> -7,000 kcal </span>が目安になります。</div>
@@ -56,25 +56,25 @@
         <table class="table table-bordered mb-2">
         <h5 class ="mb-3 text-left">今月のカロリーランキング</h5>
           <tr height="100">
-            <th>順位</th>
-            <th>カロリーバランス</th>
-            <th>摂取カロリー</th>
-            <th>消費カロリー</th>
+            <th>カロリー/順位</th>
+            <th>1位</th>
+            <th>2位</th>
+            <th>3位</th>
           </tr>
           <tr>
-            <td><%= "1位" %></td>
+            <td>カロリーバランス</td>
             <td><%= "○○kcal　7/19" %></td>
             <td><%= "○○kcal　7/19" %></td>
             <td><%= "○○kcal　7/19" %></td>
           </tr>
           <tr>
-            <td><%= "2位" %></td>
-            <td><%= "○○kcal　7/19" %></td>
-            <td><%= "○○kcal　7/19" %></td>
-            <td><%= "○○kcal　7/19" %></td>
-          </tr> 
+            <td>消費カロリー</td>
+            <% @cal_consumption_rank.each do |cal_consumption| %>
+            <td><%= cal_consumption[1][1].strftime("%-m月%-d日(%a)")  %><p><%= cal_consumption[0] %></p></td>
+            <% end %>
+          </tr>
           <tr>
-            <td><%= "3位" %></td>
+            <td>摂取カロリー</td>
             <td><%= "○○kcal　7/19" %></td>
             <td><%= "○○kcal　7/19" %></td>
             <td><%= "○○kcal　7/19" %></td>

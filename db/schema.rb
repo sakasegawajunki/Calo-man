@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2021_07_17_070622) do
 
   create_table "cal_consumptions", force: :cascade do |t|
-    t.integer "cal_consumption", default: 0, null: false
+    t.integer "cal＿consumption", default: 0, null: false
     t.integer "base_cal_consumption", default: 0, null: false
     t.integer "action_pattern"
     t.integer "user_id"
