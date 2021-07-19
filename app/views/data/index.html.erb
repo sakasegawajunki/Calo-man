@@ -18,15 +18,19 @@
             <th width="150">今月の体重増減<br>(理論値)</th>
           </tr>
           <tr>
-            <!--=====週間のカロリーバランスを計算する=====-->
-          <% sum = 0 %>
-          <% 7.times do |i| %>
-           <td><%= @cal_balances_week[i] %></td>
-           <% sum += @cal_balances_week[i].eql?("") ? 0 : @cal_balances_week[i].to_i %>
-          <% end %>
-          
-            <td><%= sum %></td>
+            <!--=====今週のカロリーバランス=====-->
+            <td><%= @cal_balance_sun %></td>
+            <td><%= @cal_balance_mon %></td>
+            <td><%= @cal_balance_tue %></td>
+            <td><%= @cal_balance_wed %></td>
+            <td><%= @cal_balance_thu %></td>
+            <td><%= @cal_balance_fri %></td>
+            <td><%= @cal_balance_sat %></td>
+            <!--=====今週のカロリーバランスの合計=====-->
+            <td><%= @week_sum %></td>
+            <!--=====今月のカロリーバランスの合計=====-->
             <td><%= @month_sum %></td>
+            <!--=====今月の体重の増減（理論値）=====-->
             <td><%= @month_sum_weight %> kg</td>
           </tr>
         </table>

@@ -11,20 +11,30 @@
       datasets: [
         {
           label: 'カロリーバランス',
-          data: [
-        <% 7.times do |i| %>
-         <%= @cal_balances_week[i] %>,
-        <% end %>
+          data:
+          [
+            <%= @cal_balance_sun %>,
+            <%= @cal_balance_mon %>,
+            <%= @cal_balance_tue %>,
+            <%= @cal_balance_wed %>,
+            <%= @cal_balance_thu %>,
+            <%= @cal_balance_fri %>,
+            <%= @cal_balance_sat %>,
             ],
           borderColor: "rgba(255,0,0,1)",
           backgroundColor: "rgba(0,0,0,0)"
         },
+
         {
           label: 'カロリ-消費量',
           data: [
-        <% 7.times do |i| %>
-         <%=- @cal_consumptions_week[i] %>,
-        <% end %>
+            <%= @cal_consumption_sun %>,
+            <%= @cal_consumption_mon %>,
+            <%= @cal_consumption_tue %>,
+            <%= @cal_consumption_wed %>,
+            <%= @cal_consumption_thu %>,
+            <%= @cal_consumption_fri %>,
+            <%= @cal_consumption_sat %>,
             ],
           borderColor: "rgba(0,0,255,1)",
           backgroundColor: "rgba(0,0,0,0)"
@@ -32,9 +42,13 @@
         {
           label: 'カロリー摂取量',
           data: [
-        <% 7.times do |i| %>
-         <%= @cal_ingestions_week[i] %>,
-        <% end %>
+            <%= @cal_ingestion_sun %>,
+            <%= @cal_ingestion_mon %>,
+            <%= @cal_ingestion_tue %>,
+            <%= @cal_ingestion_wed %>,
+            <%= @cal_ingestion_thu %>,
+            <%= @cal_ingestion_fri %>,
+            <%= @cal_ingestion_sat %>,
             ],
           borderColor: "rgba(0,255,0,1)",
           backgroundColor: "rgba(0,0,0,0)"

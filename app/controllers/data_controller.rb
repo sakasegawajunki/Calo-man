@@ -3,31 +3,54 @@ class DataController < ApplicationController
   def index
     @cal_consumption = current_user.cal_consumptions
     @cal_ingestion = current_user.cal_ingestions
-    @cal_ingestions = current_user.cal_ingestions.where(date: 1.week.ago.beginning_of_day..Time.zone.now.end_of_day) #1週間のカロリー摂取量を定義
-    @cal_consumptions = current_user.cal_consumptions.where(date: 1.week.ago.beginning_of_day..Time.zone.now.end_of_day) #1週間のカロリー消費量を定義
-    # @date = Date.today #今日の日付を取得
-    # @cal_ingestions_month = current_user.cal_ingestions.where(date: @date.beginning_of_month..@date.end_of_month)#今月のカロリー摂取量を定義
+    @cal_ingestions = current_user.cal_ingestions.where(date: Time.now.all_week) #1週間のカロリー摂取量を定義
+    @cal_consumptions = current_user.cal_consumptions.where(date: Time.now.all_week) #1週間のカロリー消費量を定義
+    
+    this_day = Date.today
+   # 今週の日曜日のデータ
+    this_sunday  = this_day - (this_day.wday)
+    @cal_ingestion_sun = @cal_ingestion.where(date: this_sunday  ).sum("breakfast_cal+ lunch_cal + dinner_cal + snack_cal")
+    @cal_consumption_sun = @cal_consumption.where(date: this_sunday  ).sum("base_cal_consumption + cal_consumption")
+    @cal_balance_sun = @cal_ingestion_sun - @cal_consumption_sun
+   
+    # 今週の月曜日のデータ
+    this_monday = this_day - (this_day.wday - 1)
+    @cal_ingestion_mon = @cal_ingestion.where(date: this_monday).sum("breakfast_cal+ lunch_cal + dinner_cal + snack_cal")
+    @cal_consumption_mon = @cal_consumption.where(date: this_monday).sum("base_cal_consumption + cal_consumption")
+    @cal_balance_mon = @cal_ingestion_mon - @cal_consumption_mon
+    
+    # 今週の火曜日のデータ
+    this_tuesday = this_day - (this_day.wday - 2)
+    @cal_ingestion_tue = @cal_ingestion.where(date: this_tuesday).sum("breakfast_cal+ lunch_cal + dinner_cal + snack_cal")
+    @cal_consumption_tue = @cal_consumption.where(date: this_tuesday).sum("base_cal_consumption + cal_consumption")
+    @cal_balance_tue = @cal_ingestion_tue - @cal_consumption_tue
+    # 今週の水曜日のデータ
+    this_wednesday = this_day - (this_day.wday - 3)
+    @cal_ingestion_wed = @cal_ingestion.where(date: this_wednesday ).sum("breakfast_cal+ lunch_cal + dinner_cal + snack_cal")
+    @cal_consumption_wed = @cal_consumption.where(date: this_wednesday ).sum("base_cal_consumption + cal_consumption")
+    @cal_balance_wed = @cal_ingestion_wed - @cal_consumption_wed
+   
+   # 今週の木曜日のデータ
+    this_thursday  = this_day - (this_day.wday - 4)
+    @cal_ingestion_thu = @cal_ingestion.where(date: this_thursday  ).sum("breakfast_cal+ lunch_cal + dinner_cal + snack_cal")
+    @cal_consumption_thu = @cal_consumption.where(date: this_thursday  ).sum("base_cal_consumption + cal_consumption")
+    @cal_balance_thu = @cal_ingestion_thu - @cal_consumption_thu
+   
+   # 今週の金曜日のデータ
+    this_friday  = this_day - (this_day.wday - 5)
+    @cal_ingestion_fri = @cal_ingestion.where(date: this_friday  ).sum("breakfast_cal+ lunch_cal + dinner_cal + snack_cal")
+    @cal_consumption_fri = @cal_consumption.where(date: this_friday  ).sum("base_cal_consumption + cal_consumption")
+    @cal_balance_fri = @cal_ingestion_fri - @cal_consumption_fri
+   
+   # 今週の土曜日のデータ
+    this_saturday  = this_day - (this_day.wday - 6)
+    @cal_ingestion_sat = @cal_ingestion.where(date: this_saturday  ).sum("breakfast_cal+ lunch_cal + dinner_cal + snack_cal")
+    @cal_consumption_sat = @cal_consumption.where(date: this_saturday  ).sum("base_cal_consumption + cal_consumption")
+    @cal_balance_sat = @cal_ingestion_sat - @cal_consumption_sat
+    
+    # 今週のカロリーバランス合計
+    @week_sum = @cal_balance_sun + @cal_balance_mon + @cal_balance_tue + @cal_balance_wed + @cal_balance_thu + @cal_balance_fri + @cal_balance_sat
 
-    #今週の摂取カロリー
-    @cal_ingestions_week = ["","","","","","",""]
-    @cal_ingestions.each do |cal_ingestion|
-      @cal_ingestions_week[cal_ingestion.date.wday] = cal_ingestion.total_cal_ingestions
-    end
-
-    #今週の消費カロリー
-    @cal_consumptions_week = ["","","","","","",""]
-    @cal_consumptions.each do |cal_consumption|
-      @cal_consumptions_week[cal_consumption.date.wday] = cal_consumption.total_cal_consumptions
-    end
-
-    #今週のカロリーバランス
-    @cal_balances_week = ["","","","","","",""]
-    7.times do |i|
-      if !@cal_ingestions_week[i].eql?("") || !@cal_consumptions_week[i].eql?("")
-        balance = (@cal_ingestions_week[i].eql?("") ? 0 : @cal_ingestions_week[i].to_i) - (@cal_consumptions_week[i].eql?("") ? 0 : @cal_consumptions_week[i].to_i)
-        @cal_balances_week[i] = balance
-      end
-    end
     # # <!--=====今月のトータルカロリーバランスを計算する=====-->
     @month_sum = @cal_ingestion.where(date: Time.now.all_month).sum("breakfast_cal+ lunch_cal + dinner_cal + snack_cal") -
     CalConsumption.where(user_id: current_user).where(date: Time.now.all_month).sum("cal_consumption + base_cal_consumption")

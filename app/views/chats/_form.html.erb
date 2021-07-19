@@ -1,0 +1,5 @@
+<%= form_with(model:[chat], remote:true) do |f| %>
+  <%= f.text_area :message %>
+  <%= f.hidden_field :room_id %>
+  <span class="ml-4"><%= f.submit "送信", class:'btn btn-primary mb-2 btn-sm px-5' %></span>
+<% end %>
