@@ -32,9 +32,7 @@
   display: flex;
   justify-content: flex-end;
 }
-.flex > :first-child {
-  margin-right: auto;
-}
+
 
 .nav-link {
   color: #fff;
@@ -48,7 +46,7 @@
 .notification {
   color: white;
   font-size: 20px;
-  text-align: center;  
+  text-align: center;
 
   .notice {
     background-color: #808080;
@@ -81,4 +79,21 @@
 
 .table-color,.table-bordered,{
   background-color: #fff;
+}
+
+
+@media (max-width:991px){
+.nav-link  {
+  padding: 0px;
+  }
+
+.flex {
+  width: 100%;
+  -webkit-flex-direction: column;
+	flex-direction: column;
+  }
+
+.nav-item {
+  text-align: center;
+  }
 }

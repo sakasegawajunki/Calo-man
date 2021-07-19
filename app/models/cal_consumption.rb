@@ -48,6 +48,5 @@ class CalConsumption < ApplicationRecord
    end
 
   validates :date, uniqueness: { scope: :user_id }
-
-
+  
 end

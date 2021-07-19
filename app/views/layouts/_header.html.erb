@@ -1,8 +1,12 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="flex">
-    <div class="nav-item">
-      <%= link_to "Calo-man", root_path, class:"navbar-brand font-title"%>
+  <div class="nav-item">
+    <%= link_to "Calo-man", root_path, class:"navbar-brand font-title"%>
     </div>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <div class="flex">
         <!--会員のログイン時-->
       <% if user_signed_in? %>
         <div class="nav-item"><%= link_to user_path(current_user.id),class:'nav-link' do %> <i class="fas fa-user fa-2x"></i>  <%=current_user.name %>さん<% end %></div>
@@ -22,5 +26,6 @@
         <div class="nav-item"><%= link_to user_registration_path, class:'nav-link' do %><i class="fas fa-user-plus fa-2x"></i> 新規登録 <% end %></div>
         <div class="nav-item"><%= link_to new_user_session_path, class:'nav-link' do %><i class="fas fa-sign-in-alt fa-2x"></i> ログイン <% end %></div>
       <% end %>
+    </div>
   </div>
 </nav>

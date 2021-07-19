@@ -51,11 +51,16 @@ class DataController < ApplicationController
     # 今週のカロリーバランス合計
     @week_sum = @cal_balance_sun + @cal_balance_mon + @cal_balance_tue + @cal_balance_wed + @cal_balance_thu + @cal_balance_fri + @cal_balance_sat
 
-    # # <!--=====今月のトータルカロリーバランスを計算する=====-->
+    # 今月のカロリーバランス合計
     @month_sum = @cal_ingestion.where(date: Time.now.all_month).sum("breakfast_cal+ lunch_cal + dinner_cal + snack_cal") -
     CalConsumption.where(user_id: current_user).where(date: Time.now.all_month).sum("cal_consumption + base_cal_consumption")
+    
     #今月の体重増減(理論値)
     @month_sum_weight = (@month_sum/7000.to_f).round(2)
+    
+    # ランキング機能
+     # @cal_consumption_ranks = CalConsumption.find(CalConsumption.group(:cal_consumption_id).order('count(cal_consumption_id) desc').limit(3).pluck(:cal_consumption_id))
+  
   end
 
 end

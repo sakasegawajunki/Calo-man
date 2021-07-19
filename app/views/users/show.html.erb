@@ -2,10 +2,10 @@
   <div class="containser pt-5">
     <h4 class="title ml-4 mb-5"><%= @user.name %>さんのページ</h4>
       <div class="row">
-        <div class="col-3 text-center">
+        <div class="col-lg-3 col-md-3 col-xs-3 text-center">
           <%= attachment_image_tag @user, :profile_image, size: "250x300", format: "jpeg", fallback: "no_image.jpg" %>
         </div>
-        <div class="col-8 mx-auto">
+        <div class="col-lg-8 col-md-8 col-xs-8 mx-auto">
           <table class="table table-bordered table-color">
             <tr>
               <th class="table-active font-large">名前</th>
@@ -37,7 +37,7 @@
       </div>
     </div>
     <div class="row my-3">
-      <div class="col-8 ml-4">
+      <div class="col-lg-8 col-md-8 col-xs-8 ml-4">
         <%if @user == current_user %>
           <%= link_to"詳細データ画面へ", user_users_mydata_path(@user),class: "mydata" %>
         <% end %>
@@ -45,7 +45,7 @@
     </div>
     <div class="row my-3">
       <%if @user == current_user %>
-      <div class="col-8 offset-4 ">
+      <div class="col-lg-8 col-md-8 col-xs-8 offset-4 ">
         <%= link_to"編集する", edit_user_path(@user), class: "btn btn-success btn-sm px-4 mr-4" %>
         <%= link_to"退会する", unsubcribe_users_path, class: "btn btn-danger btn-sm px-4" %>
       </div>
