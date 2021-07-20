@@ -7,14 +7,9 @@ class UsersController < ApplicationController
   end
 
   def data
-    @user = current_user
-    @cal_consumption = current_user.cal_consumptions
-    @cal_ingestion = current_user.cal_ingestions
-
-    # unless @user != current_user
-    # redirect_to user_path(@user.id)
-    # end
-
+      @user = current_user
+      @cal_consumption = current_user.cal_consumptions
+      @cal_ingestion = current_user.cal_ingestions
   end
 
   def edit

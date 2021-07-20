@@ -1,9 +1,9 @@
 <div id="main-a-visual">
   <div class="container py-5">
-    <h4  class="title mb-5"><i class="fas fa-database fa-2x"></i> カロリーデータ</h4>
-      <!--=====表の部分テンプレート=====-->
+    <h4  class="title mb-5"><i class="fas fa-database fa-3x"></i> カロリーデータ</h4>
      <div class="row text-center d-flex align-items-center my-1">
       <div class="col-lg-12 col-md-12 col-xs-12 ml-5">
+      <!--=====表の部分テンプレート=====-->
        <%= render "data/table", cal_balance_sun: @cal_balance_sun, cal_balance_mon: @cal_balance_mon,
          cal_balance_tue: @cal_balance_tue, cal_balance_wed: @cal_balance_wed, cal_balance_thu: @cal_balance_thu,
          cal_balance_fri: @cal_balance_fri, cal_balance_sat: @cal_balance_sat,
@@ -18,44 +18,17 @@
         <div class="cal-text ml-4"> ⇨ <span class="weight">　体重1㎏ </span>減らすには、カロリーバランス<span class="cal"> -7,000 kcal </span>が目安になります。</div>
       </div>
     </div>
-     <!--=====グラフの部分テンプレート=====-->
     <div class="row text-center d-flex align-items-center my-5">
       <div class="col-lg-12 col-md-12 col-xs-12 ml-5">
+     <!--=====グラフの部分テンプレート=====-->
         <%= render "data/chart", cal_consumption: @cal_consumption, cal_ingestion: @cal_ingestion %>
       </div>
     </div>
-
     <div class="row text-center d-flex align-items-center my-1">
       <div class="col-lg-12 col-md-12 col-xs-12 ml-5">
-        <table class="table table-bordered mb-2">
-        <h5 class ="mb-3 text-left"><i class="fas fa-table"></i> 今月のカロリーランキング</h5>
-          <tr height="100">
-            <th>カロリー/順位</th>
-            <th>1位</th>
-            <th>2位</th>
-            <th>3位</th>
-          </tr>
-          <tr>
-            <td>カロリーバランス</td>
-            <td><%= "○○kcal　7/19" %></td>
-            <td><%= "○○kcal　7/19" %></td>
-            <td><%= "○○kcal　7/19" %></td>
-          </tr>
-          <tr>
-            <td>消費カロリー</td>
-            <% @cal_consumption_rank.each do |cal_consumption| %>
-            <td><%= cal_consumption[1][1].strftime("%-m月%-d日(%a)")  %><p><%= cal_consumption[0] %></p></td>
-            <% end %>
-          </tr>
-          <tr>
-            <td>摂取カロリー</td>
-            <td><%= "○○kcal　7/19" %></td>
-            <td><%= "○○kcal　7/19" %></td>
-            <td><%= "○○kcal　7/19" %></td>
-          </tr>
-        </table>
+     <!--=====ランキングの部分テンプレート=====-->
+      <%= render "data/rank" %>
       </div>
     </div>
-
   </div>
 </div>

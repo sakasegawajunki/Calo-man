@@ -22,7 +22,6 @@ class User < ApplicationRecord
     followings.include?(user)
   end
 
-  
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   # 画像表示

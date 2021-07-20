@@ -12,14 +12,14 @@ class ChatsController < ApplicationController
       UserRoom.create(user_id: current_user.id, room_id: @room.id) #カレントユーザーのuser_room
       UserRoom.create(user_id: @chatuser.id, room_id: @room.id) #相手のuser_room
     end
-    @chats = @room.chats.page(params[:page]).per(4).order(message: :desc) #descでレコードの順序を逆にする
+    @chats = @room.chats.page(params[:page]).per(6)
     @chat = Chat.new(room_id: @room.id)
   end
 
   def create
     @chat = current_user.chats.new(chat_params)
     @room = Room.find_by(id: params[:chat][:room_id].to_i)
-    @chats = @room.chats.page(params[:page]).per(4).order(message: :desc)
+    @chats = @room.chats.page(params[:page]).per(6)
     @chat.save
   end
 

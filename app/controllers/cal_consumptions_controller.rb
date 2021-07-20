@@ -7,8 +7,6 @@ class CalConsumptionsController < ApplicationController
   def create
     @cal_consumption = CalConsumption.new(cal_consumption_params)
     @cal_consumption.base_cal_consumption = @cal_consumption.calcurate_base_cal_consumption(current_user, params[:cal_consumption][:action_pattern].to_i)#行動パターンによる基礎代謝量
-    @cal_consumption.action_pattern =params[:cal_consumption][:action_pattern].to_i
-    @cal_consumption.user = current_user
     if @cal_consumption.save
       flash[:notice] = "カロリー消費量を保存しました。"
       redirect_to cal_balances_path(created_date: @cal_consumption.date)
@@ -24,11 +22,8 @@ class CalConsumptionsController < ApplicationController
 
   def update
     @cal_consumption = CalConsumption.find(params[:id])
-    @cal_consumption.base_cal_consumption = @cal_consumption.calcurate_base_cal_consumption(current_user, params[:cal_consumption][:action_pattern].to_i)
-    @cal_consumption.action_pattern =params[:cal_consumption][:action_pattern].to_i
-    @cal_consumption.cal_consumption = params[:cal_consumption][:cal_consumption].to_i
-    @cal_consumption.date = params[:cal_consumption][:date]
-    if @cal_consumption.save
+    @cal_consumption.base_cal_consumption = @cal_consumption.calcurate_base_cal_consumption(current_user, params[:cal_consumption][:action_pattern].to_i)#行動パターンによる基礎代謝量
+    if @cal_consumption.update(cal_consumption_params)
       flash[:notice] = "カロリー消費量を更新しました。"
       redirect_to cal_balances_path(created_date: @cal_consumption.date)
     else
@@ -40,7 +35,7 @@ class CalConsumptionsController < ApplicationController
   private
 
   def cal_consumption_params
-    params.require(:cal_consumption).permit(:cal_consumption, :date)
+    params.require(:cal_consumption).permit(:cal_consumption, :action_pattern, :date, :user_id)
   end
 
 

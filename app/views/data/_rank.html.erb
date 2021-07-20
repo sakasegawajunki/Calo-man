@@ -1,0 +1,21 @@
+<table class="table table-bordered mb-2">
+  <h5 class ="mb-3 text-left"><i class="fas fa-crown fa-2x"></i> 今月のカロリーランキング</h5>
+    <tr height="100">
+      <th>ランキング</th>
+      <th>1位</th>
+      <th>2位</th>
+      <th>3位</th>
+    </tr>
+    <tr>
+      <td>消費カロリー</td>
+      <% @cal_consumption_rank.each do |cal_consumption| %>
+      <td><%= cal_consumption[1][1].strftime("%-m月%-d日(%a)") %><p>-<%= cal_consumption[0] %>kcal</p></td>
+      <% end %>
+    </tr>
+    <tr>
+      <td>摂取カロリー</td>
+      <% @cal_ingestion_rank.each do |cal_ingestion| %>
+      <td><%=cal_ingestion[1][1].strftime("%-m月%-d日(%a)") %><p><%= cal_ingestion[0] %>kcal</p></td>
+      <% end %>
+  </tr>
+</table>

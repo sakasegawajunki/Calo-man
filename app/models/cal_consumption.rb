@@ -1,10 +1,8 @@
 class CalConsumption < ApplicationRecord
   belongs_to :user
 
-  #バリデーション　（空でないことを確認する）
-  validates :date, presence: true
-    enum action_pattern: { "----  活発  ----": 0, "----  仕事  ----": 1, "----  休日  ----": 2 } #活発:*1.4, 仕事:*1.2, 休日:*1.1　⇒　基礎代謝に対する数値基準
-  # userの性別、年齢、身長、体重、行動パターンからカロリー消費量を計算する式
+    enum action_pattern: { "----  活発  ----": "0", "----  仕事  ----": "1", "----  休日  ----": "2" } #活発:*1.4, 仕事:*1.2, 休日:*1.1　⇒　基礎代謝に対する数値基準
+  # userの性別、年齢、身長、体重、行動パターンから基礎代謝量を計算する式
   def calcurate_base_cal_consumption(user, action_pattern)
     _sex = 0
     if "男性" == user.sex
@@ -47,6 +45,9 @@ class CalConsumption < ApplicationRecord
      validates :cal_consumption
    end
 
+  #バリデーション　（空でないことを確認する）
+  validates :date, presence: true
+   #バリデーション　（同じユーザーが特定日に二つデータを作れない）
   validates :date, uniqueness: { scope: :user_id }
-  
+
 end

@@ -1,6 +1,7 @@
 class CalIngestion < ApplicationRecord
   belongs_to :user
-
+  
+#カロリー摂取量の合計（朝食+昼食+夕食+間食）
   def total_cal_ingestions
     breakfast_cal.to_i + lunch_cal.to_i + dinner_cal.to_i + snack_cal.to_i
   end
