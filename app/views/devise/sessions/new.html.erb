@@ -1,16 +1,17 @@
-<div id="sign-in-main-visual"></div>
-<div class="container my-5">
-  <div class="col-5 mx-auto">
-    <h4>ログイン</h4>
-    <p>会員の方はこちらからログインしてください</p> 
-    <%= form_with model: @user, url: user_session_path, local: true do |f| %>
-    <label>メールアドレス</label><br/>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:'form-control' %><br/>
-    <label>パスワード</label><br/>
-    <%= f.password_field :password, autocomplete: "user-password", class:"form-control" %>
-    <%= f.submit "ログイン", class:'btn btn-info form-control my-4' %>
-    <% end %>
-    <h6>登録がお済みでない方は</h6>
-    <p><%= link_to 'こちら', new_user_registration_path %>から新規登録を行ってください。</p>  
+<div id="main-login-visual">
+  <div class="container py-5">
+    <div class="col-lg-5 col-md-5 col-xs-5 mx-auto">
+      <h4>ログイン</h4>
+      <p>会員の方はこちらからログインしてください</p>
+      <%= form_with model: @user, url: user_session_path, local: true do |f| %>
+      <label>メールアドレス</label><br/>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class:'form-control' %><br/>
+      <label>パスワード</label><br/>
+      <%= f.password_field :password, autocomplete: "user-password", class:"form-control" %>
+      <%= f.submit "ログイン", class:'btn btn-info form-control my-4' %>
+      <% end %>
+      <h6>登録がお済みでない方は</h6>
+      <p><%= link_to 'こちら', new_user_registration_path %>から新規登録を行ってください。</p>
+    </div>
   </div>
 </div>

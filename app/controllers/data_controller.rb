@@ -59,17 +59,14 @@ class DataController < ApplicationController
     @month_sum_weight = (@month_sum/7000.to_f).round(2)
 
     # ランキング機能
-    # @cal_consumption_ranks = CalConsumption.left_joins(:cal_consumptions).group(:id).where(cal_consumptions:{ date: Time.now.all_month}).order("count(cal_consumptions.id)desc").limit(3)
-     # (CalConsumption.group(:cal_consumption_id).order('count(cal_consumption_id) desc').limit(3).pluck(:cal_consumption_id))
-  # @books = Book.left_joins(:favorites).group(:id).where(favorites: { created_at: from...to}).order('count(books.id) desc').limit(10)
-    c = CalConsumption.arel_table
-    cal_consumption_ranks = CalConsumption.select([:id, :date, c[:base_cal_consumption].sum.as('total_base_cal_consumption'), c[:cal_consumption].sum.as('total_cal_consumption')]).where(date: Time.now.all_month).group(:id)
+    # c = CalConsumption.arel_table#cを定義してカラム名を指定する
+    cal_consumption_ranks = CalConsumption.select([:id, :date, :base_cal_consumption, :cal_consumption]).where(date: Time.now.all_month).group(:id)
     hash = {}
     cal_consumption_ranks.each do |cal_consumption|
-      total = cal_consumption.total_base_cal_consumption + cal_consumption.total_cal_consumption
-      hash.store(total, [cal_consumption.id, cal_consumption.date])
+      total_cal_consumptions = cal_consumption.base_cal_consumption + cal_consumption.cal_consumption
+      hash.store(total_cal_consumptions, [cal_consumption.id, cal_consumption.date])
     end
-    @cal_consumption_rank = hash.sort.reverse.take(3)
+    @cal_consumption_rank = hash.sort.reverse.take(3)#上位3位まで取得する
   end
 
 end

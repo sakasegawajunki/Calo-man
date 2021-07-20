@@ -2,7 +2,7 @@
   <div class="container pt-5">
     <div class="row">
       <div class="col-lg-12 col-md-12 col-xs-12">
-        <h4 class="title mb-5"><%=@chatuser.name %>さんとのチャット</h4>
+        <h4 class="title mb-5"><i class="fas fa-sms"></i><%=@chatuser.name %>さんとのチャット</h4>
       <div class ="chat_area">
         <%= render "chats/form", chat: @chat %>
         <%= render"chats/chat", chats: @chats %>

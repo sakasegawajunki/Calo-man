@@ -1,6 +1,6 @@
   <div id="mainvisual">
     <div class="container py-5">
-    <h4 class="title">消費カロリー</h4>
+    <h4 class="title"> <i class="fas fa-balance-scale-left"></i> 消費カロリー</h4>
         <%=form_with model:[CalConsumption.new], url: cal_consumptions_path, local: true do |f| %>
      <div class="row text-center d-flex align-items-center my-5">
       <div class="col-lg-12 col-md-12 col-xs-12 datetime">
@@ -15,10 +15,9 @@
       </div>
     
       <div class="row text-center d-flex align-items-center my-3">
-        <div class="col-lg-6 col-md-6 col-xs-6 ">
+        <div class="col-lg- col-md-6 col-xs-6 ">
           <%= f.select :action_pattern, CalConsumption.action_patterns.to_a %></br>
-          <P class="cal_consumption-text mt-2">※行動パターンを選択するとユーザーの性別、年齢、体重、身長から自動で基礎代謝量が計算されます。</P>
-      </div>
+          <P class="cal_consumption-text mt-4">※行動パターンを選択するとユーザーの性別、年齢、体重、身長から自動で基礎代謝量が計算されます。<br>基礎代謝(A)に対する数値基準 ⇨ 活発: A x 1.4倍, 仕事: A x 1.2倍, 休日: A x 1.1倍　</p></div>
         <div class="col-lg-6 col-md-6 col-xs-6">
           <%= f.text_field :cal_consumption, class:"mb-2" %><span> Kcal</span>
           <P class="cal_consumption-text mt-4">※特別に運動した場合は入力して下さい。</P>
@@ -31,4 +30,4 @@
       </div>
       <% end %>
     </div>
-</div>
+  </div>

@@ -1,39 +1,13 @@
 <div id="main-a-visual">
   <div class="container py-5">
-    <h4  class="title mb-5">カロリーデータ</h4>
+    <h4  class="title mb-5"><i class="fas fa-database fa-2x"></i> カロリーデータ</h4>
+      <!--=====表の部分テンプレート=====-->
      <div class="row text-center d-flex align-items-center my-1">
       <div class="col-lg-12 col-md-12 col-xs-12 ml-5">
-        <table class="table table-bordered mb-2">
-        <h5 class ="mb-3 text-left">今週のカロリーバランス(kcal)</h5>
-          <tr height="100">
-            <th>日曜日</th>
-            <th>月曜日</th>
-            <th>火曜日</th>
-            <th>水曜日</th>
-            <th>木曜日</th>
-            <th>金曜日</th>
-            <th>土曜日</th>
-            <th width="150" >今週の合計</th>
-            <th width="150">今月の合計</th>
-            <th width="150">今月の体重増減<br>(理論値)</th>
-          </tr>
-          <tr>
-            <!--=====今週のカロリーバランス=====-->
-            <td><%= @cal_balance_sun %></td>
-            <td><%= @cal_balance_mon %></td>
-            <td><%= @cal_balance_tue %></td>
-            <td><%= @cal_balance_wed %></td>
-            <td><%= @cal_balance_thu %></td>
-            <td><%= @cal_balance_fri %></td>
-            <td><%= @cal_balance_sat %></td>
-            <!--=====今週のカロリーバランスの合計=====-->
-            <td><%= @week_sum %></td>
-            <!--=====今月のカロリーバランスの合計=====-->
-            <td><%= @month_sum %></td>
-            <!--=====今月の体重の増減（理論値）=====-->
-            <td><%= @month_sum_weight %> kg</td>
-          </tr>
-        </table>
+       <%= render "data/table", cal_balance_sun: @cal_balance_sun, cal_balance_mon: @cal_balance_mon,
+         cal_balance_tue: @cal_balance_tue, cal_balance_wed: @cal_balance_wed, cal_balance_thu: @cal_balance_thu,
+         cal_balance_fri: @cal_balance_fri, cal_balance_sat: @cal_balance_sat,
+         week_sum: @week_sum, month_sum: @month_sum, month_sum_weight: @month_sum_weight %>
       </div>
     </div>
     <div class="row mb-3">
@@ -54,7 +28,7 @@
     <div class="row text-center d-flex align-items-center my-1">
       <div class="col-lg-12 col-md-12 col-xs-12 ml-5">
         <table class="table table-bordered mb-2">
-        <h5 class ="mb-3 text-left">今月のカロリーランキング</h5>
+        <h5 class ="mb-3 text-left"><i class="fas fa-table"></i> 今月のカロリーランキング</h5>
           <tr height="100">
             <th>カロリー/順位</th>
             <th>1位</th>

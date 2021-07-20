@@ -37,7 +37,6 @@ class User < ApplicationRecord
     validates :weight
     validates :sex
     validates :age
-    validates :profile_image
   end
   enum sex: { "男性": 0, "女性": 1 }
 
