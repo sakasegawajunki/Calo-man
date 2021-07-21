@@ -59,22 +59,23 @@ class DataController < ApplicationController
     @month_sum_weight = (@month_sum/7000.to_f).round(2)
 
     # ランキング機能(消費カロリー)
-    cal_consumption_ranks = CalConsumption.select([:id, :date, :base_cal_consumption, :cal_consumption]).where(date: Time.now.all_month)
+    # c = CalConsumption.arel_table#cを定義してカラム名を指定する
+    cal_consumption_ranks = CalConsumption.select([:id, :date, :base_cal_consumption, :cal_consumption]).where(date: Time.now.all_month).where(user_id: current_user.id)
     hash = {}
     cal_consumption_ranks.each do |cal_consumption|
-      total_cal_consumptions = cal_consumption.base_cal_consumption + cal_consumption.cal_consumption#条件に合う各レコードの合計
+      total_cal_consumptions = cal_consumption.base_cal_consumption + cal_consumption.cal_consumption# 条件に合う各レコードの合計
       hash.store(total_cal_consumptions, [cal_consumption.id, cal_consumption.date])# hashに指定したカラムを入れる
     end
-    @cal_consumption_rank = hash.sort.reverse.take(3)#上位3位まで取得する
+    @cal_consumption_rank = hash.sort.reverse.take(3)#降順で上位3位まで取得する
     
     # ランキング機能(摂取カロリー)
-    cal_ingestion_ranks = CalIngestion.select([:id, :date, :breakfast_cal, :lunch_cal, :dinner_cal, :snack_cal]).where(date: Time.now.all_month)
+    cal_ingestion_ranks = CalIngestion.select([:id, :date, :breakfast_cal, :lunch_cal, :dinner_cal, :snack_cal]).where(date: Time.now.all_month).where(user_id: current_user.id)
     hash = {}
     cal_ingestion_ranks.each do |cal_ingestion|
-      total_cal_ingestions = cal_ingestion.breakfast_cal + cal_ingestion.lunch_cal + cal_ingestion.dinner_cal + cal_ingestion.snack_cal#条件に合う各レコードの合計
-      hash.store(total_cal_ingestions,[cal_ingestion.id, cal_ingestion.date])# hashに指定したカラムを入れる
+      total_cal_ingestions = cal_ingestion.breakfast_cal + cal_ingestion.lunch_cal + cal_ingestion.dinner_cal + cal_ingestion.snack_cal
+      hash.store(total_cal_ingestions,[cal_ingestion.id, cal_ingestion.date])
     end
-    @cal_ingestion_rank = hash.sort.reverse.take(3)#上位3位まで取得する
+    @cal_ingestion_rank = hash.sort.reverse.take(3)#降順で上位3位まで取得する
 
   end
 
