@@ -17,35 +17,31 @@
       <div class="row text-center d-flex align-items-center my-2">
         <div class="col-lg-6 col-md-6 col-xs-6 cal_ingestion mt-5 mb-1">
           摂取カロリー
+          <div class="cal_ingestion-num my-5">
+            <span>+  </span><%= @cal_ingestion&.total_cal_ingestions.to_i %><span> kcal</span>
+          </div>
+          <div class="cal_ingestion-num-p">
+          <% if @cal_ingestion.present? == false %>
+            <%=link_to "摂取カロリー入力画面へ",new_cal_ingestion_path, class: "edit-link" %>
+          <% else %>
+            <%=link_to "摂取カロリー入力画面へ",edit_cal_ingestion_path(@cal_ingestion.id), class: "edit-link" %>
+          <% end %>
+          </div>
         </div>
-         <div class="col-lg-6 col-md-6 col-xs-6 cal_consumption mt-5 mb-1">
+        <div class="col-lg-6 col-md-6 col-xs-6 cal_consumption mt-5 mb-1">
           消費カロリー
+          <div class="cal_consumption-num my-5">
+            <span>-  </span><%= @cal_consumption&.total_cal_consumptions.to_i %><span> kcal</span>
+          </div>
+          <div class="cal_consumption-num-p">
+          <% if @cal_consumption.present? == false %>
+            <%=link_to "消費カロリー入力画面へ",new_cal_consumption_path, class: "edit-link" %>
+          <% else %>
+            <%=link_to "消費カロリー入力画面へ",edit_cal_consumption_path(@cal_consumption.id), class: "edit-link" %>
+          <% end %>
+          </div>
         </div>
-      </div>
-      <div class="row text-center d-flex align-items-center my-2">
-         <div class="col-lg-6 col-md-6 col-xs-6 cal_ingestion-num">
-           <!--カロリ-摂取量-->
-        <span>+  </span><%= @cal_ingestion&.total_cal_ingestions.to_i %><span> kcal</span>
-        </div>
-        <div class="col-lg-6 col-md-6 col-xs-6  cal_consumption-num">
-          <!--カロリ-消費量-->
-          <span>-  </span><%= @cal_consumption&.total_cal_consumptions.to_i %><span> kcal</span>
-        </div>
-      </div>
-      <div class="row text-center d-flex align-items-center my-5 ">
-        <div class="col-lg-6 col-md-6 col-xs-6 cal_ingestion-num-p">
-        <% if @cal_ingestion.present? == false %>
-          <%=link_to "摂取カロリー入力画面へ",new_cal_ingestion_path, class: "edit-link" %>
-        <% else %>
-          <%=link_to "摂取カロリー入力画面へ",edit_cal_ingestion_path(@cal_ingestion.id), class: "edit-link" %>
-        <% end %>
-        </div>
-        <div class="col-lg-6 col-md-6 col-xs-6 cal_consumption-num-p">
-        <% if @cal_consumption.present? == false %>
-          <%=link_to "消費カロリー入力画面へ",new_cal_consumption_path, class: "edit-link" %>
-        <% else %>
-          <%=link_to "消費カロリー入力画面へ",edit_cal_consumption_path(@cal_consumption.id), class: "edit-link" %>
-        <% end %>
+
         </div>
       </div>
     </div>
