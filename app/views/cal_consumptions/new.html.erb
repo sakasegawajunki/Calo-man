@@ -1,2 +1,35 @@
-<h1>CalConsumptions#new</h1>
-<p>Find me in app/views/cal_consumptions/new.html.erb</p>
+  <div id="mainvisual">
+    <div class="container py-5">
+    <h4 class="title"> <i class="fas fa-balance-scale-left  fa-3x"></i> 消費カロリー</h4>
+        <%=form_with model:[CalConsumption.new], url: cal_consumptions_path, local: true do |f| %>
+        <%= f.hidden_field :user_id, :value => current_user.id %>
+
+     <div class="row text-center d-flex align-items-center my-5">
+      <div class="col-lg-12 col-md-12 col-xs-12 datetime">
+        登録日：  <%= f.date_field :date %>
+      </div>
+    </div>
+
+      <div class="row cal_consumption-label text-center d-flex align-items-center my-5">
+        <label class="col-lg-4 col-md-4 col-xs-4 mt-3 mb-5">行動パターンによる基礎代謝量</label>
+        <label class="plus col-lg-1 col-md-1 col-xs-1">+</label>
+        <label class="col-lg-7 col-md-7 col-xs-7">消費カロリー</label>
+      </div>
+
+      <div class="row text-center d-flex align-items-center my-3">
+        <div class="col-lg- col-md-6 col-xs-6 ">
+          <%= f.select :action_pattern, CalConsumption.action_patterns %></br>
+          <P class="cal_consumption-text mt-4">※行動パターンを選択するとユーザーの性別、年齢、体重、身長から自動で基礎代謝量が計算されます。<br>基礎代謝(A)に対する数値基準 ⇨ 活発: A x 1.4倍, 仕事: A x 1.2倍, 休日: A x 1.1倍　</p></div>
+        <div class="col-lg-6 col-md-6 col-xs-6">
+          <%= f.number_field :cal_consumption, class:"mb-2" %><span> Kcal</span>
+          <P class="cal_consumption-text mt-4">※特別に運動した場合は入力して下さい。</P>
+        </div>
+      </div>
+      <div class="row text-center d-flex align-items-center my-5">
+        <div class="col-lg-12 col-md-12 col-xs-12">
+          <%=f.submit '保存する', class:'btn btn-primary mb-2 btn-lg px-5'%>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>

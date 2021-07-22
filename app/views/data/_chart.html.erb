@@ -1,0 +1,76 @@
+   <h5 class=" text-left"><i class="fas fa-chart-line fa-2x"></i> 週間データ（折れ線グラフ）</h5>
+  <canvas id="myLineChart"></canvas>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+
+  <script>
+  var ctx = document.getElementById("myLineChart");
+  var myLineChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: ['日曜日','月曜日', '火曜日', '水曜日', '木曜日', '金曜日', '土曜日'],
+      datasets: [
+        {
+          label: 'カロリーバランス',
+          data:
+          [
+            <%= @cal_balance_sun %>,
+            <%= @cal_balance_mon %>,
+            <%= @cal_balance_tue %>,
+            <%= @cal_balance_wed %>,
+            <%= @cal_balance_thu %>,
+            <%= @cal_balance_fri %>,
+            <%= @cal_balance_sat %>,
+            ],
+          borderColor: "rgba(255,0,0,1)",
+          backgroundColor: "rgba(0,0,0,0)"
+        },
+
+        {
+          label: 'カロリ-消費量',
+          data: [
+            -<%= @cal_consumption_sun %>,
+            -<%= @cal_consumption_mon %>,
+            -<%= @cal_consumption_tue %>,
+            -<%= @cal_consumption_wed %>,
+            -<%= @cal_consumption_thu %>,
+            -<%= @cal_consumption_fri %>,
+            -<%= @cal_consumption_sat %>,
+            ],
+          borderColor: "rgba(0,0,255,1)",
+          backgroundColor: "rgba(0,0,0,0)"
+        },
+        {
+          label: 'カロリー摂取量',
+          data: [
+            <%= @cal_ingestion_sun %>,
+            <%= @cal_ingestion_mon %>,
+            <%= @cal_ingestion_tue %>,
+            <%= @cal_ingestion_wed %>,
+            <%= @cal_ingestion_thu %>,
+            <%= @cal_ingestion_fri %>,
+            <%= @cal_ingestion_sat %>,
+            ],
+          borderColor: "rgba(0,255,0,1)",
+          backgroundColor: "rgba(0,0,0,0)"
+        }
+      ],
+    },
+    options: {
+      title: {
+        display: true
+      },
+      scales: {
+        yAxes: [{
+          ticks: {
+            suggestedMax: 3000,
+            suggestedMin: -3000,
+            stepSize: 500,
+            callback: function(value, index, values){
+              return  value +  'Kcal'
+            }
+          }
+        }]
+      },
+    }
+  });
+  </script>

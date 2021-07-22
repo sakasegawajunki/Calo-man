@@ -1,0 +1,34 @@
+<div id="main-b-visual">
+  <div class="container pt-5">
+    <div class="row">
+      <div class="col-lg-10 col-md-10 col-xs-10 offset-1">
+        <h4 class="title my-2"><i class="fas fa-users fa-3x"></i> 会員一覧<span class ="count">(全<%= @user_count.count %>名)</span></h4>
+         <table class="table table-hover table-inverse">
+            <tr>
+              <th class= "text-center">プロフィール画像</th>
+              <th class= "text-center">名前</th>
+              <th class= "text-center">性別</th>
+              <th class= "text-center">年齢</th>
+              <th colspan "3"></th>
+            </tr>
+            <% @users.each do |user| %>
+            <tr style="height: 20px">
+              <td class= "text-center">
+                <%= attachment_image_tag user, :profile_image, size: "60x60", format: "jpeg",fallback: "no_image.jpg" %>
+              </td>
+              <td class= "text-center">
+                <%= link_to user.name, user_path(user.id),class:'link-name' %>
+              </td>
+              <td class= "text-center"><%=user.sex %></td>
+              <td class= "text-center"><%=user.age %></td>
+              <td class= "text-center"><%= render "relationships/info", user: user %></td>
+            </tr>
+            <% end %>
+          </table>
+        </div>
+      </div>
+      <div class="paginate">
+        <%= paginate @users %>
+      </div>
+    </div>
+  </div>

@@ -1,2 +1,0 @@
-class BaseCalConsumptionsController < ApplicationController
-end

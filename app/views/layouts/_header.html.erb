@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="nav-item">
+    <%= link_to "Calo-man", root_path, class:"navbar-brand font-title"%>
+    </div>
+    <!--=====ハンバーガーメニュー=====-->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <div class="flex">
+        <!--会員のログイン時-->
+      <% if user_signed_in? %>
+        <div class="nav-item"><%= link_to user_path(current_user.id),class:'nav-link' do %> <i class="fas fa-user fa-2x"></i>  <%=current_user.name %>さん<% end %></div>
+        <div class="nav-item"><%= link_to cal_balances_path, class:'nav-link' do %><i class="fas fa-balance-scale fa-2x"></i> カロリーバランス <% end %></div>
+        <div class="nav-item"><%= link_to data_path, class:'nav-link' do %><i class="fas fa-database fa-2x"></i> データ <% end %></div>
+        <div class="nav-item"><%= link_to users_path, class:'nav-link' do %><i class="fas fa-users fa-2x"></i> 会員一覧 <% end %></div>
+        <div class="nav-item"><%= link_to destroy_user_session_path, method: :delete, class:'nav-link' do %><i class="fas fa-sign-out-alt fa-2x"></i> ログアウト <% end %></div>
+          <!--=====日付検索=====-->
+        <div class="nav-item pt-3">
+          <%=form_with url: cal_balances_path, method: :get, local: true do |f| %>
+            <%= f.date_field :created_date,include_blank: true, selected: Date.today %>
+            <%= f.submit '検索',class:'btn btn-info mb-2 btn-sm px-5 ml-3' %>
+          <% end %>
+        </div> 
+        <!--ログアウト時-->
+      <% else %>
+        <div class="nav-item"><%= link_to user_registration_path, class:'nav-link' do %><i class="fas fa-user-plus fa-2x"></i> 新規登録 <% end %></div>
+        <div class="nav-item"><%= link_to new_user_session_path, class:'nav-link' do %><i class="fas fa-sign-in-alt fa-2x"></i> ログイン <% end %></div>
+      <% end %>
+    </div>
+  </div>
+</nav>

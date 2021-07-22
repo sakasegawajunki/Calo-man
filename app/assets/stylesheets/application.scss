@@ -1,0 +1,104 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ @import "bootstrap";
+ @import 'font-awesome-sprockets';
+ @import 'font-awesome';
+
+body {
+  width: 100%;
+  height: 100%;
+}
+
+#mainvisual {
+  height: 140vh;
+  background-image: image-url("clyde-rs-4XbZCfU2Uoo-unsplash.jpg");
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.flex {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+.nav-link {
+  color: #fff;
+}
+
+.font-title{
+  font-size: 38px;
+  font-weight: 1000;
+  
+}
+
+.notification {
+  color: white;
+  font-size: 20px;
+  text-align: center;
+
+  .notice {
+    background-color: #808080;
+    margin: 0;
+  }
+
+  .alert {
+    background-color: #FF9900;
+    margin: 0;
+  }
+}
+.datetime {
+  font-family: “irohamaru-Medium”;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.datetime-p {
+  font-size: 10px;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: #f8f9fa;
+}
+
+.title {
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.table-color,.table-bordered,{
+  background-color: #fff;
+}
+
+
+@media (max-width:991px){
+.nav-link  {
+  padding: 0px;
+  }
+
+.flex {
+  width: 100%;
+  -webkit-flex-direction: column;
+	flex-direction: column;
+  }
+
+.nav-item {
+  text-align: center;
+  }
+}

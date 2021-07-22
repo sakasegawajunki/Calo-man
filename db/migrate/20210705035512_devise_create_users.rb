@@ -33,14 +33,14 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       # t.datetime :locked_at
 
       t.string :name
-      t.string :nama_kana
+      t.string :name_kana
       t.string :password
-      t.integer :email
+      t.string :email
       t.string :profile_image_id
       t.string :introduction
-      t.integer :height
-      t.integer :weight
-      t.integer :bmi
+      t.float :height
+      t.float :weight
+      t.float :bmi
       t.integer :sex
       t.integer :age
       t.boolean :is_valid, null: false, default: true

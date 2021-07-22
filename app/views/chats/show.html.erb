@@ -1,2 +1,16 @@
-<h1>Chats#show</h1>
-<p>Find me in app/views/chats/show.html.erb</p>
+<div id="mainvisual">
+  <div class="container pt-5">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-xs-12">
+        <h4 class="title mb-5"><i class="fas fa-sms fa-3x"></i> <%=@chatuser.name %>さんとのチャット</h4>
+      <div class ="chat_area">
+        <%= render "chats/form", chat: @chat %>
+        <%= render"chats/chat", chats: @chats %>
+      </div>
+      </div>
+    </div>
+    <div class="paginate">
+      <%= paginate @chats %>
+    </div>
+  </div>
+</div>

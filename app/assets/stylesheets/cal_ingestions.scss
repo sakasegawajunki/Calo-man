@@ -1,3 +1,27 @@
 // Place all the styles related to the cal_ingestions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.font-large {
+  font-size: 200PX;
+} 
+
+.table-menu {
+  font-size: 12px;
+}
+
+.table-menu 
+  tr {
+   line-height: 7px;
+   min-height: 7px;
+   height: 7px;
+ }
+ 
+ .cal_ingestion-num {
+  font-family: “irohamaru-Medium”;
+  font-size: 50px;
+  font-weight: bold;
+ }
+ 
+ .menu {
+  font-family: “irohamaru-Medium”;
+ }

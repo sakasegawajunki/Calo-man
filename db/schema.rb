@@ -10,30 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_05_035512) do
+ActiveRecord::Schema.define(version: 2021_07_17_070622) do
 
-  create_table "base_cal_consumptions", force: :cascade do |t|
-    t.integer "cal_consumtion"
-    t.integer "sex"
-    t.integer "age"
+  create_table "cal_consumptions", force: :cascade do |t|
+    t.integer "cal_consumption", default: 0, null: false
+    t.integer "base_cal_consumption", default: 0, null: false
     t.integer "action_pattern"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "cal_consumtions", force: :cascade do |t|
-    t.integer "cal_consumtion"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.date "date"
   end
 
   create_table "cal_ingestions", force: :cascade do |t|
-    t.integer "breakfast_cal"
-    t.integer "lunch_cal"
-    t.integer "dinner_cal"
-    t.integer "snack_cal"
+    t.integer "user_id"
+    t.integer "breakfast_cal", default: 0, null: false
+    t.integer "lunch_cal", default: 0, null: false
+    t.integer "dinner_cal", default: 0, null: false
+    t.integer "snack_cal", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "date"
   end
 
   create_table "chats", force: :cascade do |t|
@@ -64,19 +61,19 @@ ActiveRecord::Schema.define(version: 2021_07_05_035512) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.integer "email"
+    t.string "email"
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "name"
-    t.string "nama_kana"
+    t.string "name_kana"
     t.string "password"
     t.string "profile_image_id"
     t.string "introduction"
-    t.integer "height"
-    t.integer "weight"
-    t.integer "bmi"
+    t.float "height"
+    t.float "weight"
+    t.float "bmi"
     t.integer "sex"
     t.integer "age"
     t.boolean "is_valid", default: true, null: false
