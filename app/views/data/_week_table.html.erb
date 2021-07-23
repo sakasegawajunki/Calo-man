@@ -12,14 +12,14 @@
     </tr>
     <tr>
       <!--=====今週のカロリーバランス=====-->
-      <td><%= cal_balance_sun %></td>
-      <td><%= cal_balance_mon %></td>
-      <td><%= cal_balance_tue %></td>
-      <td><%= cal_balance_wed %></td>
-      <td><%= cal_balance_thu %></td>
-      <td><%= cal_balance_fri %></td>
-      <td><%= cal_balance_sat %></td>
+      <td><%= cal_balance_sun.to_s(:delimited) %></td>
+      <td><%= cal_balance_mon.to_s(:delimited) %></td>
+      <td><%= cal_balance_tue.to_s(:delimited) %></td>
+      <td><%= cal_balance_wed.to_s(:delimited) %></td>
+      <td><%= cal_balance_thu.to_s(:delimited) %></td>
+      <td><%= cal_balance_fri.to_s(:delimited) %></td>
+      <td><%= cal_balance_sat.to_s(:delimited) %></td>
       <!--=====今週のカロリーバランスの合計=====-->
-      <td><%= week_sum %></td>
+      <td><%= week_sum.to_s(:delimited) %></td>
     </tr>
 </table>

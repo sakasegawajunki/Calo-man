@@ -23,7 +23,7 @@ describe '[STEP2] ユーザログイン後のテスト' do
       it 'Calo-manを押すと、トップ画面に遷移する' do
         # home_link = find_all('a')[1].native.inner_text
         # home_link = home_link.gsub(/\n/, '').gsub(/\A\s*/, '').gsub(/\s*\Z/, '')
-        byebug
+        
         click_link all(:xpath,'//div/a')[0]
         is_expected.to eq '/'
       end
