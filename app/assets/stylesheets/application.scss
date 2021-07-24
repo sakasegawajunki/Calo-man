@@ -17,6 +17,14 @@
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
 
+@font-face {
+  font-family: "irohamaru-Medium";
+  src: asset_url('irohamaru-Medium.ttf') format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 body {
   width: 100%;
   height: 100%;
