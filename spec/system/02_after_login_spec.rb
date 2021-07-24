@@ -4,12 +4,12 @@ describe '[STEP2] ユーザログイン後のテスト' do
   # let(:user) { create(:user) }
   # byebug
   # let!(:other_user) { create(:user) }
-  user = FactoryBot.build(:user)
+  # user = build(:user)
   # let!(:cal_ingestion) { create(:cal_ingestion, user: user) }
   # let!(:other_cal_ingestion) { create(:cal_ingestion, user: other_user) }
 
   before do
-    user.save!
+    user = build(:user)
     visit new_user_session_path
     fill_in 'user[email]', with: user.email
     fill_in 'user[password]', with: user.password
@@ -18,32 +18,30 @@ describe '[STEP2] ユーザログイン後のテスト' do
 
   describe '摂取カロリー入力画面のテスト' do
     before do
-      visit cal_balances
+      visit cal_balances_path
       click_on "摂取カロリー入力画面へ"
     end
 
     context "保存成功のテスト" do
-    before do
-      visit new_cal_ingestion_path
-      subject { current_path }
-    end
-    byebug
-        fill_in 'cal_ingestion[breakfast_cal]', with: "1234"
-        fill_in 'cal_ingestion[lunch_cal]', with: "1234"
-        fill_in 'cal_ingestion[dinner_cal]', with: "1234"
-        fill_in 'cal_ingestion[snack_cal]', with: "1234"
-        fill_in "cal_ingestion[date]", with: "2020-7-20"
-        click_on '保存する'
-        is_expected.to have_content 'successfully'
-
+      before do
+        visit new_cal_ingestion_path
+        subject { current_path }
       end
+      # byebug
       it '新しい摂取カロリーが正しく保存される' do
-        expect { click_button '保存する' }.to change(user.cal_ingestions, :count).by(1)
+          fill_in 'cal_ingestion[breakfast_cal]', with: "1234"
+          fill_in 'cal_ingestion[lunch_cal]', with: "1234"
+          fill_in 'cal_ingestion[dinner_cal]', with: "1234"
+          fill_in 'cal_ingestion[snack_cal]', with: "1234"
+          #fill_in "cal_ingestion[date]", with: "October 26, 2021"
+          page.execute_script("$('#cal_ingestion_date').val('2021-07-17')")
+          click_on '保存する'
+
+          is_expected.to have_content '保存成功のテスト'
+          expect(CalIngestion.last.breakfast_cal).to eq 1234
+          expect(has_current_path?('/cal_balances?created_date=2021-07-17')).to be_truthy
       end
-      it 'リダイレクト先が、保存できた投稿の詳細画面になっている' do
-        click_button '保存する'
-        expect(current_path).to eq '/cal_balances/' + CalIngestion.date
-      end
+    end
 
       # it 'Calo-manを押すと、トップ画面に遷移する' do
       #   # home_link = find_all('a')[1].native.inner_text
