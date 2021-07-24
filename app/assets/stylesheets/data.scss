@@ -34,3 +34,28 @@
   font-size: 30px;
   font-weight: bold
 }
+
+@media screen and (max-width: 640px) {
+  .table_week tr td,
+  .table_week tr th {
+    border-left: none;
+    display: block;
+    height: 50px;
+  }
+  .table_week thead {
+    display: block;
+    float: left;
+  }
+
+  .table_week tbody {
+    display: block;
+    float: left;
+  }
+
+  .table_week tr td + td {
+    border-left: none;
+  }
+  .table_week tbody td:last-child {
+    border-bottom: solid 1px #ccc;
+  }
+}

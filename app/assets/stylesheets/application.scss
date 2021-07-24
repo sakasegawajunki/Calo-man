@@ -45,7 +45,7 @@ body {
 .font-title{
   font-size: 38px;
   font-weight: 1000;
-  
+
 }
 
 .notification {
@@ -86,6 +86,10 @@ body {
   background-color: #fff;
 }
 
+.table_week{
+  background-color: #fff;
+}
+
 
 @media (max-width:991px){
 .nav-link  {
@@ -100,5 +104,16 @@ body {
 
 .nav-item {
   text-align: center;
+  }
+
+.table-color,.table-bordered{
+  background-color: #fff;
+  margin: auto;
+}
+  
+  .table_week {
+    background-color: #fff;
+    width: auto;
+    margin: auto;
   }
 }
