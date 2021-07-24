@@ -4,7 +4,8 @@
     <title>CaloMan</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+    <!--<link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">-->
+    <link href=" https://change_change.com/assets/irohamaru-Medium.ttf" rel="stylesheet">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
@@ -14,22 +15,22 @@
 
    <!--======ヘッダーの部分テンプレート======-->
     <%= render "layouts/header" %>
-    
 
-    
+
+
     <main>
    <!--======フラッシュメッセージ======-->
   <div class="notification">
     <% if flash[:notice] %>
      <div class ="notice"><%= flash[:notice] %></div>
-      
+
     <% elsif flash[:alert]%>
      <div class ="alert"><%= flash[:alert] %></div>
     <% end %>
-  </div>    
-    
+  </div>
+
       <%= yield %>
-    
+
     </main>
     <!--======フッターの部分テンプレート======-->
   <%= render "layouts/footer" %>
