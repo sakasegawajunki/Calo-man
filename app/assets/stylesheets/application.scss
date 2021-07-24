@@ -92,6 +92,10 @@ body {
 
 
 @media (max-width:991px){
+ .title {
+  font-size: 1.5rem;
+  }
+  
 .nav-link  {
   padding: 0px;
   }
@@ -116,4 +120,5 @@ body {
     width: auto;
     margin: auto;
   }
+  
 }
