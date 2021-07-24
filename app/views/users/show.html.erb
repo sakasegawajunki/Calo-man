@@ -47,7 +47,7 @@
     <div class="row py-3">
       <%if @user == current_user %>
       <div class="col-lg-8 col-md-8 col-xs-8 offset-4 ">
-        <%= link_to"編集する", edit_user_path(@user), class: "btn btn-success btn-lg px-4 mr-4" %>
+        <%= link_to"編集する", edit_user_path(@user), class: "btn btn-success btn-lg px-4 mr-4 my-1" %>
         <%= link_to"退会する", unsubcribe_users_path, class: "btn btn-danger btn-lg px-4" %>
       </div>
       <% end %>

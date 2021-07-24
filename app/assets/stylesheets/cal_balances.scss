@@ -36,3 +36,9 @@
   font-size: 25px;
   font-weight: 1200;
 }
+
+@media (max-width:991px) {
+ .cal_balance_date {
+   font-size: 1rem;
+ }
+}
