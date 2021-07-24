@@ -2,18 +2,22 @@ class UsersController < ApplicationController
     before_action :authenticate_user! #ログイン済ユーザーのみにアクセスを許可する
   def show
     @user = User.find(params[:id])
-
-
   end
 
   def data
-      @user = current_user
-      @cal_consumption = current_user.cal_consumptions
-      @cal_ingestion = current_user.cal_ingestions
+    @user = current_user
+    @cal_consumption = current_user.cal_consumptions
+    @cal_ingestion = current_user.cal_ingestions
+    if @user != current_user
+      redirect_to user_users_mydata_path(current_user)
+    end
   end
 
   def edit
-    @user = current_user
+    @user = User.find(params[:id])
+    if @user != current_user
+      redirect_to user_path(current_user)
+    end
   end
 
   def update
