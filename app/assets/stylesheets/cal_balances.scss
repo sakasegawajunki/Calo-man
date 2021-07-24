@@ -1,27 +1,19 @@
 // Place all the styles related to the cal_balances controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-@font-face {
-  font-family: "irohamaru-Medium";
-  src: asset_url('/assets/irohamaru-Medium.ttf') format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
+
 
 .cal_balance-num {
-  // font-family: "irohamaru-Medium";
   font-size: 50px;
   font-weight: bold;
 }
 
 .cal_ingestion,.cal_consumption,.cal_balance {
-  // font-family: "irohamaru-Medium";
   font-size: 25px;
   font-weight: bold;
 }
 
 .cal_ingestion-num {
-  // font-family: "irohamaru-Medium";
   font-size: 30px;
   font-weight: bold;
 }
