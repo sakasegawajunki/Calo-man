@@ -25,9 +25,9 @@ describe '[STEP2] ユーザログイン後のテスト' do
     context "保存成功のテスト" do
     before do
       visit new_cal_ingestion_path
-      
+      subject { current_path }
     end
-      byebug
+    byebug
         fill_in 'cal_ingestion[breakfast_cal]', with: "1234"
         fill_in 'cal_ingestion[lunch_cal]', with: "1234"
         fill_in 'cal_ingestion[dinner_cal]', with: "1234"
@@ -35,7 +35,7 @@ describe '[STEP2] ユーザログイン後のテスト' do
         fill_in "cal_ingestion[date]", with: "2020-7-20"
         click_on '保存する'
         is_expected.to have_content 'successfully'
-    
+
       end
       it '新しい摂取カロリーが正しく保存される' do
         expect { click_button '保存する' }.to change(user.cal_ingestions, :count).by(1)
@@ -63,6 +63,6 @@ describe '[STEP2] ユーザログイン後のテスト' do
       #   click_link books_link
       #   is_expected.to eq '/books'
       # end
-    
+
   end
 end
