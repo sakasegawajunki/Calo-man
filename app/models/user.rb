@@ -14,9 +14,11 @@ class User < ApplicationRecord
   def follow(user_id)
     relationships.create(followed_id: user_id)
   end
+
   def unfollow(user_id)
     relationships.find_by(followed_id: user_id).destroy
   end
+
   def following?(user)
     followings.include?(user)
   end
@@ -38,16 +40,14 @@ class User < ApplicationRecord
   end
   enum sex: { "男性": 0, "女性": 1 }
 
-  #カスタマーが退会していなければtrue
+  # カスタマーが退会していなければtrue
   def active_for_authentication?
-    super && (self.is_valid == true)
+    super && (is_valid == true)
   end
 
   # インスタンスメソッド
-  #BMIの計算を定義する
+  # BMIの計算を定義する
   def bmi
-    (weight*10_000/(height**2).to_f).round(1)
+    (weight * 10_000 / (height**2).to_f).round(1)
   end
-
-
 end

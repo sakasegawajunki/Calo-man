@@ -2,9 +2,8 @@ require 'rails_helper'
 
 RSpec.describe 'CalIngestionモデルのテスト', type: :model do
   describe 'バリデーションのテスト' do
-
-  before do
-      @cal_ingestion = FactoryBot.build(:cal_ingestion)#@cal_ingestionを生成する
+    before do
+      @cal_ingestion = FactoryBot.build(:cal_ingestion) # @cal_ingestionを生成する
     end
 
     context 'dateカラム' do
@@ -26,20 +25,21 @@ RSpec.describe 'CalIngestionモデルのテスト', type: :model do
         expect(@cal_ingestion.save).to be_falsey
       end
     end
-    
+
     context 'lunch_calカラム' do
       it '数字であること' do
         @cal_ingestion.lunch_cal = "aaaaa"
         expect(@cal_ingestion.save).to be_falsey
       end
     end
-    
+
     context 'dinner_calカラム' do
       it '数字であること' do
         @cal_ingestion.dinner_cal = "aaaaa"
         expect(@cal_ingestion.save).to be_falsey
       end
     end
+
     context 'snack_calカラム' do
       it '数字であること' do
         @cal_ingestion.snack_cal = "aaaaa"
@@ -57,11 +57,12 @@ RSpec.describe 'CalIngestionモデルのテスト', type: :model do
       end
     end
   end
+
   describe 'アソシエーションのテスト' do
     context 'Userモデルとの関係' do
       it 'N:1となっている' do
         expect(CalIngestion.reflect_on_association(:user).macro).to eq :belongs_to
       end
-     end
-   end
+    end
+  end
 end

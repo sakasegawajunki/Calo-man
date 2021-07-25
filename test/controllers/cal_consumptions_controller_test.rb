@@ -10,5 +10,4 @@ class CalConsumptionsControllerTest < ActionDispatch::IntegrationTest
     get cal_consumptions_edit_url
     assert_response :success
   end
-
 end
