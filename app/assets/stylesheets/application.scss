@@ -81,6 +81,8 @@ body {
 .title {
   font-size: 35px;
   font-weight: bold;
+  display: inline;
+	background-image: linear-gradient(rgba(0,0,0,0) 70%, #808080 0%);
 }
 
 .table-color,.table-bordered,{
