@@ -50,16 +50,16 @@ describe 'ユーザログイン後のテスト' do
         visit cal_balances_path
         click_on "消費カロリー入力画面へ"
         visit new_cal_consumption_path
-        byebug
         subject { current_path }
           fill_in 'cal_consumption[cal_consumption]', with: "1234"
-          # select "----  活発  ----",from: 'cal_consumption[action_pattern]'
+        byebug
+          select(value = "0", from: 'cal_consumption[action_pattern]')
           page.execute_script("$('#cal_consumption_date').val('2021-07-17')")
           click_on '保存する'
-
           is_expected.to have_content '保存成功のテスト'
           expect(CalConsumption.last.cal_consumption).to eq 1234
-          # expect(CalConsumption.last.base_cal_consumption).to eq 1234
+          expect(CalConsumption.last.action_pattern).to eq 0
+          expect(CalConsumption.last.base_cal_consumption).to eq (13.397*user.weight+4.799*user.height-5.677*user.age+88.362) * 1.4
           expect(has_current_path?('/cal_balances?created_date=2021-07-17')).to be_truthy
       end
     end
