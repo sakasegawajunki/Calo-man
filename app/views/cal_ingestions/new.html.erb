@@ -7,9 +7,9 @@
           登録日：  <%= f.date_field :date %>
       </div>
     </div>
-  
+
       <div class="row mb-3 mt-5">
-        <div class ="col-lg-4 col-md-4 col-xs-12 mt-5">
+        <div class ="col-lg-5 col-md-5 col-xs-12 mt-5">
           <p class="mr-3 mb-5">朝食 :
             <span class="ml-3"><%= f.number_field :breakfast_cal, class:"mb-2",size: "20x1" %></span>
             <span class="ml-3">Kcal</span>
@@ -28,7 +28,7 @@
           </p>
       </div>
       <!--=====メニュー一覧=====-->
-      <div class ="col-lg-8 col-md-8 col-xs-12">
+      <div class ="col-lg-7 col-md-7 col-xs-12">
         <%= render "cal_ingestions/menu" %>
       </div>
      </div>
