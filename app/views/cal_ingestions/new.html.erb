@@ -11,17 +11,17 @@
       <div class="row mb-3 mt-5">
         <div class ="col-lg-4 col-md-4 col-xs-12 mt-5">
           <p class="mr-3 mb-5">朝食 :
-            <span class="ml-3"><%= f.text_field :breakfast_cal, class:"mb-2",size: "20x1" %></span>
+            <span class="ml-3"><%= f.number_field :breakfast_cal, class:"mb-2",size: "20x1" %></span>
             <span class="ml-3">Kcal</span>
           </p>
           <p class="mr-3 mb-5">昼食 :
-           <span class="ml-3"><%= f.text_field :lunch_cal, class:"mb-2",size: "20x1" %></span>
+           <span class="ml-3"><%= f.number_field :lunch_cal, class:"mb-2",size: "20x1" %></span>
            <span class="ml-3">Kcal</span></p>
           <p class="mr-3 mb-5">夕食 :
-            <span class="ml-3"><%= f.text_field :dinner_cal, class:"mb-2",size: "20x1" %></span>
+            <span class="ml-3"><%= f.number_field :dinner_cal, class:"mb-2",size: "20x1" %></span>
             <span class="ml-3">Kcal</span></p>
           <p class="mr-3 mb-5">間食 :
-           <span class="ml-3"> <%= f.text_field :snack_cal, class:"mb-2",size: "20x1" %></span>
+           <span class="ml-3"> <%= f.number_field :snack_cal, class:"mb-2",size: "20x1" %></span>
            <span class="ml-3">Kcal</span></p>
           <p class="ml-5 mt-8">
             <%=f.submit '保存する', class:'btn btn-primary mb-2 btn-lg px-5'%>

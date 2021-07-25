@@ -16,7 +16,7 @@
       <div class="row cal_consumption-label text-center d-flex align-items-center mt-2">
         <div class="col-lg-4 col-md-4 col-xs-12 offset-1 mt-3 mb-5">行動パターンによる基礎代謝量
           <div class="mt-5">
-            <%= f.select :action_pattern, CalConsumption.action_patterns %></br>
+            <%= f.select :action_pattern, CalConsumption.action_patterns.keys %></br>
             <P class="cal_consumption-text mt-4">※行動パターンを選択するとユーザーの性別、年齢、体重、身長から自動で基礎代謝量が計算されます。
             <br>基礎代謝(A)に対する数値基準 ⇨ 活発: A x 1.4倍, 仕事: A x 1.2倍, 休日: A x 1.1倍　</p>
           </div>
