@@ -2,11 +2,9 @@ require 'rails_helper'
 
 RSpec.describe 'CalConsumptionモデルのテスト', type: :model do
   describe 'バリデーションのテスト' do
-
-  before do
+    before do
       @cal_consumption = FactoryBot.build(:cal_consumption)
     end
-
 
     context 'dateカラム' do
       it '空欄でないこと' do
@@ -42,6 +40,6 @@ RSpec.describe 'CalConsumptionモデルのテスト', type: :model do
       it 'N:1となっている' do
         expect(CalConsumption.reflect_on_association(:user).macro).to eq :belongs_to
       end
-     end
-   end
+    end
+  end
 end

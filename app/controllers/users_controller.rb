@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    before_action :authenticate_user! #ログイン済ユーザーのみにアクセスを許可する
+  before_action :authenticate_user! # ログイン済ユーザーのみにアクセスを許可する
   def show
     @user = User.find(params[:id])
   end
@@ -34,7 +34,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    #per()で1ページに入れたい数を変更する
+    # per()で1ページに入れたい数を変更する
     @user = current_user
     @users = User.where(is_valid: true).page(params[:page]).per(3)
     @user_count = User.all
@@ -51,20 +51,20 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
-    private
+  private
 
-    def user_params
-      params.require(:user).permit(
-        :name,
-        :name_kana,
-        :password,
-        :profile_image,
-        :introduction,
-        :height,
-        :weight,
-        :bmi,
-        :sex,
-        :age
-        )
-    end
+  def user_params
+    params.require(:user).permit(
+      :name,
+      :name_kana,
+      :password,
+      :profile_image,
+      :introduction,
+      :height,
+      :weight,
+      :bmi,
+      :sex,
+      :age
+    )
+  end
 end

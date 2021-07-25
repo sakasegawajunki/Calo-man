@@ -10,5 +10,4 @@ class CalIngestionsControllerTest < ActionDispatch::IntegrationTest
     get cal_ingestions_edit_url
     assert_response :success
   end
-
 end

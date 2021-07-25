@@ -5,5 +5,4 @@ class CalBalancesControllerTest < ActionDispatch::IntegrationTest
     get cal_balances_show_url
     assert_response :success
   end
-
 end

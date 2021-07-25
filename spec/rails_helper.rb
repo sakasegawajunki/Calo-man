@@ -67,7 +67,7 @@ RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
   config.include LoginModule
   # require only the support files necessary.
-config.before(:all) do
+  config.before(:all) do
     FileUtils.rm_rf(Dir[Rails.root.join('tmp', 'screenshots', '*')], secure: true)
   end
 end
