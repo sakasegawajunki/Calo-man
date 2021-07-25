@@ -1,8 +1,8 @@
 <div id="main-b-visual">
   <div class="containser pt-5">
     <h4 class="title ml-4 mb-5"><i class="fas fa-user fa-2x"></i> <%= @user.name %>さんのページ</h4>
-      <div class="row">
-        <div class="col-lg-3 col-md-3 col-xs-12 text-center">
+      <div class="row mb-5">
+        <div class="col-lg-3 col-md-3 mb-1 col-xs-12 text-center">
           <%= attachment_image_tag @user, :profile_image, size: "250x300", format: "jpeg", fallback: "no_image.jpg" %>
         </div>
         <div class="col-lg-8 col-md-8 col-xs-12 mx-auto">
@@ -32,7 +32,7 @@
           <p class="following"><%= link_to"フォロー一覧", user_followings_path(@user),class: "link" %></p>
         </div>
         <div class="col-lg-5 col-md-3 col-xs-12 text-center">
-          <p class="follower"><i class="fas fa-people-arrows fa-2x"></i> フォロワー数:<span class="follower-count"> <%= @user.followers.count %></span> 人</p> 
+          <p class="follower"><i class="fas fa-people-arrows fa-2x"></i> フォロワー数:<span class="follower-count"> <%= @user.followers.count %></span> 人</p>
           <p class="follower"><%= link_to"フォロワー一覧", user_followers_path(@user),class: "link" %></p>
         </div>
     </div>
@@ -47,7 +47,7 @@
     <div class="row py-3">
       <%if @user == current_user %>
       <div class="col-lg-8 col-md-8 col-xs-8 offset-4 ">
-        <%= link_to"編集する", edit_user_path(@user), class: "btn btn-success btn-lg px-4 mr-4" %>
+        <%= link_to"編集する", edit_user_path(@user), class: "btn btn-success btn-lg px-4 mr-4 my-1" %>
         <%= link_to"退会する", unsubcribe_users_path, class: "btn btn-danger btn-lg px-4" %>
       </div>
       <% end %>

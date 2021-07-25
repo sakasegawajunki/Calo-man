@@ -10,8 +10,13 @@ class User < ApplicationRecord
   has_many :followers, through: :reverse_of_relationships, source: :follower
   has_many :relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
   has_many :followings, through: :relationships, source: :followed
-  
-  
+
+  #before_validation :test
+
+  #def test
+  #  byebug
+  #end
+
   def follow(user_id)
     relationships.create(followed_id: user_id)
   end
@@ -49,6 +54,6 @@ class User < ApplicationRecord
   def bmi
     (weight*10_000/(height**2).to_f).round(1)
   end
-  
-  
+
+
 end
