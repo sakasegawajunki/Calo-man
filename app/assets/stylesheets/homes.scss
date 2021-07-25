@@ -33,7 +33,7 @@ opacity:0;
 .img-wrapper p {
   position: absolute;
   color: 	#333333;
-  top: 150px;
+  top: 300px;
   left: 25px;
   display: inline;
 	background-image: linear-gradient(rgba(0,0,0,0) 70%, #000099 70%);
@@ -50,3 +50,15 @@ opacity:0;
   background-attachment: fixed;
 }
 
+@media (max-width:800px){
+.img-wrapper p {
+  position: absolute;
+  color: 	#333333;
+  top: 300px;
+  left: 25px;
+  display: inline;
+	background-image: linear-gradient(rgba(0,0,0,0) 70%, #000099 70%);
+  font-size: 20px;
+  font-weight: bold;
+  }
+}
