@@ -82,6 +82,7 @@ gem 'enum_select_rails'
 gem 'enum_help'
 gem "i18n_generators"
 gem 'pry-byebug', group: :development
+gem 'rails-i18n'
 
 gem 'dotenv-rails'
 group :production do

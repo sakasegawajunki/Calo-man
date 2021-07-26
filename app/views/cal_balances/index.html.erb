@@ -1,14 +1,12 @@
 <div id="mainvisual">
   <div class="container py-5">
     <h4 class="title"><i class="fas fa-balance-scale fa-3x"></i> カロリーバランス</h4>
-     <div class="row text-center d-flex align-items-center my-5">
+      <div class="row text-center d-flex align-items-center my-5">
        <div class="cal_balance_date col-lg-12 col-md-12 col-xs-12">
-         <!--三項演算子使用-->
-          <label class="datetime"><%= @created_date.strftime("%-m月%-d日(%a)")%></label>
-
+          <label class="datetime"><%= @created_date.strftime("%-m月%-d日(#{I18n.t('date.abbr_day_names')[@created_date.wday]})")%></label>
           <span class="cal_balance">のカロリーバランス</span>
+        </div>
       </div>
-    </div>
      <div class="row text-center d-flex align-items-center mt-1 mb-5">
        <div class="col-lg-12 col-md-12 col-xs-12 cal_balance-num">
       <span><%= (@cal_ingestion&.total_cal_ingestions.to_i - @cal_consumption&.total_cal_consumptions.to_i).to_s(:delimited) %> kcal</span>
@@ -40,8 +38,6 @@
             <%=link_to "消費カロリー入力画面へ",edit_cal_consumption_path(@cal_consumption.id), class: "edit-link" %>
           <% end %>
           </div>
-        </div>
-
         </div>
       </div>
     </div>
