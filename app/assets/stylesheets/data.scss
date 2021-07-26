@@ -1,7 +1,6 @@
 // Place all the styles related to the data controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
 .weight,.cal {
   font-size: 25px;
 }
@@ -56,5 +55,17 @@
   }
   .table_week tbody td:last-child {
     border-bottom: solid 1px #ccc;
+  }
+  .table-title {
+    font-size: 20px;
+  }
+
+  .cal-text {
+    font-size: 15px;
+  }
+  .table-color, .table-bordered {
+    background-color: #fff;
+    margin: auto;
+    font-size: 5px;
   }
 }
