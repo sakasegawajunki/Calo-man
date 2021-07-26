@@ -10,6 +10,7 @@
         <th>金曜日</th>
         <th>土曜日</th>
         <th width="150" >今週の合計</th>
+        <th width="150">体重増減<br>(理論値)</th>
       </tr>
     </thead>
     <tbody>
@@ -24,6 +25,8 @@
         <td><%= cal_balance_sat.to_s(:delimited) %></td>
         <!--=====今週のカロリーバランスの合計=====-->
         <td><%= week_sum.to_s(:delimited) %></td>
+        <!--=====今週の体重の増減（理論値）=====-->
+      <td><%= week_sum_weight %> kg</td>
       </tr>
     </tbody>
 </table>

@@ -56,10 +56,12 @@ class DataController < ApplicationController
     CalConsumption.where(user_id: current_user).where(date: Time.now.all_month).sum("cal_consumption + base_cal_consumption")
 
     # 今月の体重増減(理論値)
+    @week_sum_weight = (@week_sum / 7000.to_f).round(2)
+
+    # 今月の体重増減(理論値)
     @month_sum_weight = (@month_sum / 7000.to_f).round(2)
 
     # ランキング機能(消費カロリー)
-    # c = CalConsumption.arel_table#cを定義してカラム名を指定する
     cal_consumption_ranks = CalConsumption.select([:id, :date, :base_cal_consumption, :cal_consumption]).where(date: Time.now.all_month).where(user_id: current_user.id)
     hash = {}
     cal_consumption_ranks.each do |cal_consumption|
