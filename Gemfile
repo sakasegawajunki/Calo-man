@@ -75,6 +75,7 @@ gem "refile-mini_magick"
 
 gem 'bootstrap', '~> 4.5'
 gem 'jquery-rails'
+gem 'jquery-turbolinks'
 gem 'font-awesome-sass', '~> 5.13'
 gem 'kaminari', '~> 0.17.0'
 gem 'enum_select_rails'
