@@ -83,6 +83,27 @@ margin-left: 30px;
   font-weight: bold;
 }
 
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.text-label {
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.update {
+  text-align: center;
+  margin-top: 80px;
+}
+
+.font-form {
+  text-align: left;
+}
+
 @media screen and (max-width: 800px) {
   .table-hover,.link-name, {
     font-size: 0.5rem;
@@ -99,5 +120,11 @@ margin-left: 30px;
   .table-style {
       font-size: 0.7rem;
       font-weight: bold;
+  }
+  
+  .text-label {
+  text-align: left;
+  font-size: 15px;
+  font-weight: bold;
   }
 }
