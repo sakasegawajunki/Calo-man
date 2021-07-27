@@ -13,29 +13,29 @@
        </div>
      </div>
       <div class="row mb-3 mt-5">
-        <div class ="col-lg-5 col-md-5 col-xs-12 mt-4">
+        <div class ="col-lg-5 col-md-5 col-xs-12 offset-1 mt-4">
           <p class="mr-3 mb-5">朝食 :
-            <span class="ml-3"><%= f.number_field :breakfast_cal, class:"mb-2",size: "20x1" %></span>
+            <span class="ml-3"><%= f.number_field :breakfast_cal, class:"mb-2",size: "autox1" %></span>
             <span class="ml-3">kcal</span>
           </p>
           <p class="mr-3 mb-5">昼食 :
-           <span class="ml-3"><%= f.number_field :lunch_cal, class:"mb-2",size: "20x1" %></span>
+           <span class="ml-3"><%= f.number_field :lunch_cal, class:"mb-2",size: "autox1" %></span>
            <span class="ml-3">kcal</span></p>
           <p class="mr-3 mb-5">夕食 :
-            <span class="ml-3"><%= f.number_field :dinner_cal, class:"mb-2",size: "20x1" %></span>
+            <span class="ml-3"><%= f.number_field :dinner_cal, class:"mb-2",size: "autox1" %></span>
             <span class="ml-3">kcal</span></p>
           <p class="mr-3 mb-5">間食 :
-           <span class="ml-3"> <%= f.number_field :snack_cal, class:"mb-2",size: "20x1" %></span>
+           <span class="ml-3"> <%= f.number_field :snack_cal, class:"mb-2",size: "autox1" %></span>
            <span class="ml-3">kcal</span></p>
           <p class="ml-5 mt-5">
             <%=f.submit '更新する', class:'btn btn-success mb-2 btn-lg px-5'%>
           </p>
       </div>
       <!--=====メニュー一覧=====-->
-      <div class ="col-lg-7 col-md-7 col-xs-12 menu">
+      <div class ="col-lg-6 col-md-6 col-xs-12 menu">
         <%= render "cal_ingestions/menu" %>
       </div>
-     </div>
+    </div>
    <% end %>
-</div>
+  </div>
 </div>

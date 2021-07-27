@@ -64,15 +64,6 @@ body {
   }
 }
 
-.datetime {
-  font-size: 40px;
-  font-weight: bold;
-}
-
-.datetime-p {
-  font-size: 10px;
-}
-
 .navbar-dark .navbar-nav .nav-link {
     color: #f8f9fa;
 }
@@ -93,10 +84,6 @@ body {
 }
 
 @media (max-width:991px){
-  body {
-    font-size: 25px;
-  }
-  
    .title {
     font-size: 1.5rem;
     }
