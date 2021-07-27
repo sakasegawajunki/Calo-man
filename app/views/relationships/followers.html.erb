@@ -13,22 +13,22 @@
           <th colspan "3"></th>
         </tr>
           <% @users.each do |user| %>
-          <tr>
-            <td class= "text-center">
-              <%= attachment_image_tag user, :profile_image, size: "60x60", format: "jpeg",fallback: "no_image.jpg" %>
-            </td>
-            <td class= "text-center">
-              <%= link_to user.name, user_path(user.id),class:'nav-users' %>
-            </td>
-            <td class= "text-center"><%=user.sex %></td>
-            <td class= "text-center"><%=user.age %></td>
-            <td class= "text-center"><%= render "relationships/info", user: user %></td>
-          </tr>
+        <tr>
+          <td class= "text-center">
+            <%= attachment_image_tag user, :profile_image, size: "60x60", format: "jpeg",fallback: "no_image.jpg" %>
+          </td>
+          <td class= "text-center">
+            <%= link_to user.name, user_path(user.id),class:'nav-users' %>
+          </td>
+          <td class= "text-center"><%=user.sex %></td>
+          <td class= "text-center"><%=user.age %></td>
+          <td class= "text-center"><%= render "relationships/info", user: user %></td>
+        </tr>
           <% end %>
-        </table>
-        <% else %>
-          <div class="nil_user my-4">ユーザーはいません</div>
-        <% end %>
+      </table>
+      <% else %>
+        <div class="nil_user my-4">ユーザーはいません</div>
+      <% end %>
       </div>
     </div>
   </div>

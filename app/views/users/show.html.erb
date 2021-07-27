@@ -35,22 +35,22 @@
           <p class="follower"><i class="fas fa-people-arrows fa-2x"></i> フォロワー数:<span class="follower-count"> <%= @user.followers.count %></span> 人</p>
           <p class="follower"><%= link_to"フォロワー一覧", user_followers_path(@user),class: "link" %></p>
         </div>
-    </div>
-    <div class="row my-3">
+      </div>
+      <div class="row my-3">
       <div class="col-lg-8 col-md-8 col-xs-8 ml-4">
         <%if @user == current_user %>
           <i class="fas fa-baby fa-3x"></i>
           <%= link_to"詳細データ画面へ", user_users_mydata_path(@user),class: "mydata" %>
         <% end %>
         </div>
-    </div>
-    <div class="row py-3">
-      <%if @user == current_user %>
-      <div class="col-lg-8 col-md-8 col-xs-8 offset-4 ">
-        <%= link_to"編集する", edit_user_path(@user), class: "btn btn-success btn-lg px-4 mr-4 my-1" %>
-        <%= link_to"退会する", unsubcribe_users_path, class: "btn btn-danger btn-lg px-4" %>
       </div>
+      <div class="row py-3">
+      <%if @user == current_user %>
+        <div class="col-lg-8 col-md-8 col-xs-8 offset-4 ">
+          <%= link_to"編集する", edit_user_path(@user), class: "btn btn-success btn-lg px-4 mr-4 my-1" %>
+          <%= link_to"退会する", unsubcribe_users_path, class: "btn btn-danger btn-lg px-4" %>
+        </div>
       <% end %>
-    </div>
+      </div>
   </div>
 </div>
