@@ -6,7 +6,7 @@
           <%= attachment_image_tag @user, :profile_image, size: "250x300", format: "jpeg", fallback: "no_image.jpg" %>
         </div>
         <div class="col-lg-8 col-md-8 col-xs-12 mx-auto">
-          <table class="table table-bordered table-color">
+          <table class="table table-bordered table-color ml-2">
             <tr>
               <th class="table-active font-large">名前</th>
               <td class="font-large text-left"><%= @user.name %></td>
