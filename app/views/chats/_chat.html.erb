@@ -2,8 +2,9 @@
   <thead>
     <tr>
       <th style="width: 15%">投稿者</th>
-      <th style="width: 65%">投稿内容</th>
-      <th style="width: 20%">投稿日時</th>
+      <th style="width: 55%">投稿内容</th>
+      <th style="width: 13%">感情スコア</th>
+      <th style="width: 17%">投稿日時</th>
     </tr>
   </thead>
   <tbody>
@@ -11,6 +12,7 @@
   <tr>
     <td> <%= chat.user.name %></td>
     <td> <%= chat.message %></td>
+    <td class="<%= chat.score.to_f > 0 ? 'sentiment-score-blue':'sentiment-score-red' %>"> <%= chat.score %></td>
     <td> <%= chat.created_at.strftime("%-m月%-d日(%a)  %H:%M") %></td>
   </tr>
   <% end %>

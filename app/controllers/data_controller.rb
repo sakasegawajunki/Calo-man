@@ -66,7 +66,7 @@ class DataController < ApplicationController
     temp = []
     cal_consumption_ranks.each do |cal_consumption|
       total_cal_consumptions = cal_consumption.base_cal_consumption + cal_consumption.cal_consumption # 条件に合う各レコードの合計
-      temp << { 'cal' => total_cal_consumptions, 'date' => cal_consumption.date } # 指定したカラムを入れる
+      temp << { 'cal' => total_cal_consumptions, 'date' => cal_consumption.date }#配列に要素を追加(キー"cal"対する値total_cal_consumptions,キー"date"対する値cal_consumption.date,)
     end
     @cal_consumption_rank = temp.sort_by{|data| data["cal"]}.reverse.take(3) #"cal"で比較して降順で上位3位まで取得する
 
@@ -75,7 +75,7 @@ class DataController < ApplicationController
     temp = []
     cal_ingestion_ranks.each do |cal_ingestion|
       total_cal_ingestions = cal_ingestion.breakfast_cal + cal_ingestion.lunch_cal + cal_ingestion.dinner_cal + cal_ingestion.snack_cal# 条件に合う各レコードの合計
-      temp << { 'cal' => total_cal_ingestions, 'date' => cal_ingestion.date }# 指定したカラムを入れる
+      temp << { 'cal' => total_cal_ingestions, 'date' => cal_ingestion.date }#配列に要素を追加(キー"cal"対する値total_cal_ingestions,キー"date"対する値cal_ingestion.date,)
     end
     @cal_ingestion_rank = temp.sort_by{|data| data['cal'] }.reverse.take(3) # "cal"で比較して降順で上位3位まで取得する
   end

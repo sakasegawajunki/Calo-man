@@ -15,7 +15,7 @@
     <tr>
       <td>摂取カロリー</td>
       <% @cal_ingestion_rank.each do |cal_ingestion| %>
-      <td><%=cal_ingestion['date'].strftime("%-m月%-d日(%a)") %><p><%= cal_ingestion['cal'].to_s(:delimited) %>kcal</p></td>
+      <td><%=cal_ingestion['date'].strftime("%-m月%-d日(%a)") %><p>+<%= cal_ingestion['cal'].to_s(:delimited) %>kcal</p></td>
       <% end %>
   </tr>
 </table>

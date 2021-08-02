@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_17_070622) do
+ActiveRecord::Schema.define(version: 2021_08_01_013712) do
 
   create_table "cal_consumptions", force: :cascade do |t|
     t.integer "cal_consumption", default: 0, null: false
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 2021_07_17_070622) do
     t.string "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "score", precision: 5, scale: 3
   end
 
   create_table "relationships", force: :cascade do |t|
