@@ -20,6 +20,7 @@ class ChatsController < ApplicationController
     @chat = current_user.chats.new(chat_params)
     @room = Room.find_by(id: params[:chat][:room_id].to_i)
     @chats = @room.chats.page(params[:page]).per(6)
+    @chat.score = Language.get_data(chat_params[:message])
     @chat.save
   end
 

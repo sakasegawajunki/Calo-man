@@ -15,6 +15,7 @@ module CaloMan
     # config.time_zone = 'Asia/Tokyo'
     config.time_zone = 'Tokyo'
     config.active_record.default_timezone = :local
+    config.paths.add 'lib', eager_load: true
 
 
     # Settings in config/environments/* take precedence over those specified here.
