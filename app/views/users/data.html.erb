@@ -16,7 +16,14 @@
             <th class="table-active font-large">BMI</th>
             <td class="font-large text-center"><%= @user.bmi %></td>
           </tr>
+          <tr>
+            <th class="table-active font-large">体型</th>
+            <td class="font-large text-center"><%= render "users/style",user: @user %></td>
+          </tr>
         </table>
+        <p class="style-p">
+          ※ 体型の基準は、BMI値が<br>18未満　⇨　『やせ型』<br>18以上25未満　⇨　『標準型』<br>25以上　⇨　『肥満型』
+        </p>
       </div>
     </div>
     <div class="row">
