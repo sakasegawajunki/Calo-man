@@ -27,13 +27,16 @@
         </div>
       </div>
       <div class="row my-2">
-        <div class="col-lg-5 col-md-3 col-xs-12 text-center">
+        <div class="col-lg-4 col-md-3 col-xs-12 text-center">
           <p class="following"><i class="fas fa-people-arrows fa-2x"></i> フォロー数:<span class="following-count"> <%= @user.followings.count %></span> 人</p>
           <p class="following"><%= link_to"フォロー一覧", user_followings_path(@user),class: "link" %></p>
         </div>
-        <div class="col-lg-5 col-md-3 col-xs-12 text-center">
+        <div class="col-lg-4 col-md-3 col-xs-12 text-center">
           <p class="follower"><i class="fas fa-people-arrows fa-2x"></i> フォロワー数:<span class="follower-count"> <%= @user.followers.count %></span> 人</p>
           <p class="follower"><%= link_to"フォロワー一覧", user_followers_path(@user),class: "link" %></p>
+        </div>
+        <div class="col-lg-4 col-md-3 col-xs-12 text-center">
+          <%= render "relationships/info", user: @user %>
         </div>
       </div>
       <div class="row my-3">
