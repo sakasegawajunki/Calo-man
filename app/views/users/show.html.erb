@@ -35,7 +35,7 @@
           <p class="follower"><i class="fas fa-people-arrows fa-2x"></i> フォロワー数:<span class="follower-count"> <%= @user.followers.count %></span> 人</p>
           <p class="follower"><%= link_to"フォロワー一覧", user_followers_path(@user),class: "link" %></p>
         </div>
-        <div class="col-lg-4 col-md-3 col-xs-12 text-center">
+        <div class="col-lg-4 col-md-3 col-xs-12 text-center style">
           <%= render "relationships/info", user: @user %>
         </div>
       </div>
