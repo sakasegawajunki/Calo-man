@@ -18,7 +18,7 @@
 ### 主な利用シーン
 食事を取る時や運動をする時、カロリーを確認する時
 
-### ER図
+### ER図、ワイヤーフレーム
 https://app.diagrams.net/#G1zpxW0PRNNuZWMlcLiGPBiipZIe10DSlm
 
 ### テーブル定義書、詳細設計書
