@@ -12,12 +12,13 @@
 体重管理の目的でジムに通うようになり、カロリー消費について気になるようになりました。実際にジムで運動をしてみてカロリー消費は思ったよりも大変で時間と労力が必要であることが分かりました。特に自由な時間が限られている社会人にとっては運動によるカロリー消費のみで体重管理をすることは難しく、食事によるカロリー摂取も把握する必要があると感じました。そこでカロリー摂取とカロリー消費のトータル収支が簡単に把握できるようなアプリがあれば忙しい社会人でも体重管理がし易いと思い、このテーマに決めました。
 
 ### ターゲットユーザ
+ - 体重が気になる人<br>
  - ダイエットしたい人
 
 ### 主な利用シーン
 食事を取る時や運動をする時、カロリーを確認する時
 
-### ER図
+### ER図、ワイヤーフレーム
 https://app.diagrams.net/#G1zpxW0PRNNuZWMlcLiGPBiipZIe10DSlm
 
 ### テーブル定義書、詳細設計書
@@ -26,11 +27,12 @@ https://docs.google.com/spreadsheets/d/1dVKchXKln2GMtMUFC3WuRyr_JiFNi6CVHgIH9fXF
 ### チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/1gLMKNDkCRBXuU3k9tho4faSeGcR6iTDnhsKK8T94kXU/edit#gid=0
 
-
+### サイトURL
+http://3.128.162.163/
 
 ## 開発環境
 - OS：Linux(CentOS)
-- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- 言語：HTML,CSS,JavaScript,Ruby
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
 - IDE：Cloud9
