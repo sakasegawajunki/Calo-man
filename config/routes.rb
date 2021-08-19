@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'calendars/index'
   root to: "homes#top"
   get "chat/:id" => "chats#show", as: "chat"
   resources :chats, only: [:create]

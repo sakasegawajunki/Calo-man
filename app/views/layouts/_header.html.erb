@@ -13,6 +13,7 @@
         <div class="nav-item"><%= link_to user_path(current_user.id),class:'nav-link' do %> <i class="fas fa-user fa-2x"></i>  <%=current_user.name %>さん<% end %></div>
         <div class="nav-item"><%= link_to cal_balances_path, class:'nav-link' do %><i class="fas fa-balance-scale fa-2x"></i> カロリーバランス <% end %></div>
         <div class="nav-item"><%= link_to data_path, class:'nav-link', 'data-turbolinks':false do %><i class="fas fa-database fa-2x"></i> データ <% end %></div>
+        <div class="nav-item"><%= link_to calendars_index_path, class:'nav-link', 'data-turbolinks':false do %><i class="fas fa-table fa-2x"></i> 月間一覧 <% end %></div>
         <div class="nav-item"><%= link_to users_path, class:'nav-link' do %><i class="fas fa-users fa-2x"></i> 会員一覧 <% end %></div>
         <div class="nav-item"><%= link_to destroy_user_session_path, method: :delete, class:'nav-link' do %><i class="fas fa-sign-out-alt fa-2x"></i> ログアウト <% end %></div>
           <!--=====日付検索=====-->

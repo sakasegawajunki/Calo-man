@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_01_013712) do
+ActiveRecord::Schema.define(version: 2021_08_19_090410) do
 
   create_table "cal_consumptions", force: :cascade do |t|
     t.integer "cal_consumption", default: 0, null: false
@@ -31,6 +31,11 @@ ActiveRecord::Schema.define(version: 2021_08_01_013712) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.date "date"
+  end
+
+  create_table "calendars", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "chats", force: :cascade do |t|
