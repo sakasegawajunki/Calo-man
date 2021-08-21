@@ -89,3 +89,4 @@ group :production do
   gem 'mysql2'
 end
 gem 'dotenv-rails'
+gem "simple_calendar", "~> 2.0"
