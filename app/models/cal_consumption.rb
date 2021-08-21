@@ -1,11 +1,11 @@
 class CalConsumption < ApplicationRecord
   belongs_to :user
 
-  enum action_pattern: { "----  活発  ----": 0, "----  仕事  ----": 1, "----  休日  ----": 2 } 
+  enum action_pattern: { "----  活発  ----": 0, "----  仕事  ----": 1, "----  休日  ----": 2 }
   # 活発:*1.4, 仕事:*1.2, 休日:*1.1　⇒　基礎代謝に対する数値基準
   # userの性別、年齢、身長、体重、行動パターンから基礎代謝量を計算する式
   def calcurate_base_cal_consumption(user, action_pattern)
-    _sex = 0
+    logger.info "[calcurate_base_cal_consumption]action_pattern: #{action_pattern}, sex: #{user.sex}, weight: #{user.weight}, height: #{user.height}, age: #{user.age}"
     if "男性" == user.sex
       value = 1
       if action_pattern == 1
@@ -17,7 +17,6 @@ class CalConsumption < ApplicationRecord
       end
       return (13.397 * user.weight + 4.799 * user.height - 5.677 * user.age + 88.362) * value
     else
-      _sex = 1
       if "女性" == user.sex
         value = 1
         if action_pattern == 1
