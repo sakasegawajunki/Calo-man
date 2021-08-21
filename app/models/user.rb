@@ -10,15 +10,17 @@ class User < ApplicationRecord
   has_many :followers, through: :reverse_of_relationships, source: :follower
   has_many :relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
   has_many :followings, through: :relationships, source: :followed
-  #フォローするときのメソッド
+  # フォローするときのメソッド
   def follow(user_id)
     relationships.create(followed_id: user_id)
   end
-  #フォローするときのメソッド
+
+  # フォローするときのメソッド
   def unfollow(user_id)
     relationships.find_by(followed_id: user_id).destroy
   end
-  #フォローしているかを確認するメソッド
+
+  # フォローしているかを確認するメソッド
   def following?(user)
     followings.include?(user)
   end
