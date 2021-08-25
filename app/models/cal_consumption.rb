@@ -36,8 +36,6 @@ class CalConsumption < ApplicationRecord
     cal_consumption.to_i + base_cal_consumption.to_i
   end
 
-  # 保存した日
-  scope :created_today, -> { where("date >= ?", Time.zone.now.beginning_of_day) }
 
   # バリデーション（数字のみ + 空の場合を許可する）
   with_options numericality: { only_integer: true }, allow_blank: true do
