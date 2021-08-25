@@ -5,13 +5,13 @@
       <div class="col-lg-12 col-md-12 col-xs-12 calendar">
         <%= month_calendar events: [] do |date| %>
           <div><%= date.day %></div>
-          <div>
+          <div class = cal_balance>
             <%
             ingestion = @cal_ingestions.find_by(date: date)
             consumption = @cal_consumptions.find_by(date: date)
-            resoult = ingestion&.total_cal_ingestions.to_i - consumption&.total_cal_consumptions.to_i
+            resoult = (ingestion&.total_cal_ingestions.to_i - consumption&.total_cal_consumptions.to_i).to_s(:delimited)
             %>
-            <%= resoult %><span> kcal</span>
+            <%= resoult %>
           </div>
         <% end %>
       </div>

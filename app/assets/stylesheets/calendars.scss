@@ -6,7 +6,32 @@
   background-color: #fff;
 }
 
-.calendar-heading{
+.calendar-heading {
   text-align: center;
     font-size: 45px;
+}
+
+.cal_balance {
+  text-align: center;
+  font-size: 25px;
+}
+
+.unit {
+  font-size: 20px;
+  text-align: right;
+}
+
+@media screen and (max-width: 910px) {
+  .simple-calendar,.cal_balance {
+    font-size: 10px;
+  }
+
+  .calendar-heading {
+    font-size: 20px;
+  }
+
+  .unit {
+  font-size: 10px;
+}
+
 }
