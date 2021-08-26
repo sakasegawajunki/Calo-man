@@ -3,8 +3,6 @@ class DataController < ApplicationController
   def index
     @cal_consumption = current_user.cal_consumptions
     @cal_ingestion = current_user.cal_ingestions
-    @cal_ingestions = current_user.cal_ingestions.where(date: Time.now.all_week) # 1週間のカロリー摂取量を定義
-    @cal_consumptions = current_user.cal_consumptions.where(date: Time.now.all_week) # 1週間のカロリー消費量を定義
     @created_date = params[:created_date].blank? ? Date.today : Date.parse(params[:created_date]) # parseメソッドで日付を取得、created_dateが空の場合はtodayを表示する(三項演算子)
 
     this_day = Date.today
@@ -54,7 +52,7 @@ class DataController < ApplicationController
 
     # 今月のカロリーバランス合計
     @month_sum = @cal_ingestion.where(date: Time.now.all_month).sum("breakfast_cal+ lunch_cal + dinner_cal + snack_cal") -
-    CalConsumption.where(user_id: current_user).where(date: Time.now.all_month).sum("cal_consumption + base_cal_consumption")
+    @cal_consumption.where(date: Time.now.all_month).sum("cal_consumption + base_cal_consumption")
 
     # 今月の体重増減(理論値)
     @week_sum_weight = (@week_sum / 7000.to_f).round(2)
@@ -63,7 +61,7 @@ class DataController < ApplicationController
     @month_sum_weight = (@month_sum / 7000.to_f).round(2)
 
     # ランキング機能(消費カロリー)
-    cal_consumption_ranks = CalConsumption.select([:id, :date, :base_cal_consumption, :cal_consumption]).where(date: Time.now.all_month).where(user_id: current_user.id)
+    cal_consumption_ranks = CalConsumption.select([:id, :date, :base_cal_consumption, :cal_consumption]).where(date: Time.now.all_month, user_id: current_user.id)#.where(user_id: current_user.id)
     temp = []
     cal_consumption_ranks.each do |cal_consumption|
       total_cal_consumptions = cal_consumption.base_cal_consumption + cal_consumption.cal_consumption # 条件に合う各レコードの合計
@@ -71,8 +69,11 @@ class DataController < ApplicationController
     end
     @cal_consumption_rank = temp.sort_by{|data| data["cal"]}.reverse.take(3) #"cal"で比較して降順で上位3位まで取得する
 
+    # 1..10.each do |num|
+    #   p num # => 1, 2, 3, 4
+    # end
     # ランキング機能(摂取カロリー)
-    cal_ingestion_ranks = CalIngestion.select([:id, :date, :breakfast_cal, :lunch_cal, :dinner_cal, :snack_cal]).where(date: Time.now.all_month).where(user_id: current_user.id)
+    cal_ingestion_ranks = CalIngestion.select([:id, :date, :breakfast_cal, :lunch_cal, :dinner_cal, :snack_cal]).where(date: Time.now.all_month, user_id: current_user.id)#.where(user_id: current_user.id)
     temp = []
     cal_ingestion_ranks.each do |cal_ingestion|
       total_cal_ingestions = cal_ingestion.breakfast_cal + cal_ingestion.lunch_cal + cal_ingestion.dinner_cal + cal_ingestion.snack_cal# 条件に合う各レコードの合計
