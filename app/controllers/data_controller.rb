@@ -5,6 +5,7 @@ class DataController < ApplicationController
     @cal_ingestion = current_user.cal_ingestions
     @cal_ingestions = current_user.cal_ingestions.where(date: Time.now.all_week) # 1週間のカロリー摂取量を定義
     @cal_consumptions = current_user.cal_consumptions.where(date: Time.now.all_week) # 1週間のカロリー消費量を定義
+    @created_date = params[:created_date].blank? ? Date.today : Date.parse(params[:created_date]) # parseメソッドで日付を取得、created_dateが空の場合はtodayを表示する(三項演算子)
 
     this_day = Date.today
     # 今週の日曜日のデータ

@@ -6,7 +6,7 @@ class CalIngestion < ApplicationRecord
     breakfast_cal.to_i + lunch_cal.to_i + dinner_cal.to_i + snack_cal.to_i
   end
 
-  # バリデーション（数字のみ + ,空の場合を許可する）
+  # バリデーション（数字のみ + 空の場合を許可する）
   with_options numericality: { only_integer: true }, allow_blank: true do
     validates :breakfast_cal
     validates :lunch_cal
