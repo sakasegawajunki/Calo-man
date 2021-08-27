@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  post '/homes/guest_sign_in', to: 'homes#guest_sign_in'#ゲストログイン用
   get 'calendars/index'
   root to: "homes#top"
   get "chat/:id" => "chats#show", as: "chat"

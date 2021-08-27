@@ -1,4 +1,9 @@
 <div class="img-wrapper">
-  <div id="main-top-visual"></div>
-  <p>毎日のカロリーを記録して、簡単に体重管理が出来るサイトです。</p>
-</div
+  <div id="main-top-visual">
+    <!--ログインしていない場合表示する-->
+    <% unless user_signed_in? %>
+      <%= link_to 'ゲストログイン（閲覧用）', homes_guest_sign_in_path, method: :post, class: "guest my-1" %>
+    <% end %>
+    <p>毎日のカロリーを記録して、簡単に体重管理が出来るサイトです。</p>
+  </div>
+</div>

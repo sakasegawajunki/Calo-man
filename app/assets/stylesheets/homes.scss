@@ -39,6 +39,16 @@ html {
   font-weight: bold;
   }
 
+.guest {
+  position: absolute;
+  color: 	#0b1644;
+  top: 120px;
+  right: 100px;
+  display: inline;
+  font-size: 20px;
+  font-weight: bold;
+}
+
 #main-login-visual {
   height: 130vh;
   background-image: image-url("elcarito-MHNjEBeLTgw-unsplash.jpg");
