@@ -7,7 +7,7 @@ class CalIngestion < ApplicationRecord
   end
 
   # バリデーション（数字のみ + 空の場合を許可する）
-  with_options numericality: { only_integer: true }, allow_blank: true do
+  with_options numericality: { only_integer: true }, presence: true do
     validates :breakfast_cal
     validates :lunch_cal
     validates :dinner_cal
