@@ -19,7 +19,7 @@ class DataController < ApplicationController
     end
 
     # 今週のカロリーバランス合計
-    @week_sum = @cal_balances.sum 
+    @week_sum = @cal_balances.sum
 
     # 今月のカロリーバランス合計
     @month_sum = @cal_ingestion.where(date: Time.now.all_month).sum("breakfast_cal+ lunch_cal + dinner_cal + snack_cal") -
