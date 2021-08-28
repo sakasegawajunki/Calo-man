@@ -14,6 +14,7 @@ class HomesController < ApplicationController
       user.sex = "男性"
     end
     sign_in user
-    redirect_to cal_balances_path, notice: 'ゲストユーザーとしてログインしました。'
+    flash[:notice] = "ゲストユーザーとしてログインしました。"
+    redirect_to cal_balances_path
   end
 end
