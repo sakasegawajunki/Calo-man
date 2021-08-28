@@ -7,8 +7,8 @@ class ChatsController < ApplicationController
     if user_rooms.nil?
       @room = Room.new
       @room.save
-      UserRoom.create(user_id: current_user.id, room_id: @room.id) # カレントユーザーのuser_room
-      UserRoom.create(user_id: @chatuser.id, room_id: @room.id) # 相手のuser_room
+      UserRoom.create(user_id: current_user.id, room_id: @room.id) # カレントユーザーのuser_room(共通のroom_idを作る)
+      UserRoom.create(user_id: @chatuser.id, room_id: @room.id) # 相手のuser_room(共通のroom_idを作る)
     else
       @room = user_rooms.room
     end

@@ -16,17 +16,13 @@
     <tbody>
       <tr>
         <!--=====今週のカロリーバランス=====-->
-        <td><%= cal_balance_sun.to_s(:delimited) %></td>
-        <td><%= cal_balance_mon.to_s(:delimited) %></td>
-        <td><%= cal_balance_tue.to_s(:delimited) %></td>
-        <td><%= cal_balance_wed.to_s(:delimited) %></td>
-        <td><%= cal_balance_thu.to_s(:delimited) %></td>
-        <td><%= cal_balance_fri.to_s(:delimited) %></td>
-        <td><%= cal_balance_sat.to_s(:delimited) %></td>
+        <%  @cal_balances.each do |cal_balance| %>
+          <td><%= cal_balance %></td>
+        <% end %>
         <!--=====今週のカロリーバランスの合計=====-->
         <td><%= week_sum.to_s(:delimited) %></td>
         <!--=====今週の体重の増減（理論値）=====-->
-      <td class = "color"><%= week_sum_weight %> kg</td>
+      <td class = "color"><%= @week_sum_weight %> kg</td>
       </tr>
     </tbody>
 </table>

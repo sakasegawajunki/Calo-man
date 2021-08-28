@@ -15,7 +15,7 @@ class User < ApplicationRecord
     relationships.create(followed_id: user_id)
   end
 
-  # フォローするときのメソッド
+  # フォロー削除するときのメソッド
   def unfollow(user_id)
     relationships.find_by(followed_id: user_id).destroy
   end

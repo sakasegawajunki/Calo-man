@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  post '/homes/guest_sign_in', to: 'homes#guest_sign_in'#ゲストログイン用
   get 'calendars/index'
   root to: "homes#top"
   get "chat/:id" => "chats#show", as: "chat"
@@ -17,11 +18,7 @@ Rails.application.routes.draw do
   resources :data,only:[:index]
   resources :cal_balances, only:[:index]
   resources :cal_ingestions, except:[:destroy, :index, :show]
-  resources :cal_consumptions, except:[:destroy, :index, :show] do
-    resources :base_cal_consumptions, only: [:create, :update]
-    post "cal_consumptions" => "base_cal_consumptions#create"
-  end
-
+  resources :cal_consumptions, except:[:destroy, :index, :show]
 
   devise_for :users,
   path:"",
