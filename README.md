@@ -1,5 +1,7 @@
 # Calo-man　（calorie-management）
 
+### サイトURL
+http://3.128.162.163/
 
 ### サイト概要
 食事によるカロリー摂取と日常生活や運動等によるカロリー消費を記録し、トータルのカロリー収支が明確になることで、簡単に体重管理が出来るアプリです。
@@ -26,9 +28,6 @@ https://docs.google.com/spreadsheets/d/1dVKchXKln2GMtMUFC3WuRyr_JiFNi6CVHgIH9fXF
 
 ### チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/1gLMKNDkCRBXuU3k9tho4faSeGcR6iTDnhsKK8T94kXU/edit#gid=0
-
-### サイトURL
-http://3.128.162.163/
 
 ## 開発環境
 - OS：Linux(CentOS)
