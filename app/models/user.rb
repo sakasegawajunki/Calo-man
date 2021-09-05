@@ -54,4 +54,18 @@ class User < ApplicationRecord
   def bmi
     (weight * 10_000 / (height**2).to_f).round(1)
   end
+
+  # ゲストログイン用
+  def self.guest
+    find_or_create_by!(email: 'guest@example.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+      user.name = "ゲスト"
+      user.name_kana ="ゲスト"
+      user.height = 175.5
+      user.weight = 70.0
+      user.age = 20
+      user.sex = "男性"
+    end
+  end
+
 end
