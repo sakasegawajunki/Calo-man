@@ -30,7 +30,7 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'#ゲストログイン用
-    get 'cal_balances' => 'users/registrations#cal_balance'
+    # get 'cal_balances' => 'users/registrations#cal_balance'
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
