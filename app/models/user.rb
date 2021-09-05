@@ -57,10 +57,10 @@ class User < ApplicationRecord
 
   # ゲストログイン用
   def self.guest
-    find_or_create_by!(email: 'guest@example.com') do |user|
+    find_or_create_by!(email: 'guest2@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64
-      user.name = "ゲスト"
-      user.name_kana ="ゲスト"
+      user.name = "ゲスト太郎"
+      user.name_kana ="ゲストタロウ"
       user.height = 175.5
       user.weight = 70.0
       user.age = 20
