@@ -45,9 +45,9 @@ class User < ApplicationRecord
   enum sex: { "男性": 0, "女性": 1 }
 
   # カスタマーが退会していなければtrue
-  def active_for_authentication?
-    super && (is_valid == true)
-  end
+  # def active_for_authentication?
+  #   super && (is_valid == true)
+  # end
 
   # インスタンスメソッド
   # BMIの計算を定義する
@@ -57,7 +57,7 @@ class User < ApplicationRecord
 
   # ゲストログイン用
   def self.guest
-    find_or_create_by!(email: 'guest2@example.com') do |user|
+    find_or_create_by!(email: 'guest3@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64
       user.name = "ゲスト太郎"
       user.name_kana ="ゲストタロウ"
