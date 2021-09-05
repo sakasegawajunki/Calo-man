@@ -6,8 +6,10 @@ class User < ApplicationRecord
   has_many :user_rooms
   has_many :chats
   # フォロー・フォロワーのアソシエーション
+  # ====================自分がフォローされるユーザーとの関連 ===================================
   has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
   has_many :followers, through: :reverse_of_relationships, source: :follower
+  # ====================自分がフォローしているユーザーとの関連 ==================================
   has_many :relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
   has_many :followings, through: :relationships, source: :followed
   # フォローするときのメソッド
