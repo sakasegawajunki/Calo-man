@@ -4,76 +4,76 @@
     <%= form_with model: @user, url: user_registration_path, id:'new_user', class:'new_user', local: true do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
       <div class="row mb-3 mt-5">
-        <label class="col-lg-3">名前</label>
-        <div class="col-lg-3">
+        <label class="col-lg-3">名前:<span class="label label-danger ml-3">必須</span></label>
+        <div class="col-lg-5">
           <%= f.text_field :name, autocomplete: 'name', placeholder:"ユーザー名", class:"mb-2",size: "30x1" %>
         </div>
       </div>
       <div class="row mb-3">
-        <label class="col-lg-3">フリガナ</label>
-        <div class="col-lg-3">
+        <label class="col-lg-3">フリガナ:<span class="label label-danger ml-3">必須</span></label>
+        <div class="col-lg-5">
           <%= f.text_field :name_kana, autocomplete: 'name_kana', placeholder:'ユーザー名（フリガナ）', class:"mb-2",size: "30x1"%>
         </div>
       </div>
       <div class="row mb-3">
-        <label class="col-lg-3">画像</label>
-          <div class="col-lg-3">
+        <label class="col-lg-3">画像:<span class="label label-optional ml-3">任意</span></label>
+          <div class="col-lg-5">
             <%= f.attachment_field :profile_image, :placeholder => "選択してください" %>
           </div>
       </div>
        <div class="row mb-3">
-          <label class="col-lg-3">性別</label>
-            <div class="col-lg-3">
+          <label class="col-lg-3">性別:<span class="label label-danger ml-3">必須</span></label>
+            <div class="col-lg-5">
               <% f.label :sex %>
               <%= f.select :sex, User.sexes.keys.map {|k| [k, k]} %>
             </div>
       </div>
       <div class="row mb-3">
-        <label class="col-lg-3">年齢</label>
-        <div class="col-lg-3">
-          <%= f.text_field :age, autocomplete: 'age', class:"mb-2" %><span>　歳</span>
+        <label class="col-lg-3">年齢:<span class="label label-danger ml-3">必須</span></label>
+        <div class="col-lg-5">
+          <%= f.text_field :age, autocomplete: 'age', class:"mb-2", :placeholder => "○○" %><span>　歳</span>
         </div>
       </div>
       <div class="row mb-3">
-        <label class="col-lg-3">身長</label>
-        <div class="col-lg-3">
-          <%= f.text_field :height, autocomplete: 'height', class:"mb-2" %><span>　cm</span>
+        <label class="col-lg-3">身長:<span class="label label-danger ml-3">必須</span></label>
+        <div class="col-lg-5">
+          <%= f.text_field :height, autocomplete: 'height', class:"mb-2", :placeholder => "○○○.○" %><span>　cm</span>
         </div>
       </div>
       <div class="row mb-3">
-        <label class="col-lg-3">体重</label>
-        <div class="col-lg-3">
-          <%= f.text_field :weight, autocomplete: 'weight', class:"mb-2" %><span>　kg</span>
+        <label class="col-lg-3">体重:<span class="label label-danger ml-3">必須</span></label>
+        <div class="col-lg-5">
+          <%= f.text_field :weight, autocomplete: 'weight', class:"mb-2" , :placeholder => "○○.○"%><span>　kg</span>
         </div>
       </div>
       <div class="row mb-3">
-        <label class="col-lg-3">ひと言</label>
-        <div class="col-lg-3">
+        <label class="col-lg-3">ひと言:<span class="label label-optional ml-3">任意</span></label>
+        <div class="col-lg-5">
           <%= f.text_area :introduction, :placeholder => "ここにひと言お願いします",size: "50x5"%>
         </div>
       </div>
       <div class="row mb-3">
-        <label class="col-lg-3">メールアドレス</label>
-        <div class="col-lg-3">
-          <%= f.email_field :email, autocomplete: 'email', :placeholder => "sample@exanple.com", class:"mb-2",size: "30x1" %>
+        <label class="col-lg-3">メールアドレス:<span class="label label-danger ml-3">必須</span></label>
+        <div class="col-lg-5">
+          <%= f.email_field :email, autocomplete: 'email', :placeholder => "sample@example.com", class:"mb-2",size: "30x1" %>
         </div>
       </div>
       <div class="row mb-3">
-        <label class="col-lg-3">パスワード(6文字以上)</label>
-        <div class="col-lg-3">
-          <%= f.password_field :password, autocomplete: "new-password", class:'mb-2',size: "30x1" %>
+        <label class="col-lg-3">パスワード:<span class="label label-danger ml-3">必須</span></label>
+        <div class="col-lg-5">
+          <%= f.password_field :password, autocomplete: "new-password", class:'mb-2',size: "30x1", :placeholder => "6文字以上入力して下さい"%>
         </div>
       </div>
 
       <div class="row mb-3">
-        <label class="col-lg-3">パスワード(確認用)</label>
-        <div class="col-lg-3">
-          <%= f.password_field :password_confirmation, autocomplete: "new-password", class:'mb-2',size: "30x1" %>
+        <label class="col-lg-3">パスワード(確認用):<span class="label label-danger ml-3">必須</span></label>
+        <div class="col-lg-5">
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class:'mb-2',size: "30x1", :placeholder => "もう一度入力してください" %>
         </div>
       </div>
       <div class="row">
         <lavel class="col-lg-3"></lavel>
-        <div class="col-lg-3">
+        <div class="col-lg-5">
           <%= f.submit "   新規登録   " , class:'btn btn-success mb-2 btn-sm px-5' %>
         </div>
       </div>

@@ -84,30 +84,63 @@ body {
   background-color: #fff;
 }
 
+span.label.label-danger.ml-3 {
+    background-color: #e60033;
+    color: #fff;
+    padding: 1px;
+    border-radius: 5px;
+    font-size: 13px;
+}
+
+span.label.label-optional.ml-3 {
+    background-color: #4db56a;
+    color: #fff;
+    padding: 1px;
+    border-radius: 5px;
+    font-size: 13px;
+}
+
+.col-lg-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.mb-2 {
+    font-weight: 400;
+    line-height: 1.5;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+ 
+}
+
+
 @media (max-width:991px){
    .title {
     font-size: 1.5rem;
     }
-  
+
   .nav-link  {
     padding: 0px;
     }
-  
+
   .flex {
     width: 100%;
     -webkit-flex-direction: column;
   	flex-direction: column;
     }
-  
+
   .nav-item {
     text-align: center;
     }
-  
+
   .table-color,.table-bordered{
     background-color: #fff;
     margin: auto;
   }
-  
+
   .table_week {
     background-color: #fff;
     width: auto;
