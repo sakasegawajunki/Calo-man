@@ -92,7 +92,7 @@ span.label.label-danger.ml-3 {
     font-size: 13px;
 }
 
-span.label.label-optional.ml-3 {
+span.label.label-optional {
     background-color: #4db56a;
     color: #fff;
     padding: 1px;
@@ -101,19 +101,17 @@ span.label.label-optional.ml-3 {
 }
 
 .col-lg-3 {
-    flex: 0 0 25%;
-    max-width: 25%;
     font-weight: bold;
     font-size: 20px;
 }
 
-.mb-2 {
+.form {
     font-weight: 400;
-    line-height: 1.5;
+    line-height: 3;
     background-clip: padding-box;
     border: 1px solid #ced4da;
     border-radius: 0.25rem;
- 
+    border-color :#7FCCE3;
 }
 
 
