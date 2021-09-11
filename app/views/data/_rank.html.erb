@@ -9,13 +9,13 @@
     <tr>
       <td>消費カロリー</td>
       <% @cal_consumption_rank.each do |cal_consumption| %>
-      <td><%= cal_consumption["date"].strftime("%-m月%-d日(#{I18n.t('date.abbr_day_names')[@created_date.wday]})") %><p>-<%= cal_consumption["cal"].to_s(:delimited) %>kcal</p></td>
+      <td><%=I18n.l cal_consumption["date"], format: :long %><p>-<%= cal_consumption["cal"].to_s(:delimited) %>kcal</p></td>
       <% end %>
     </tr>
     <tr>
       <td>摂取カロリー</td>
       <% @cal_ingestion_rank.each do |cal_ingestion| %>
-      <td><%=cal_ingestion['date'].strftime("%-m月%-d日(#{I18n.t('date.abbr_day_names')[@created_date.wday]})") %><p>+<%= cal_ingestion['cal'].to_s(:delimited) %>kcal</p></td>
+      <td><%=I18n.l cal_ingestion['date'], format: :long %><p>+<%= cal_ingestion['cal'].to_s(:delimited) %>kcal</p></td>
       <% end %>
   </tr>
 </table>
