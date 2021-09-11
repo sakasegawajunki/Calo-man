@@ -5,7 +5,7 @@
       <div class="col-lg-12 col-md-12 col-xs-12 calendar">
         <%= month_calendar events: [] do |date| %>
           <div><%= date.day %></div>
-          <div class ="cal_balance">
+          <div class ="cal-balance-num">
             <%
             ingestion = @cal_ingestions.find_by(date: date)
             consumption = @cal_consumptions.find_by(date: date)

@@ -1,6 +1,8 @@
 ja:
   date:
-    abbr_day_names:
+    formats:
+      long: "%-m月%-d日(%a)"
+      abbr_day_names:
       - 日
       - 月
       - 火

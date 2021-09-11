@@ -3,7 +3,7 @@
     <h4 class="title"><i class="fas fa-balance-scale fa-3x"></i> カロリーバランス</h4>
       <div class="row text-center d-flex align-items-center my-5">
        <div class="cal_balance_date col-lg-12 col-md-12 col-xs-12">
-          <label class="datetime"><%= @created_date.strftime("%-m月%-d日(#{I18n.t('date.abbr_day_names')[@created_date.wday]})")%></label>
+          <label class="datetime"><%=I18n.l @created_date, format: :long %></label>
           <span class="cal_balance">のカロリーバランス</span>
         </div>
       </div>
@@ -15,7 +15,7 @@
       <div class="row text-center d-flex align-items-center my-2">
         <div class="col-lg-6 col-md-6 col-xs-6 cal_ingestion mt-5 mb-1">
           摂取カロリー
-          <div class="cal_ingestion-num my-5">
+          <div class="cal-ingestion-num my-5">
             <span>+  </span><%= @cal_ingestion&.total_cal_ingestions.to_i.to_s(:delimited) %><span> kcal</span>
           </div>
           <div class="cal_ingestion-num-p">
@@ -28,7 +28,7 @@
         </div>
         <div class="col-lg-6 col-md-6 col-xs-6 cal_consumption mt-5 mb-1">
           消費カロリー
-          <div class="cal_consumption-num my-5">
+          <div class="cal-consumption-num my-5">
             <span>-  </span><%= @cal_consumption&.total_cal_consumptions.to_i.to_s(:delimited) %><span> kcal</span>
           </div>
           <div class="cal_consumption-num-p">

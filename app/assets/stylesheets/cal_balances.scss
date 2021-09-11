@@ -21,17 +21,17 @@
 }
 
 .cal_ingestion,.cal_consumption,.cal_balance {
-  font-size: 35px;
+  font-size: 45px;
   font-weight: bold;
 }
 
-.cal_ingestion-num {
-  font-size: 35px;
+.cal-ingestion-num {
+  font-size: 45px;
   font-weight: bold;
 }
 
-.cal_consumption-num {
-  font-size: 35px;
+.cal-consumption-num {
+  font-size: 45px;
   font-weight: bold;
 }
 
@@ -46,8 +46,9 @@
   font-weight: 1200;
 }
 
-@media (max-width:991px) {
- .cal_balance_date {
-   font-size: 1rem;
- }
+
+@media (max-width:576px) {
+  .cal_balance_date {
+    font-size: 30px;
+  }
 }
