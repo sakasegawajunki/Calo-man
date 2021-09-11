@@ -6,6 +6,20 @@
   background-color: #fff;
 }
 
+.simple-calendar .day {
+    height: 100px;
+}
+
+.calendar-date {
+  font-size: 20px;
+}
+
+.cal-balance-num{
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 15px;
+}
 .calendar-heading {
   text-align: center;
     font-size: 45px;
@@ -21,8 +35,18 @@
   text-align: right;
 }
 
-@media screen and (max-width: 910px) {
-  .simple-calendar,.cal-balance-num {
+@media screen and (max-width: 576px) {
+  .calendar-date {
+  font-size: 8px;
+  }
+  
+  .cal-balance-num{
+  font-size: 12px;
+  font-weight: normal;
+  text-align: center;
+  margin-top: 15px;
+  }
+  .simple-calendar {
     font-size: 10px;
   }
 
