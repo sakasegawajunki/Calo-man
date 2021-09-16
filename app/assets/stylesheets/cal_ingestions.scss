@@ -64,3 +64,13 @@ a {
 .menu:hover .sub-menu {
   display: block;
 }
+
+.mb-2, .my-2 {
+    margin-bottom: 0.5rem !important;
+    font-weight: 400;
+    line-height: 3;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    border-color: #7FCCE3;
+}
