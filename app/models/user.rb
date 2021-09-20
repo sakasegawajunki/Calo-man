@@ -44,7 +44,7 @@ class User < ApplicationRecord
   end
   enum sex: { "男性": 0, "女性": 1 }
 
-# 退会後もログイン出来るにコメントアウトする
+# 退会後もログイン出来るようにコメントアウトする
   # カスタマーが退会していなければtrue
   # def active_for_authentication?
   #   super && (is_valid == true)
